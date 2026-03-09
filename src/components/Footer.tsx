@@ -2,18 +2,17 @@ import { siteConfig } from "@/data/content";
 
 export function Footer() {
   return (
-    <footer className="border-t border-stone-200 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-        <p className="text-sm text-stone-400">
-          &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-          reserved.
+    <footer className="border-t border-stone-200">
+      <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 px-6 py-12 text-center sm:flex-row sm:justify-between sm:text-left">
+        <p className="text-[13px] text-stone-400">
+          &copy; {new Date().getFullYear()} {siteConfig.name}
         </p>
-        <div className="flex items-center gap-6">
+        <div className="flex gap-8">
           <a
             href={siteConfig.socials.dribbble}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-stone-400 transition-colors hover:text-violet-600"
+            className="text-[13px] text-stone-400 transition-colors hover:text-stone-900"
           >
             Dribbble
           </a>
@@ -21,7 +20,7 @@ export function Footer() {
             href={siteConfig.socials.behance}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-stone-400 transition-colors hover:text-violet-600"
+            className="text-[13px] text-stone-400 transition-colors hover:text-stone-900"
           >
             Behance
           </a>
@@ -29,7 +28,7 @@ export function Footer() {
             href={siteConfig.socials.medium}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-stone-400 transition-colors hover:text-violet-600"
+            className="text-[13px] text-stone-400 transition-colors hover:text-stone-900"
           >
             Medium
           </a>
@@ -37,7 +36,7 @@ export function Footer() {
             href={siteConfig.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-stone-400 transition-colors hover:text-violet-600"
+            className="text-[13px] text-stone-400 transition-colors hover:text-stone-900"
           >
             LinkedIn
           </a>

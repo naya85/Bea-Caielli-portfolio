@@ -4,7 +4,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen pt-28 pb-24">
       <div className="mx-auto max-w-4xl px-6">
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-violet-600">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#1a8fa0]">
           Blog
         </p>
         <h1 className="text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
@@ -28,7 +28,7 @@ export default function BlogPage() {
                   day: "numeric",
                 })}
               </time>
-              <h2 className="mt-3 text-2xl font-semibold text-stone-900 group-hover:text-violet-600">
+              <h2 className="mt-3 text-2xl font-semibold text-stone-900 group-hover:text-[#1a8fa0] transition-colors">
                 {post.title}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-stone-500">

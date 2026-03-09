@@ -1,39 +1,39 @@
 import { skillCategories } from "@/data/content";
+import { SkillsCarousel } from "@/components/SkillsCarousel";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function Skills() {
   return (
-    <section id="skills" className="scroll-mt-20 py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-violet-600">
+    <section id="skills" className="scroll-mt-20 border-t border-stone-200 py-28">
+      <ScrollReveal className="mx-auto max-w-4xl px-6">
+        <div>
+        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-stone-400">
           Skills
         </p>
-        <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-          What I bring to the table
+        <h2 className="mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+          My top 3 skills
         </h2>
+        <div className="mt-10 rounded-3xl bg-stone-900 px-8 py-12 sm:px-12 sm:py-16">
+          <SkillsCarousel variant="dark" />
+        </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="mt-20 text-xl font-bold tracking-tight text-stone-900 sm:text-2xl">
+          What I bring
+        </h2>
+        <div className="mt-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category) => (
-            <div
-              key={category.name}
-              className="rounded-2xl border border-stone-200 bg-white p-6"
-            >
-              <h3 className="mb-5 text-sm font-semibold uppercase tracking-widest text-stone-400">
+            <div key={category.name}>
+              <h3 className="text-[12px] font-medium uppercase tracking-widest text-stone-400">
                 {category.name}
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-stone-200 bg-stone-50 px-3 py-1.5 text-sm text-stone-700 transition-colors hover:border-violet-300 hover:bg-violet-50 hover:text-violet-700"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-3 text-[15px] leading-relaxed text-stone-600">
+                {category.skills.join(", ")}
+              </p>
             </div>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
   title: "Beatrice Caielli — Senior Product Designer",
   description:
-    "Portfolio of Beatrice Caielli, a Senior Product Designer specializing in EdTech, Fintech, and SaaS products. Based in Barcelona.",
+    "Portfolio of Beatrice Caielli, a Senior Product Designer specializing in EdTech, Fintech, and SaaS. Based in Milan.",
   keywords: [
     "Product Designer",
     "UX Designer",
     "UI Designer",
     "Portfolio",
-    "Barcelona",
+    "Milan",
     "EdTech",
     "Fintech",
   ],
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.className} bg-stone-50 text-stone-800 antialiased`}
+        className={`${plusJakarta.className} bg-stone-50 text-stone-800 antialiased`}
       >
         <Header />
         <main>{children}</main>

@@ -5,6 +5,24 @@ export const siteConfig = {
     "Staff-level product designer. Discovery to shipped product, design systems, and executive alignment. AI-augmented design and production-grade prototypes.",
   email: "beatrice.caielli@gmail.com",
   location: "Milan, Italy",
+  hero: {
+    greeting: "Hello!",
+    nameLine: "I'm Bea,",
+    role: "Senior Product Designer",
+    stats: [
+      { value: "9", label: "Industries worked in" },
+      { value: "12", label: "Years of experience" },
+      { value: "16", label: "Designers mentored" },
+      { value: "100+", label: "Successful features" },
+    ],
+    hoverHeadline: "I am a curious mind",
+    hoverSubline:
+      "passionate about design, illustration, cinema, climbing, music, traveling, psychology and random trivia",
+  },
+  contactTagline:
+    "If you've made it this far, thank you :) Let's connect and chat about any possible collaboration",
+  footerLine:
+    "Crafted with care ♥, spiced with creativity ✨, and served with a cup of black coffee ☕",
   socials: {
     dribbble: "https://dribbble.com/beatrice-caielli",
     behance: "https://behance.net/beatrice-caielli",
@@ -239,6 +257,35 @@ export const projects: Project[] = [
       "White-Label",
       "B2C",
     ],
+  },
+];
+
+/** My core principles (from Figma — 6 cards in 2x3 grid) */
+export const corePrinciples = [
+  "Solve real problems, not symptoms",
+  "Frame the problem first, then think of the solution",
+  "Data and research guide decisions, hunches don't",
+  "Collaborative effort outlasts individual contributors",
+  "Build for today, scale for tomorrow",
+  "Always embrace feedback but take ownership",
+];
+
+/** Carousel slides for "My top 3 skills" (from Figma) */
+export const topSkillsSlides = [
+  {
+    title: "User-centered strategic thinking",
+    description:
+      "I focus on understanding user needs and translating quantitative and qualitative insights into opportunities that drive product strategy and business growth",
+  },
+  {
+    title: "Cross-functional collaboration",
+    description:
+      "I facilitate effective collaboration across teams and stakeholders, creating alignment around shared goals through clear communication and structured processes",
+  },
+  {
+    title: "Vision development",
+    description:
+      "I collaborate with leadership to shape medium/long-term product vision, contributing to defining the MVP and the strategy to scale it over the quarters",
   },
 ];
 
