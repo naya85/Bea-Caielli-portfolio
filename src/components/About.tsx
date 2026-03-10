@@ -1,4 +1,3 @@
-import { experiences, languages } from "@/data/content";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function About() {
@@ -12,83 +11,32 @@ export function About() {
           About
         </p>
         <h2 className="reveal reveal-child reveal-delay-1 mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-          Designing with intention, measuring with rigor.
+          {yearsOfExperience} years of product design and still believes good design can change things.
         </h2>
-        <div className="reveal reveal-child reveal-delay-2 mt-12 grid gap-16 sm:grid-cols-5">
-          <div className="sm:col-span-3 space-y-6 text-[15px] leading-relaxed text-stone-600">
+        <div className="reveal reveal-child reveal-delay-2 mt-12">
+          <div className="max-w-2xl space-y-6 text-[15px] leading-relaxed text-stone-600">
               <p>
-                I&rsquo;m a Senior Product Designer with {yearsOfExperience}+
-                years of experience crafting digital products across EdTech,
-                Fintech, SaaS, AI, and Healthcare. My approach combines deep
-                user research with data-informed decision-making to create
-                experiences that drive measurable business outcomes.
+                I have been designing digital products across
+                EdTech, Fintech, SaaS and Healthcare - I like to work for
+                products that actually impact people&rsquo;s lives.
               </p>
               <p>
-                I thrive in complex problem spaces — from conceptualizing
-                adaptive learning systems to building design systems that scale.
-                I&rsquo;m passionate about accessibility, mentoring, and
-                bridging the gap between user needs and business goals.
+                I&rsquo;ve lived in Berlin and Barcelona for many years, and
+                I&rsquo;m back home in Milan now. I travel when I can, love live
+                music, sci-fi, bouldering (this last one with more enthusiasm
+                than my body can take) and I have an unhealthy obsession with &rsquo;80s
+                everything: the films, the music, the graphic design, the synths.
               </p>
               <p>
-                Beyond my full-time role, I co-founded{" "}
-                <strong className="text-stone-800">Reviewlab</strong>, a SaaS
-                platform for indie makers, and I mentor aspiring designers on
-                ADPList. I also have a unique background in fashion design, which
-                gives me a distinctive perspective on aesthetics, materials, and
-                the creative process.
+                I share my home with my partner and Gatsby, a ragdoll cat who is
+                genuinely the softest thing I own.
               </p>
-          </div>
-
-          <div className="space-y-6 sm:col-span-2">
-            <div className="rounded-2xl border border-stone-100 bg-white p-6">
-              <h3 className="text-[12px] font-medium uppercase tracking-widest text-stone-400">
-                Quick facts
-              </h3>
-              <dl className="mt-4 space-y-3">
-                <div className="flex justify-between">
-                  <dt className="text-sm text-stone-500">Experience</dt>
-                  <dd className="text-sm font-medium text-stone-800">
-                    {yearsOfExperience}+ years
-                  </dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-sm text-stone-500">Companies</dt>
-                  <dd className="text-sm font-medium text-stone-800">
-                    {experiences.length}+
-                  </dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-sm text-stone-500">Location</dt>
-                  <dd className="text-sm font-medium text-stone-800">
-                    Milan, IT
-                  </dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-sm text-stone-500">Focus</dt>
-                  <dd className="text-sm font-medium text-stone-800">
-                    EdTech & SaaS
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="rounded-2xl border border-stone-100 bg-white p-6">
-              <h3 className="text-[12px] font-medium uppercase tracking-widest text-stone-400">
-                Languages
-              </h3>
-              <div className="mt-4 space-y-3">
-                {languages.map((lang) => (
-                  <div key={lang.language} className="flex justify-between">
-                    <span className="text-sm text-stone-500">
-                      {lang.language}
-                    </span>
-                    <span className="text-sm font-medium text-stone-800">
-                      {lang.level}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+              <p>
+                I am passionate about mentoring young designers (whether at work or on
+                ADPList), I co-founded Reviewlab (a SaaS tool for indie makers)
+                and thanks to AI, I&rsquo;m getting shamelessly excited at
+                building digital things all on my own.
+              </p>
           </div>
         </div>
       </ScrollReveal>

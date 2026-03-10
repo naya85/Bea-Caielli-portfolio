@@ -1,5 +1,4 @@
-import { corePrinciples, topSkillsSlides } from "@/data/content";
-import { SkillsCarousel } from "@/components/SkillsCarousel";
+import { corePrinciples } from "@/data/content";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function AboutMeSection() {
@@ -9,32 +8,28 @@ export function AboutMeSection() {
       className="scroll-mt-20 rounded-t-[80px] bg-stone-50 px-6 pb-28 pt-20 sm:rounded-t-[100px] sm:pt-28"
     >
       <div className="mx-auto max-w-5xl">
-        {/* My top 3 skills */}
-        <ScrollReveal className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
-            My top 3 skills
-          </h2>
-          <div className="mt-10">
-            <SkillsCarousel variant="light" />
-          </div>
-        </ScrollReveal>
-
         {/* My core principles */}
         <ScrollReveal className="mt-24 sm:mt-32">
-          <h2 className="text-center text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
+            Design philosophy
+          </p>
+          <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
             My core principles
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {corePrinciples.map((text, i) => (
+          <div className="mt-14 grid gap-px sm:grid-cols-2 lg:grid-cols-3">
+            {corePrinciples.map((principle, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-stone-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md"
+                className="group relative border-b border-stone-200 p-8 sm:border-r sm:last:border-r-0 sm:[&:nth-child(2)]:border-r-0 lg:[&:nth-child(2)]:border-r lg:[&:nth-child(3)]:border-r-0 lg:[&:nth-child(4)]:border-r lg:[&:nth-child(5)]:border-r lg:[&:nth-child(n+4)]:border-b-0 sm:[&:nth-child(n+5)]:border-b-0 lg:[&:nth-child(n+4)]:border-b-0"
               >
-                <p className="text-4xl font-bold tracking-tight text-stone-900">
-                  {i + 1}.
-                </p>
-                <p className="mt-4 text-[15px] font-medium leading-relaxed text-stone-700">
-                  {text}
+                <span className="text-xs tabular-nums tracking-wide text-stone-300">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-4 text-xl font-bold leading-tight tracking-tight text-stone-900">
+                  {principle.title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-stone-500">
+                  {principle.description}
                 </p>
               </div>
             ))}

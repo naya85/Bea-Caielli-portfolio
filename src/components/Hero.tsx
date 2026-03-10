@@ -1,7 +1,6 @@
 "use client";
 
 import { siteConfig } from "@/data/content";
-import { HeroNav } from "@/components/HeroNav";
 
 const hero = siteConfig.hero!;
 
@@ -79,7 +78,6 @@ export function Hero() {
           </p>
         </div>
       </div>
-      <HeroNav />
     </section>
   );
 }

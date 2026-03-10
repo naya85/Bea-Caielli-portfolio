@@ -260,14 +260,38 @@ export const projects: Project[] = [
   },
 ];
 
-/** My core principles (from Figma — 6 cards in 2x3 grid) */
+/** My core principles (6 cards in 2x3 grid) */
 export const corePrinciples = [
-  "Solve real problems, not symptoms",
-  "Frame the problem first, then think of the solution",
-  "Data and research guide decisions, hunches don't",
-  "Collaborative effort outlasts individual contributors",
-  "Build for today, scale for tomorrow",
-  "Always embrace feedback but take ownership",
+  {
+    title: "Diagnose before you prescribe",
+    description:
+      "Jumping to solutions is easy. Sitting with the problem long enough to understand it is where the real good design begins.",
+  },
+  {
+    title: "Kaizen: always leave it better than you found it",
+    description:
+      "Small, compounding improvements outlast any single breakthrough. Progress is a practice, not a moment.",
+  },
+  {
+    title: "Data informs, judgment decides",
+    description:
+      "Numbers sharpen the lens. Experience, context and synthesis are what turn signal into a direction worth following.",
+  },
+  {
+    title: "Craft is in the details, candor is in the culture",
+    description:
+      "High standards, honest conversations and collaboration is the right way to thrive.",
+  },
+  {
+    title: "Build for today, scale for tomorrow",
+    description:
+      "Solve what is in front of you without painting yourself into a corner. Good systems thinking makes the next problem easier before it arrives.",
+  },
+  {
+    title: "Design the room, not just the screen",
+    description:
+      "The most lasting design work shapes how decisions get made, not just what gets shipped.",
+  },
 ];
 
 /** Carousel slides for "My top 3 skills" (from Figma) */

@@ -55,30 +55,33 @@ export function SkillsCarousel({ variant = "light" }: SkillsCarouselProps) {
         })}
       </div>
 
-      <div className="flex items-center justify-center gap-1">
-        {topSkillsSlides.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setIndex(i)}
-            className="rounded-full transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-stone-300 focus:ring-offset-2 focus:ring-offset-stone-900"
-            aria-label={`Go to slide ${i + 1}`}
-          >
-            {i === index ? (
+      <div className="flex items-center justify-center gap-2">
+        {topSkillsSlides.map((_, i) => {
+          const isActive = i === index;
+          return (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setIndex(i)}
+              className="group relative flex h-6 items-center justify-center focus:outline-none"
+              aria-label={`Go to slide ${i + 1}`}
+            >
               <span
-                className="block h-4 w-[60px] rounded-full"
+                className="block h-[5px] rounded-full"
                 style={{
-                  background:
-                    "linear-gradient(90deg, #f7bb97 0%, #dd5e89 63.942%, #d60692 100%)",
+                  width: isActive ? "32px" : "12px",
+                  background: isActive
+                    ? "linear-gradient(90deg, #f7bb97 0%, #dd5e89 63.942%, #d60692 100%)"
+                    : isDark
+                      ? "#57534e"
+                      : "#d6d3d1",
+                  opacity: isActive ? 1 : 0.6,
+                  transition: "all 400ms cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
               />
-            ) : (
-              <span
-                className={`block h-4 w-4 rounded-full ${isDark ? "bg-stone-600" : "bg-stone-200"}`}
-              />
-            )}
-          </button>
-        ))}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

@@ -1,5 +1,10 @@
-import { skillCategories } from "@/data/content";
+import { skillCategories, topSkillsSlides } from "@/data/content";
 import { ScrollReveal } from "@/components/ScrollReveal";
+
+const allSkills = [
+  ...topSkillsSlides.map((s) => ({ name: s.title, skills: [s.description] })),
+  ...skillCategories,
+];
 
 export function WhatIBring() {
   return (
@@ -12,7 +17,7 @@ export function WhatIBring() {
           What I bring
         </h2>
         <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((category) => (
+          {allSkills.map((category) => (
             <div key={category.name}>
               <h3 className="text-[12px] font-medium uppercase tracking-widest text-stone-400">
                 {category.name}
