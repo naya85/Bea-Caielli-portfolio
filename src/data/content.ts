@@ -27,7 +27,7 @@ export const siteConfig = {
     dribbble: "https://dribbble.com/beatrice-caielli",
     behance: "https://behance.net/beatrice-caielli",
     medium: "https://medium.com/@beatrice.caielli",
-    adplist: "https://adplist.org",
+    adplist: "https://adplist.org/mentors/beatrice-caielli",
     linkedin: "https://linkedin.com/in/beatrice-caielli",
   },
 };
