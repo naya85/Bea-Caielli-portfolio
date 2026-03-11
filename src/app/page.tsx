@@ -1,19 +1,21 @@
 import { Hero } from "@/components/Hero";
-import { AboutMeSection } from "@/components/AboutMeSection";
-import { About } from "@/components/About";
 import { Projects } from "@/components/Projects";
-import { WhatIBring } from "@/components/WhatIBring";
+import { DesignPrinciples } from "@/components/DesignPrinciples";
+import { About } from "@/components/About";
+import { Articles } from "@/components/Articles";
 import { Contact } from "@/components/Contact";
+import { EasterEgg } from "@/components/EasterEgg";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <AboutMeSection />
-      <About />
       <Projects />
-      <WhatIBring />
+      <DesignPrinciples />
+      <About />
+      <Articles />
       <Contact />
+      <EasterEgg />
     </>
   );
 }

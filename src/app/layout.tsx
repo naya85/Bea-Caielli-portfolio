@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
+import "./global.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -32,8 +32,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+        />
+      </head>
       <body
-        className={`${plusJakarta.className} bg-stone-50 text-stone-800 antialiased`}
+        className={`${plusJakarta.className} antialiased`}
+        style={{ backgroundColor: "#F5F4F0", color: "#1A1A1A" }}
       >
         <Header />
         <main>{children}</main>

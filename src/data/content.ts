@@ -6,21 +6,18 @@ export const siteConfig = {
   email: "beatrice.caielli@gmail.com",
   location: "Milan, Italy",
   hero: {
-    greeting: "Hello!",
-    nameLine: "I'm Bea,",
-    role: "Senior Product Designer",
+    line1: "Hello, I'm Bea.",
+    line2: "I make things happen.",
+    line3: "Across 9 industries, and counting.",
+    line4: "The next one is yours.",
     stats: [
-      { value: "9", label: "Industries worked in" },
       { value: "12", label: "Years of experience" },
+      { value: "9", label: "Industries worked in" },
+      { value: "100+", label: "Features shipped" },
       { value: "16", label: "Designers mentored" },
-      { value: "100+", label: "Successful features" },
     ],
-    hoverHeadline: "I am a curious mind",
-    hoverSubline:
-      "passionate about design, illustration, cinema, climbing, music, traveling, psychology and random trivia",
   },
-  contactTagline:
-    "If you've made it this far, thank you :) Let's connect and chat about any possible collaboration",
+  contactTagline: "Let's connect.",
   footerLine:
     "Crafted with care ♥, spiced with creativity ✨, and served with a cup of black coffee ☕",
   socials: {
@@ -30,6 +27,8 @@ export const siteConfig = {
     adplist: "https://adplist.org/mentors/beatrice-caielli",
     linkedin: "https://linkedin.com/in/beatrice-caielli",
   },
+  /** Spotify track ID for easter-egg overlay (from open.spotify.com/track/THIS_PART) */
+  spotifyTrackId: "5TewgNx79xxmaPz1yjdrgj",
 };
 
 export interface Experience {

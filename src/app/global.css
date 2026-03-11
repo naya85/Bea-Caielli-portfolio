@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+/* Tailwind v4: scan all component and app files for class names */
+@source "../components/**/*.tsx";
+@source "../components/**/*.jsx";
+@source "./**/*.tsx";
+@source "./**/*.jsx";
+@source "../**/*.tsx";
+@source "../**/*.jsx";
+
+/* Design tokens — DESIGN-DIRECTION.md */
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Base */
+  --color-base: #f5f4f0;
+  --color-text: #1a1a1a;
+  --color-accent: #1a9ca8;
+  --color-accent-dark: #147880;
+  --color-dark-bg: #0f0f0f;
+  /* Spacing: 8px base grid */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --space-8: 120px;
+  --content-max: 1200px;
+  --text-max: 680px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  /* Exclude easter-egg so prompt and overlay animations still work */
+  *:not(.easter-egg-layer):not(.easter-egg-layer *),
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal.reveal-child {
+    opacity: 1 !important;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-base);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Scroll-driven reveal: fade + 20px translate up, 0.6s ease-out */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: reveal-in 0.6s ease-out both;
+}
+
+.reveal-delay-1 { animation-delay: 100ms; }
+.reveal-delay-2 { animation-delay: 200ms; }
+.reveal-delay-3 { animation-delay: 300ms; }
+.reveal-delay-4 { animation-delay: 400ms; }
+
+.reveal.reveal-child {
+  opacity: 0;
+}
+.revealed .reveal.reveal-child {
+  animation: reveal-in 0.6s ease-out both;
+}
+.revealed .reveal-delay-1 { animation-delay: 100ms; }
+.revealed .reveal-delay-2 { animation-delay: 200ms; }
+.revealed .reveal-delay-3 { animation-delay: 300ms; }
+.revealed .reveal-delay-4 { animation-delay: 400ms; }
+
+/* Hero staggered line reveal on load — slide up only (no opacity) so content is never blank */
+@keyframes hero-slide-up {
+  from { transform: translateY(20px); }
+  to { transform: translateY(0); }
+}
+.hero-reveal {
+  opacity: 1;
+  animation: hero-slide-up 0.6s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal {
+    animation: none;
+  }
+}
+
+/* "Believes" — one-time accent pop on load */
+@keyframes accent-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-accent-pop {
+  animation: accent-pop 0.8s ease-out both;
+}
+
+/* "Believes" glitch on easter-egg exit */
+@keyframes believes-glitch {
+  0%, 100% { transform: skew(0deg); opacity: 1; }
+  33% { transform: skew(-2deg, 1deg); opacity: 0.85; }
+  66% { transform: skew(1deg, -1deg); opacity: 0.9; }
+}
+
+.animate-believes-glitch {
+  animation: believes-glitch 0.25s ease-out both;
+}
+
+/* --- 80S EASTER EGG (synth-screen) --- */
+.crt-prompt {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "VT323", monospace;
+  font-size: 15px;
+  color: #c0bfb8;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  opacity: 0;
+  animation: promptFadeIn 1.2s ease forwards 1s;
+  white-space: nowrap;
+  z-index: 100;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.crt-prompt-hidden {
+  opacity: 0 !important;
+  animation: none;
+  pointer-events: none;
+}
+.crt-prompt .crt-prompt-cursor {
+  display: inline-block;
+  animation: crtBlink 1s step-end infinite;
+}
+@keyframes promptFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes crtBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.synth-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.synth-screen-active {
+  opacity: 1;
+  pointer-events: all;
+  animation: synthIn 0.4s ease forwards;
+}
+.synth-screen-fade-out {
+  animation: synthOut 0.9s ease forwards;
+}
+@keyframes synthIn {
+  from {
+    opacity: 0;
+    filter: brightness(4) saturate(0);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+  }
+}
+@keyframes synthOut {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    filter: brightness(3) saturate(2);
+  }
+  70% {
+    opacity: 0.3;
+    filter: brightness(0.1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.synth-gif {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+.synth-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.synth-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(16px, 3.5vw, 36px);
+  color: #fff;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  text-align: center;
+  padding: 0 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-shadow: 0 0 10px #ff3aff, 0 0 25px #ff3aff, 0 0 50px #ff3aff, 3px 3px 0 #9900aa;
+}
+.synth-title.synth-visible {
+  opacity: 1;
+  animation: neonFlicker 0.7s steps(4) infinite alternate;
+}
+@keyframes neonFlicker {
+  0% {
+    text-shadow: 0 0 10px #ff3aff, 0 0 25px #ff3aff, 0 0 50px #ff3aff, 3px 3px 0 #9900aa;
+  }
+  50% {
+    text-shadow: 0 0 5px #ff3aff, 0 0 10px #ff3aff, 3px 3px 0 #9900aa;
+  }
+  100% {
+    text-shadow: 0 0 15px #ff3aff, 0 0 35px #ff3aff, 0 0 70px #ff3aff, 3px 3px 0 #9900aa;
+  }
+}
+
+.synth-sub {
+  font-family: "VT323", monospace;
+  font-size: clamp(18px, 2.5vw, 26px);
+  color: #00ffee;
+  letter-spacing: 0.18em;
+  margin-top: 16px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffee;
+}
+.synth-sub.synth-visible {
+  opacity: 1;
+}
+
+.synth-exit {
+  font-family: "VT323", monospace;
+  font-size: clamp(13px, 1.8vw, 17px);
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.12em;
+  margin-top: 32px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.synth-exit.synth-visible {
+  animation: exitBlink 1.2s step-end infinite;
+}
+@keyframes exitBlink {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.synth-closer {
+  font-family: "VT323", monospace;
+  font-size: clamp(13px, 1.8vw, 17px);
+  color: #00ffee;
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  text-shadow: 0 0 8px #00ffee;
+}
+.synth-closer.synth-visible {
+  opacity: 1;
+}
+
+.synth-spotify {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 352px;
+  flex-shrink: 0;
+}
+.synth-spotify iframe {
+  display: block;
+  width: 100%;
+  height: 352px;
+}
+
+/* Accent word hover: letter-spacing transition */
+.accent-word {
+  letter-spacing: 0;
+  transition: letter-spacing 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.accent-word:hover {
+  letter-spacing: 0.02em;
+}

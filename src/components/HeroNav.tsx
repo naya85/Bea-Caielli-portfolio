@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { label: "About me", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Work", href: "#work" },
+  { label: "About", href: "#about" },
+  { label: "Articles", href: "#articles" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -13,16 +14,16 @@ const gradientStyle = {
 };
 
 export function HeroNav() {
-  const [active, setActive] = useState<string>("about");
+  const [active, setActive] = useState<string>("work");
 
   useEffect(() => {
-    const sections = ["about", "projects", "contact"] as const;
+    const sections = ["work", "about", "articles", "contact"] as const;
     const observer = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (!e.isIntersecting) continue;
           const id = e.target.id;
-          if (sections.includes(id)) setActive(id);
+          if ((sections as readonly string[]).includes(id)) setActive(id);
         }
       },
       { rootMargin: "-40% 0px -40% 0px", threshold: 0 }

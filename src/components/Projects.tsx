@@ -3,38 +3,34 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 export function Projects() {
   return (
-    <section id="projects" className="scroll-mt-20 bg-white py-28">
-      <ScrollReveal className="mx-auto max-w-4xl px-6" stagger>
-        <p className="reveal reveal-child text-[13px] font-medium uppercase tracking-[0.2em] text-stone-400">
+    <section id="work" className="scroll-mt-24 border-t border-[#1A1A1A]/08 bg-[#F5F4F0] py-[120px]">
+      <ScrollReveal className="mx-auto max-w-[1200px] px-6" stagger>
+        <p className="reveal reveal-child text-[13px] font-medium uppercase tracking-[0.2em] text-[#1A1A1A]/6">
           Work
         </p>
-        <h2 className="reveal reveal-child reveal-delay-1 mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl lg:text-4xl">
-          Recent projects
+        <h2 className="reveal reveal-child reveal-delay-1 mt-2 text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-[#1A1A1A]">
+          Case studies
         </h2>
-        <p className="reveal reveal-child reveal-delay-1 mt-3 max-w-xl text-[15px] leading-relaxed text-stone-500">
-          Product design across EdTech, Fintech, and SaaS.
-        </p>
-
-        <div className="reveal reveal-child reveal-delay-2 mt-14 grid gap-6 sm:grid-cols-2">
+        <div className="reveal reveal-child reveal-delay-2 mt-12 grid gap-8 sm:grid-cols-2">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="group rounded-[20px] border border-stone-100 bg-white p-8 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              className="group rounded-2xl border border-[#1A1A1A]/08 bg-[#F5F4F0] p-8 transition-all duration-[180ms] ease-out hover:border-[#1A1A1A]/12 hover:shadow-md"
             >
-              <p className="text-[13px] font-medium text-stone-400">
+              <p className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/6">
                 {project.company}
               </p>
-              <h3 className="mt-1 text-lg font-bold text-stone-900 transition-colors group-hover:text-stone-700">
+              <h3 className="mt-2 text-[18px] font-bold leading-snug text-[#1A1A1A]">
                 {project.title}
               </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-stone-500">
+              <p className="mt-3 max-w-[40ch] text-[17px] leading-relaxed text-[#1A1A1A]/80">
                 {project.description}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[12px] text-stone-400"
+                    className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/5"
                   >
                     {tag}
                     {project.tags.indexOf(tag) < project.tags.length - 1 ? " · " : ""}

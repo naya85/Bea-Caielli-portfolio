@@ -6,78 +6,76 @@ const hero = siteConfig.hero!;
 
 export function Hero() {
   return (
-    <section className="group relative flex min-h-[88vh] items-center pt-24 pb-28">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        {/* Default state: Hello!, I'm Bea, Senior Product Designer, stats, CTAs */}
-        <div className="flex flex-col items-center transition-opacity duration-300 group-hover:opacity-0 group-hover:pointer-events-none">
-          <span className="animate-fade-in-up inline-flex items-center rounded-[38px] border border-stone-200 bg-transparent px-6 py-3">
-            <span className="text-xl font-semibold tracking-tight text-stone-700 sm:text-2xl">
-              {hero.greeting}
-            </span>
-          </span>
-          <h1 className="animate-fade-in-up animate-delay-100 mt-14 text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-stone-900 sm:text-6xl lg:text-[80px]">
-            {hero.nameLine}
-            <br />
-            {hero.role}
-          </h1>
-          {/* Stats */}
-          <div className="animate-fade-in-up animate-delay-150 mt-16 grid grid-cols-2 gap-x-12 gap-y-8 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-20">
-            {hero.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center border-b border-stone-200 pb-4"
-              >
-                <span className="text-5xl font-bold tracking-tight text-stone-900 sm:text-6xl">
-                  {stat.value}
-                </span>
-                <span className="mt-2 text-sm font-medium text-stone-500 sm:text-base">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="animate-fade-in-up animate-delay-300 mt-16 flex flex-wrap justify-center gap-3">
-            <a
-              href="#projects"
-              className="group/btn inline-flex items-center gap-2 border border-stone-900 bg-stone-900 px-6 py-2.5 text-[13px] font-semibold tracking-wide text-white transition-all duration-200 hover:bg-stone-800 hover:shadow-md"
-            >
-              View work
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 16 16"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="transition-transform duration-200 group-hover/btn:translate-x-0.5"
-              >
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center border border-stone-300 bg-transparent px-6 py-2.5 text-[13px] font-semibold tracking-wide text-stone-600 transition-all duration-200 hover:border-stone-400 hover:bg-stone-50 hover:text-stone-900"
-            >
-              Get in touch
-            </a>
-          </div>
-          <p className="animate-fade-in-up animate-delay-400 mt-12 text-[13px] text-stone-400">
-            {siteConfig.location}
+    <section
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-24 pb-16"
+      aria-label="Introduction"
+    >
+      <div className="mx-auto w-full max-w-[1200px]">
+        <div className="max-w-[680px]">
+          {/* Line 1 */}
+          <p
+            className="hero-reveal text-[clamp(1.25rem,2.5vw,2rem)] font-normal leading-snug text-[#1A1A1A]"
+            style={{ animationDelay: "0.1s" }}
+          >
+            {hero.line1}
           </p>
+          {/* Line 2 */}
+          <h1
+            className="hero-reveal mt-4 text-[clamp(1.25rem,2.5vw,2rem)] font-normal leading-snug text-[#1A1A1A]"
+            style={{ animationDelay: "0.25s" }}
+          >
+            {hero.line2}
+          </h1>
+          {/* Line 3 */}
+          <p
+            className="hero-reveal mt-6 text-[clamp(1.25rem,2.5vw,2rem)] font-normal leading-snug text-[#1A1A1A]"
+            style={{ animationDelay: "0.4s" }}
+          >
+            {hero.line3}
+          </p>
+          {/* Line 4: 800 ExtraBold, 80–100px */}
+          <h2
+            className="hero-reveal mt-4 text-[clamp(2.5rem,8vw,6.25rem)] font-extrabold leading-[1.08] tracking-[-0.02em] text-[#1A1A1A]"
+            style={{ animationDelay: "0.55s" }}
+          >
+            {hero.line4}
+          </h2>
         </div>
 
-        {/* Hover state: I am a curious mind + passions */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
-          <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
-            {hero.hoverHeadline}
-          </h2>
-          <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-stone-600 sm:text-lg">
-            {hero.hoverSubline}
-          </p>
+        {/* Stats — 8px grid */}
+        <div
+          className="mt-16 grid grid-cols-2 gap-8 sm:flex sm:flex-wrap sm:gap-12 md:gap-16"
+          role="list"
+          aria-label="Experience highlights"
+        >
+          {hero.stats.map((stat) => (
+            <div key={stat.label} role="listitem" className="flex flex-col">
+              <span className="text-[32px] font-extrabold leading-none tracking-tight text-[#1A1A1A] sm:text-[40px]">
+                {stat.value}
+              </span>
+              <span className="mt-2 text-[13px] font-medium tracking-wide text-[#1A1A1A]/70">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Video placeholder — rounded container */}
+        <div
+          className="mt-16 flex justify-start"
+          aria-label="Video placeholder: short intro video"
+        >
+          <div className="aspect-square w-[280px] max-w-[40vw] overflow-hidden rounded-[24px] bg-[#1A1A1A]/8 sm:w-[320px]">
+            <div className="flex h-full w-full items-center justify-center text-[13px] font-medium tracking-wide text-[#1A1A1A]/5">
+              Video coming soon
+            </div>
+          </div>
         </div>
       </div>
+
+      <p className="absolute bottom-8 left-0 right-0 text-center text-[13px] font-medium tracking-wide text-[#1A1A1A]/5">
+        {siteConfig.location}
+      </p>
     </section>
   );
 }
