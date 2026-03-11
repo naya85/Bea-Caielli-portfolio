@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[#1A1A1A]/08 bg-[#F5F4F0]">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-center gap-6 px-6 py-12 text-center sm:flex-row sm:justify-between sm:text-left">
-        <p className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/5">
+        <p className="text-[13px] font-medium tracking-wide text-[#1A1A1A]">
           &copy; {new Date().getFullYear()} {siteConfig.name}
         </p>
         <div className="flex gap-8">
@@ -12,7 +12,7 @@ export function Footer() {
             href={siteConfig.socials.dribbble}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/5 transition-colors hover:text-[#1A1A1A]"
+            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
           >
             Dribbble
           </a>
@@ -20,7 +20,7 @@ export function Footer() {
             href={siteConfig.socials.behance}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/5 transition-colors hover:text-[#1A1A1A]"
+            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
           >
             Behance
           </a>
@@ -28,7 +28,7 @@ export function Footer() {
             href={siteConfig.socials.medium}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/5 transition-colors hover:text-[#1A1A1A]"
+            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
           >
             Medium
           </a>
@@ -36,7 +36,7 @@ export function Footer() {
             href={siteConfig.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A1A1A]/5 transition-colors hover:text-[#1A1A1A]"
+            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
           >
             LinkedIn
           </a>

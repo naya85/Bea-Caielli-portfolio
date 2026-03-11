@@ -7,9 +7,8 @@ export const siteConfig = {
   location: "Milan, Italy",
   hero: {
     line1: "Hello, I'm Bea.",
-    line2: "I make things happen.",
-    line3: "Across 9 industries, and counting.",
-    line4: "The next one is yours.",
+    line2: "I make the right things happen.",
+    line3: "Let's build the next one together.",
     stats: [
       { value: "12", label: "Years of experience" },
       { value: "9", label: "Industries worked in" },
@@ -262,12 +261,12 @@ export const projects: Project[] = [
 /** My core principles (6 cards in 2x3 grid) */
 export const corePrinciples = [
   {
-    title: "Diagnose before you prescribe",
+    title: "Understanding before solving",
     description:
       "Jumping to solutions is easy. Sitting with the problem long enough to understand it is where the real good design begins.",
   },
   {
-    title: "Kaizen: always leave it better than you found it",
+    title: "Kaizen (leave it better than you found it)",
     description:
       "Small, compounding improvements outlast any single breakthrough. Progress is a practice, not a moment.",
   },

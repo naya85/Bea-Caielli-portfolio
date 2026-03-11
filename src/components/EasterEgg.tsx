@@ -119,7 +119,7 @@ export function EasterEgg() {
       >
         <img
           className="synth-gif"
-          src="/80S_Voice_GIF.png"
+          src="/80S%20Voice%20GIF.gif"
           alt=""
           draggable={false}
         />
@@ -132,10 +132,10 @@ export function EasterEgg() {
           aria-label="Close overlay"
         >
           <h1 className={`synth-title ${titleVisible ? "synth-visible" : ""}`}>
-            CONGRATULATIONS. YOU&apos;VE BEEN 80&apos;IFIED
+            congratulations, you&apos;ve been 80&apos;ified
           </h1>
           <p className={`synth-sub ${subVisible ? "synth-visible" : ""}`}>
-            WELCOME TO THE GOOD DECADE
+            Welcome to the best decade
           </p>
 
           <p className={`synth-closer ${closerVisible ? "synth-visible" : ""}`}>
@@ -147,16 +147,18 @@ export function EasterEgg() {
             onClick={(e) => e.stopPropagation()}
             aria-label="YouTube video"
           >
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/siwpn14IE7E?si=by2SlUBAAkFyykyT"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
+            {active && (
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/KlUsYvHDuDM?si=ZSjoLNFkxREyD6S5&autoplay=1"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            )}
           </div>
 
           <p className={`synth-exit ${exitVisible ? "synth-visible" : ""}`}>
