@@ -1,24 +1,16 @@
 "use client";
 
-import { useRef, useEffect, useState, type ReactNode } from "react";
+import { type ReactNode, useRef, useEffect, useState } from "react";
 
-interface ScrollRevealProps {
-  children: ReactNode;
-  className?: string;
-  /** Root margin for when to trigger */
-  rootMargin?: string;
-  /** If true, add "revealed" so children with "reveal reveal-child reveal-delay-*" stagger in */
-  stagger?: boolean;
-}
+const REVEAL_OPTIONS: IntersectionObserverInit = {
+  root: null,
+  rootMargin: "0px 0px 100px 0px",
+  threshold: 0.1,
+};
 
-export function ScrollReveal({
-  children,
-  className = "",
-  rootMargin = "0px 0px -60px 0px",
-  stagger = false,
-}: ScrollRevealProps) {
+function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
-  const [revealed, setRevealed] = useState(false);
+  const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -26,25 +18,68 @@ export function ScrollReveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setRevealed(true);
+        if (entry?.isIntersecting) setVisible(true);
       },
-      { threshold: 0.1, rootMargin }
+      REVEAL_OPTIONS
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [rootMargin]);
+  }, []);
+
+  return { ref, isVisible };
+}
+
+interface ScrollRevealProps {
+  children: ReactNode;
+  className?: string;
+  stagger?: boolean;
+}
+
+export function ScrollReveal({
+  children,
+  className = "",
+}: ScrollRevealProps) {
+  return <div className={className}>{children}</div>;
+}
+
+interface RevealItemProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}
+
+export function RevealItem({ children, className = "", delay = 0 }: RevealItemProps) {
+  const { ref, isVisible } = useReveal();
 
   return (
     <div
       ref={ref}
-      className={
-        stagger
-          ? `${className} ${revealed ? "revealed" : ""}`
-          : `${className} ${revealed ? "reveal" : "opacity-0"}`
-      }
+      className={`reveal ${isVisible ? "is-visible" : ""} ${className}`.trim()}
+      style={{
+        transitionDelay: delay > 0 ? `${delay}s` : undefined,
+      }}
     >
       {children}
+    </div>
+  );
+}
+
+export function LineExpand({
+  children,
+  className = "",
+}: {
+  children?: ReactNode;
+  className?: string;
+}) {
+  const { ref, isVisible } = useReveal();
+
+  return (
+    <div
+      ref={ref}
+      className={`line-expand origin-left ${isVisible ? "is-visible" : ""} ${className}`.trim()}
+    >
+      {children ?? <div className="h-px w-full bg-[var(--color-border)]" />}
     </div>
   );
 }

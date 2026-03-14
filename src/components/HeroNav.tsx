@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
   { label: "Articles", href: "#articles" },
   { label: "Contact", href: "#contact" },
 ];
@@ -37,7 +37,8 @@ export function HeroNav() {
 
   return (
     <nav
-      className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border border-stone-200 bg-white/95 px-2 py-2 shadow-lg backdrop-blur-sm"
+      className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border bg-white/95 px-2 py-2 shadow-lg backdrop-blur-sm"
+      style={{ borderColor: "var(--color-border)" }}
       aria-label="Main"
     >
       {links.map(({ label, href }) => {

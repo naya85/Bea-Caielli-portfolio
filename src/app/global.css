@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
-/* Tailwind v4: scan all component and app files for class names */
-@source "../components/**/*.tsx";
-@source "../components/**/*.jsx";
-@source "./**/*.tsx";
-@source "./**/*.jsx";
+/* Tailwind v4: scan all source files for class names (paths relative to this file) */
 @source "../**/*.tsx";
 @source "../**/*.jsx";
 
@@ -17,6 +13,12 @@
   --color-accent: #1a9ca8;
   --color-accent-dark: #147880;
   --color-dark-bg: #0f0f0f;
+  /* Muted grey: secondary text (eyebrows, captions, tags) */
+  --color-muted: #6B6B6B;
+  /* Borders, dividers, rules */
+  --color-border: #E0DDD8;
+  /* Muted at low opacity for tag pill background */
+  --color-muted-bg: rgb(224 221 216 / 0.6);
   /* Spacing: 8px base grid */
   --space-1: 8px;
   --space-2: 16px;
@@ -32,23 +34,7 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  /* Exclude easter-egg so prompt and overlay animations still work */
-  *:not(.easter-egg-layer):not(.easter-egg-layer *),
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  .reveal.reveal-child {
-    opacity: 1 !important;
-  }
+  overflow-y: scroll;
 }
 
 body {
@@ -64,51 +50,37 @@ body {
   color: white;
 }
 
-/* Scroll-driven reveal: fade + 20px translate up, 0.6s ease-out */
-@keyframes reveal-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal {
-  animation: reveal-in 0.6s ease-out both;
-}
-
-.reveal-delay-1 { animation-delay: 100ms; }
-.reveal-delay-2 { animation-delay: 200ms; }
-.reveal-delay-3 { animation-delay: 300ms; }
-.reveal-delay-4 { animation-delay: 400ms; }
-
-.reveal.reveal-child {
+/* --- HERO FADE-UP ON LOAD --- */
+.hero-fade-up {
   opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--delay, 0s);
 }
-.revealed .reveal.reveal-child {
-  animation: reveal-in 0.6s ease-out both;
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
 }
-.revealed .reveal-delay-1 { animation-delay: 100ms; }
-.revealed .reveal-delay-2 { animation-delay: 200ms; }
-.revealed .reveal-delay-3 { animation-delay: 300ms; }
-.revealed .reveal-delay-4 { animation-delay: 400ms; }
 
-/* Hero staggered line reveal on load — slide up only (no opacity) so content is never blank */
-@keyframes hero-slide-up {
-  from { transform: translateY(20px); }
-  to { transform: translateY(0); }
+/* --- SECTION FADE-UP ON SCROLL INTO VIEW --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.hero-reveal {
+.reveal.is-visible {
   opacity: 1;
-  animation: hero-slide-up 0.6s ease-out forwards;
+  transform: translateY(0);
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero-reveal {
-    animation: none;
-  }
+
+/* Line expand on scroll into view */
+.line-expand {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.line-expand.is-visible {
+  transform: scaleX(1);
 }
 
 /* "Believes" — one-time accent pop on load */

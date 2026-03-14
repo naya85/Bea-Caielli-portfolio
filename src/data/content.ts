@@ -24,7 +24,7 @@ export const siteConfig = {
     behance: "https://behance.net/beatrice-caielli",
     medium: "https://medium.com/@beatrice.caielli",
     adplist: "https://adplist.org/mentors/beatrice-caielli",
-    linkedin: "https://linkedin.com/in/beatrice-caielli",
+    linkedin: "https://www.linkedin.com/in/beatrice-caielli/",
   },
   /** Spotify track ID for easter-egg overlay (from open.spotify.com/track/THIS_PART) */
   spotifyTrackId: "5TewgNx79xxmaPz1yjdrgj",
@@ -175,18 +175,53 @@ export const experiences: Experience[] = [
 ];
 
 export interface Project {
+  slug: string;
   title: string;
   company: string;
   description: string;
   tags: string[];
+  /** Year shown as eyebrow (e.g. "2024") */
+  year: string;
   image?: string;
   link?: string;
 }
 
 export const projects: Project[] = [
   {
+    slug: "listen-repeat",
+    title: "Listen and Repeat",
+    company: "Mondly by Pearson",
+    year: "2024",
+    description:
+      "Shifting Mondly from \"test first\" to \"teach first\": a redesign of the core learning experience for Mondly users",
+    tags: [
+      "Learning Experience",
+      "Pronunciation",
+      "A/B Testing",
+      "B2C",
+      "Feature Strategy",
+    ],
+  },
+  {
+    slug: "courseware-companion",
+    title: "Courseware Companion",
+    company: "Mondly by Pearson",
+    year: "2026",
+    description:
+      "Led the end-to-end design strategy to reposition Pearson's Mondly from a consumer app into an institutional product — building the research infrastructure, validating the market opportunity, and designing the teacher experience that makes adoption possible.",
+    tags: [
+      "Discovery",
+      "Research infrastructure",
+      "Market strategy",
+      "Teacher Dashboard",
+      "B2B2C",
+    ],
+  },
+  {
+    slug: "pearson-language-teacher-dashboard",
     title: "Pearson Language+ & Teacher Dashboard",
     company: "Mondly by Pearson",
+    year: "2024",
     description:
       "Staff-level product strategy and design for the Pearson Language+ app. Shipped a production Teacher Dashboard (React, TypeScript, Tailwind, Firebase) via Cursor-based AI prototyping; enabled hyper-realistic usability testing and C-suite alignment.",
     tags: [
@@ -198,8 +233,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "reviewlab-platform",
     title: "Reviewlab Platform",
     company: "Reviewlab",
+    year: "2024",
     description:
       "Co-founded and designed a SaaS platform connecting indie makers with industry experts for actionable feedback. Launched on ProductHunt.",
     tags: [
@@ -211,8 +248,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "tutor-marketplace-optimization",
     title: "Tutor Marketplace Optimization",
     company: "Preply",
+    year: "2023",
     description:
       "Drove design across cross-functional teams to optimize the tutor-student matching experience, leveraging experimentation and continuous A/B testing.",
     tags: [
@@ -224,8 +263,10 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "growth-retention-design",
     title: "Growth & Retention Design",
     company: "Lingoda GmbH",
+    year: "2021",
     description:
       "Led design initiatives to improve e-learning platform usability. Owned the design system ensuring consistency and efficiency across all teams.",
     tags: [
@@ -237,15 +278,19 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "invoice-management-innovation",
     title: "Invoice Management Innovation",
     company: "Billie GmbH",
+    year: "2020",
     description:
       "Primary designer for invoice uploading, scanning, and management features. Conceptualized long-term strategy broken into minimum lovable product iterations.",
     tags: ["Fintech", "B2B", "MLP Strategy", "Design QA", "Design Systems"],
   },
   {
+    slug: "savebetter-banking-white-label",
     title: "Savebetter Banking App & White-Label System",
     company: "Deposit Solutions GmbH",
+    year: "2020",
     description:
       "Created an atomic design system with WCAG AA compliance for a white-label B2B and B2C financial platform. Launched banking app for the US market.",
     tags: [
@@ -263,32 +308,32 @@ export const corePrinciples = [
   {
     title: "Understanding before solving",
     description:
-      "Jumping to solutions is easy. Sitting with the problem long enough to understand it is where the real good design begins.",
+      "The quality of the solution depends entirely on how well we understand and frame the problem. The better the question, the better the answer.",
   },
   {
-    title: "Kaizen (leave it better than you found it)",
+    title: "Solid products are built in small steps",
     description:
-      "Small, compounding improvements outlast any single breakthrough. Progress is a practice, not a moment.",
+      "Solid and long-lasting changes are not made overnight but through compounding improvements and iterations.",
   },
   {
-    title: "Data informs, judgment decides",
+    title: "Good design comes from connecting the dots",
     description:
-      "Numbers sharpen the lens. Experience, context and synthesis are what turn signal into a direction worth following.",
+      "I build bridges across teams to gather all the pieces, and when something's missing, I keep things reversible until the picture gets clearer.",
   },
   {
-    title: "Craft is in the details, candor is in the culture",
+    title: "Honest conversations make better products",
     description:
-      "High standards, honest conversations and collaboration is the right way to thrive.",
+      "I actively create the space for honest conversations. That's how alignment is built and where the best compromise between user needs and business goals gets found.",
   },
   {
-    title: "Build for today, scale for tomorrow",
+    title: "Design the room before the screen",
     description:
-      "Solve what is in front of you without painting yourself into a corner. Good systems thinking makes the next problem easier before it arrives.",
+      "The best work happens inside well-designed systems. I drive processes and frameworks to enable the design team to operate at the best conditions.",
   },
   {
-    title: "Design the room, not just the screen",
+    title: "Craft is in the detail",
     description:
-      "The most lasting design work shapes how decisions get made, not just what gets shipped.",
+      "I always look for the layer beyond good enough — it's the small details that turn good designs into great ones.",
   },
 ];
 
