@@ -302,7 +302,7 @@ export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCase
               <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
                 {c.impact.heading}
               </h2>
-              <div className="mt-4 max-w-[680px] space-y-4">
+              <div className="mt-4 w-full space-y-4">
                 {Array.isArray(c.impact.body) ? (
                   c.impact.body.map((para, i) => (
                     <p key={i} className={BODY_CLASS}>

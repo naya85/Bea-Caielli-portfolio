@@ -67,7 +67,7 @@ export function About() {
                 <RevealItem key={principle.title} delay={i * 0.06}>
                   <FadeAtTop>
                     <article
-                      className={`flex min-h-[320px] flex-col border-b p-8 ${i >= 4 ? "sm:border-b-0" : ""} ${i >= 3 ? "lg:border-b-0" : ""} ${i === 1 || i === 4 ? "lg:border-l lg:border-r" : ""}`}
+                      className={`flex min-h-[280px] flex-col border-b pt-8 px-8 pb-5 ${i >= 4 ? "sm:border-b-0" : ""} ${i >= 3 ? "lg:border-b-0" : ""} ${i === 1 || i === 4 ? "lg:border-l lg:border-r" : ""}`}
                       style={{ borderColor: "var(--color-border)" }}
                     >
                       <span className="text-xs tabular-nums tracking-wide" style={{ color: "var(--color-muted)" }} aria-hidden>

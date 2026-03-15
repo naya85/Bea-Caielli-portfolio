@@ -195,11 +195,12 @@ export const projects: Project[] = [
     description:
       "Shifting Mondly from \"test first\" to \"teach first\": a redesign of the core learning experience for Mondly users",
     tags: [
-      "Learning Experience",
-      "Pronunciation",
+      "EdTech",
+      "Mobile",
+      "User Research",
       "A/B Testing",
-      "B2C",
-      "Feature Strategy",
+      "Product Strategy",
+      "Scoping",
     ],
   },
   {
