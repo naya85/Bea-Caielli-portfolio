@@ -10,7 +10,7 @@ export const siteConfig = {
     line2: "I make the right things happen.",
     line3: "Let's build the next one together.",
     stats: [
-      { value: "12", label: "Years of experience" },
+      { value: "13", label: "Years of experience" },
       { value: "9", label: "Industries worked in" },
       { value: "100+", label: "Features shipped" },
       { value: "16", label: "Designers mentored" },
@@ -183,6 +183,8 @@ export interface Project {
   caseType: "feature" | "strategy" | "article";
   /** Year shown as eyebrow (e.g. "2024") */
   year: string;
+  /** Keep draft work in the source without showing it publicly. */
+  hidden?: boolean;
   image?: string;
   imageAlt?: string;
   link?: string;
@@ -210,7 +212,7 @@ export const projects: Project[] = [
   },
   {
     slug: "postpone-renewal-date",
-    title: "More room to keep learning",
+    title: "Redesign the Subscription model",
     caseType: "feature",
     company: "Preply",
     year: "2022",
@@ -250,26 +252,9 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "ai-assisted-product-design",
-    title: "Designing with AI: from prototype to product",
-    caseType: "article",
-    company: "Pearson · Language+",
-    year: "2026",
-    description:
-      "How I used AI-assisted coding and research synthesis to build, test and ship a realistic teacher dashboard—while keeping product judgment and user evidence at the center.",
-    image: "/images/case-studies/language-plus/5-dashboard.jpg",
-    imageAlt: "Pearson Language+ teacher dashboard prototype",
-    tags: [
-      "Product Strategy",
-      "AI Prototyping",
-      "React · TypeScript",
-      "B2B",
-      "Accessibility",
-    ],
-  },
-  {
     slug: "reviewlab-platform",
     title: "Reviewlab Platform",
+    hidden: true,
     caseType: "feature",
     company: "Reviewlab",
     year: "2024",
@@ -283,65 +268,9 @@ export const projects: Project[] = [
       "Product Strategy",
     ],
   },
-  {
-    slug: "tutor-marketplace-optimization",
-    title: "Tutor Marketplace Optimization",
-    caseType: "feature",
-    company: "Preply",
-    year: "2023",
-    description:
-      "Drove design across cross-functional teams to optimize the tutor-student matching experience, leveraging experimentation and continuous A/B testing.",
-    tags: [
-      "Experimentation",
-      "A/B Testing",
-      "Data-Informed Design",
-      "B2C",
-      "Mentoring",
-    ],
-  },
-  {
-    slug: "growth-retention-design",
-    title: "Growth & Retention Design",
-    caseType: "strategy",
-    company: "Lingoda GmbH",
-    year: "2021",
-    description:
-      "Led design initiatives to improve e-learning platform usability. Owned the design system ensuring consistency and efficiency across all teams.",
-    tags: [
-      "Design Systems",
-      "Growth",
-      "Retention",
-      "User Research",
-      "B2C",
-    ],
-  },
-  {
-    slug: "invoice-management-innovation",
-    title: "Invoice Management Innovation",
-    caseType: "feature",
-    company: "Billie GmbH",
-    year: "2020",
-    description:
-      "Primary designer for invoice uploading, scanning, and management features. Conceptualized long-term strategy broken into minimum lovable product iterations.",
-    tags: ["Fintech", "B2B", "MLP Strategy", "Design QA", "Design Systems"],
-  },
-  {
-    slug: "savebetter-banking-white-label",
-    title: "Savebetter Banking App & White-Label System",
-    caseType: "strategy",
-    company: "Deposit Solutions GmbH",
-    year: "2020",
-    description:
-      "Created an atomic design system with WCAG AA compliance for a white-label B2B and B2C financial platform. Launched banking app for the US market.",
-    tags: [
-      "Fintech",
-      "Atomic Design",
-      "Accessibility",
-      "White-Label",
-      "B2C",
-    ],
-  },
 ];
+
+export const publishedProjects = projects.filter((project) => !project.hidden);
 
 /** My core principles (6 cards in 2x3 grid) */
 export const corePrinciples = [

@@ -44,13 +44,13 @@ export function About() {
         {/* Design principles block — tinted background */}
         <div
           className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] py-[120px]"
-          style={{ backgroundColor: "color-mix(in srgb, #E8E5E0 50%, #F5F4F0)" }}
+          style={{ backgroundColor: "#F0F5F4" }}
         >
           <div className="mx-auto max-w-[1200px] px-6">
             <RevealItem>
               <FadeAtTop>
                 <h2 id="principles-heading" className={sectionHeadingClass} style={{ marginTop: 0 }}>
-                  How I work
+                  Design principles
                 </h2>
               </FadeAtTop>
             </RevealItem>
@@ -135,6 +135,26 @@ export function About() {
                 </p>
               </div>
             </div>
+          </FadeAtTop>
+        </RevealItem>
+
+        <RevealItem delay={0.3}>
+          <FadeAtTop>
+            <section className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16" aria-labelledby="ai-practice-heading">
+              <div>
+                <h2 id="ai-practice-heading" className={sectionHeadingClass} style={{ marginTop: 0 }}>
+                  I use AI to make ideas testable sooner.
+                </h2>
+              </div>
+              <div className="space-y-5">
+                <p className="text-base leading-relaxed text-[#62635e]">
+                  At Pearson, I used Cursor to build a working teacher dashboard with React, TypeScript, Tailwind and Firebase, then partnered with engineering to bring it into production. I also use language models to speed up research synthesis.
+                </p>
+                <p className="text-base leading-relaxed text-[#62635e]">
+                  AI helps me make and organize faster; I stay accountable for framing the problem, interpreting teacher evidence and making the product decisions. Testing with teachers in four countries helped us refine signals and simplify student onboarding.
+                </p>
+              </div>
+            </section>
           </FadeAtTop>
         </RevealItem>
       </ScrollReveal>

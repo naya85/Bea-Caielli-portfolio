@@ -16,7 +16,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
 function Section({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
   return (
     <section className="my-20 grid gap-8 border-t border-black/10 pt-8 md:grid-cols-[0.7fr_1.3fr]">
-      <div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#15858c]">{eyebrow}</p><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{title}</h2></div>
+      <div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#15858c]">{eyebrow}</p><h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{title}</h2></div>
       <div className="space-y-5 text-base leading-relaxed text-black/70">{children}</div>
     </section>
   );
@@ -29,7 +29,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <Link href="/#work" className="text-sm font-medium text-[#15858c] hover:underline">← Back to selected work</Link>
         <header className="max-w-[900px] pb-6 pt-12">
           <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#15858c]">Pearson · Product strategy · 2025—2026</p>
-          <h1 className="mt-5 text-5xl font-semibold leading-[1.02] tracking-[-.045em] md:text-7xl">From Mondly to Language+</h1>
+          <h1 className="mt-5 text-5xl font-bold leading-[1.02] tracking-[-.035em] md:text-7xl">From Mondly to Language+</h1>
           <p className="mt-6 max-w-[760px] text-xl leading-relaxed text-black/65">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
           <div className="mt-9 grid gap-6 border-y border-black/10 py-6 sm:grid-cols-3">
             <div><p className="text-xs uppercase tracking-widest text-black/45">My role</p><p className="mt-2">Senior Product Designer · strategy, research, UX</p></div>
