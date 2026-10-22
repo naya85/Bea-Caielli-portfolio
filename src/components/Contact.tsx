@@ -37,15 +37,9 @@ export function Contact() {
         <RevealItem>
           <FadeAtTop>
             <div className="mx-auto max-w-[680px] text-center lg:mx-[120px] lg:max-w-none">
-              <p
-                className="text-[12px] font-medium uppercase tracking-[0.2em]"
-                style={{ color: "var(--color-muted)" }}
-              >
-                GET IN TOUCH
-              </p>
               <h2
                 id="contact-heading"
-                className="mt-2 text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-[#1A1A1A] md:text-6xl lg:text-8xl"
+                className="text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-[#1A1A1A] md:text-6xl lg:text-8xl"
               >
                 Let&rsquo;s create
                 <br />

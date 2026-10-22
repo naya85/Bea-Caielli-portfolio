@@ -37,7 +37,7 @@ export function About() {
   return (
     <ScrollFadeSection
       id="about"
-      className="scroll-mt-24 bg-[#F5F4F0] pt-0 pb-[120px]"
+      className="about-section scroll-mt-24 bg-[#F5F4F0] pt-0 pb-[120px]"
       aria-labelledby="about-heading"
     >
       <ScrollReveal className="mx-auto max-w-[1200px] px-6" stagger>
@@ -49,13 +49,7 @@ export function About() {
           <div className="mx-auto max-w-[1200px] px-6">
             <RevealItem>
               <FadeAtTop>
-                <p
-                  className="text-[12px] font-medium uppercase tracking-[0.2em]"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  PHILOSOPHY
-                </p>
-                <h2 id="principles-heading" className={sectionHeadingClass}>
+                <h2 id="principles-heading" className={sectionHeadingClass} style={{ marginTop: 0 }}>
                   How I work
                 </h2>
               </FadeAtTop>
@@ -70,10 +64,7 @@ export function About() {
                       className={`flex min-h-[280px] flex-col border-b pt-8 px-8 pb-5 ${i >= 4 ? "sm:border-b-0" : ""} ${i >= 3 ? "lg:border-b-0" : ""} ${i === 1 || i === 4 ? "lg:border-l lg:border-r" : ""}`}
                       style={{ borderColor: "var(--color-border)" }}
                     >
-                      <span className="text-xs tabular-nums tracking-wide" style={{ color: "var(--color-muted)" }} aria-hidden>
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="mt-4 text-xl font-bold leading-tight tracking-tight text-[#1A1A1A] md:text-2xl">
+                      <h3 className="text-xl font-bold leading-tight tracking-tight text-[#1A1A1A] md:text-2xl">
                         {principle.title}
                       </h3>
                       <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
@@ -92,13 +83,7 @@ export function About() {
           <FadeAtTop>
             <div className="mt-24 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-16">
               <div className="lg:min-w-0 lg:max-w-[45%] lg:shrink-0">
-                <p
-                  className="text-[12px] font-medium uppercase tracking-[0.2em]"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  About
-                </p>
-                <h2 id="about-heading" className={sectionHeadingClass}>
+                <h2 id="about-heading" className={sectionHeadingClass} style={{ marginTop: 0 }}>
                   {beforeAccent}
                   <em
                     ref={accentRef}

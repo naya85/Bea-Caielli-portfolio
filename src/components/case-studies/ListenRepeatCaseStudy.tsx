@@ -128,19 +128,8 @@ export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCase
                 )}
               </div>
             )}
-            <div
-              className="hero-fade-up mt-6 flex flex-wrap gap-2"
-              style={{ ["--delay" as string]: "0.4s" }}
-            >
-              {["EdTech", "Mobile", "User Research", "A/B Testing", "Product Strategy", "Scoping"].map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full px-3 py-1.5 text-[13px] font-medium tracking-wide"
-                  style={{ color: "var(--color-muted)", backgroundColor: "var(--color-muted-bg)" }}
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="hero-fade-up mt-6" style={{ ["--delay" as string]: "0.4s" }}>
+              <span className="case-type-label">{project.caseType}</span>
             </div>
             <div
               className="hero-fade-up mt-8 w-full"

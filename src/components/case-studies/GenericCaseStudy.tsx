@@ -38,6 +38,22 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const story = project.slug === "postpone-renewal-date" ? {
+    context: "When learners needed a little more time, pausing or cancelling a subscription could interrupt classes and put paid lesson hours at risk. Flexibility was showing up as lost learning and avoidable churn.",
+    insight: "“I don’t want to stop learning. I just can’t predict exactly when I’ll have time again, and I don’t want to lose the hours I paid for.”",
+    approach: ["Make the renewal date flexible by up to 20 days, once per cycle.", "Keep remaining lesson hours available during the postponed period.", "Offer the option in the cancellation flow when it fits the learner’s reason."],
+    impact: [{value:"+2.1%",label:"hours confirmed"},{value:"+5.6%",label:"gross margin"},{value:"+4.4%",label:"new learner activation"}],
+    image: "/images/portfolio/postpone-renewal.png",
+    imageAlt: "Mobile subscription screen showing the new renewal date selection"
+  } : project.slug === "gamification" ? {
+    context: "Game mechanics are often added as decoration. I’ve seen them work when they make a real user goal visible: a reason to return to a language lesson, or a fair exchange that helps a new feedback community get started.",
+    insight: "Gamification is the delivery mechanism for the solution. Start with the behaviour that helps people make progress, then make that progress tangible.",
+    approach: ["Mondly: daily streaks supported consistent practice; streak protection gave learners a little room to miss a day.", "B2B learning: leaderboards made shared progress visible across teams and classrooms.", "Reviewlab: earn credits by giving useful feedback, then spend them to request feedback on your own work."],
+    impact: [{value:"+73%",label:"long-term retention for learners with 7+ day streaks"},{value:"+32%",label:"weekly active users after B2B leaderboards"},{value:"+67%",label:"new Reviewlab users giving feedback in week one"}],
+    image: "/images/portfolio/case-cover.png",
+    imageAlt: "Gamification concept screens from Mondly and Reviewlab"
+  } : null;
+
   return (
     <article className="min-h-screen bg-[#F5F4F0] pt-24 pb-24">
       <div className="mx-auto max-w-[1200px] px-6">
@@ -81,22 +97,22 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
                 className="text-[12px] font-medium uppercase tracking-[0.2em]"
                 style={{ color: "var(--color-muted)" }}
               >
-                Deliverables
+                Case type
               </p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full px-3 py-1.5 text-[13px] font-medium tracking-wide"
-                    style={{ color: "var(--color-muted)", backgroundColor: "var(--color-muted-bg)" }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <p className="case-type-label mt-2">{project.caseType}</p>
             </div>
           </div>
         </header>
+        {story && (
+          <div className="case-story">
+            <div className="case-art"><img src={story.image} alt={story.imageAlt} /></div>
+            <section className="case-copy-block"><p className="eyebrow">The challenge</p><h2>Start with what people need.</h2><p>{story.context}</p></section>
+            <section className="case-quote"><span>What research made clear</span><blockquote>{story.insight}</blockquote></section>
+            <section className="case-copy-block"><p className="eyebrow">The approach</p><h2>Design the system around progress.</h2><ul>{story.approach.map((point) => <li key={point}>{point}</li>)}</ul></section>
+            <section className="case-results"><p className="eyebrow">Measured impact</p><div>{story.impact.map((item) => <article key={item.label}><strong>{item.value}</strong><span>{item.label}</span></article>)}</div><p className="case-note">Results are from the experiments and launches described in the original case study.</p></section>
+          </div>
+        )}
+        {!story && project.image && <div className="case-art case-art-single"><img src={project.image} alt={project.imageAlt ?? ""} /></div>}
         {nextProject && (
           <ScrollReveal className="mt-24">
             <RevealItem>

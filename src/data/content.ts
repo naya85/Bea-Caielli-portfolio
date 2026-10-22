@@ -180,9 +180,11 @@ export interface Project {
   company: string;
   description: string;
   tags: string[];
+  caseType: "feature" | "strategy" | "article";
   /** Year shown as eyebrow (e.g. "2024") */
   year: string;
   image?: string;
+  imageAlt?: string;
   link?: string;
 }
 
@@ -190,10 +192,13 @@ export const projects: Project[] = [
   {
     slug: "listen-repeat",
     title: "Listen and Repeat",
+    caseType: "feature",
     company: "Mondly by Pearson",
     year: "2024",
     description:
-      "Shifting Mondly from \"test first\" to \"teach first\": a redesign of the core learning experience for Mondly users",
+      "A clearer path from first words to confident practice. I turned Mondly’s disconnected speaking feature into a guided lesson moment, without rebuilding the whole product.",
+    image: "/images/portfolio/listen-repeat.png",
+    imageAlt: "Two Mondly learning screens showing guided language practice",
     tags: [
       "EdTech",
       "Mobile",
@@ -204,27 +209,56 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "courseware-companion",
-    title: "Courseware Companion",
-    company: "Mondly by Pearson",
+    slug: "postpone-renewal-date",
+    title: "More room to keep learning",
+    caseType: "feature",
+    company: "Preply",
+    year: "2022",
+    description:
+      "A flexible renewal date gave learners time to use the lessons they had already paid for—and helped turn cancellation intent into continued learning.",
+    image: "/images/portfolio/postpone-renewal.png",
+    imageAlt: "Preply subscription renewal date controls on mobile",
+    tags: ["Retention", "Subscriptions", "Research", "Experimentation"],
+  },
+  {
+    slug: "gamification",
+    title: "Why gamification works (when done right)",
+    caseType: "article",
+    company: "Mondly by Pearson · Reviewlab",
+    year: "2025",
+    description:
+      "A practical reflection on designing mechanics around real user progress—from language-learning streaks to a fair feedback economy for indie makers.",
+    image: "/images/portfolio/case-cover.png",
+    imageAlt: "Product screens from the gamification case study",
+    tags: ["Product Strategy", "Behaviour Design", "EdTech", "SaaS"],
+  },
+  {
+    slug: "from-mondly-to-language-plus",
+    title: "From Mondly to Language+",
+    caseType: "strategy",
+    company: "Pearson · Language+",
     year: "2026",
     description:
-      "Led the end-to-end design strategy to reposition Pearson's Mondly from a consumer app into an institutional product — building the research infrastructure, validating the market opportunity, and designing the teacher experience that makes adoption possible.",
+      "Turning a 100M+ download consumer app into coursebook-connected English practice for schools—from evidence-led vision to a live product and classroom pilot.",
+    image: "/images/case-studies/language-plus/5-dashboard.jpg",
+    imageAlt: "Teacher dashboard concept for Pearson Language+",
     tags: [
-      "Discovery",
-      "Research infrastructure",
-      "Market strategy",
-      "Teacher Dashboard",
-      "B2B2C",
+      "Product Strategy",
+      "Teacher Research",
+      "Learning Design",
+      "Prototyping",
     ],
   },
   {
-    slug: "pearson-language-teacher-dashboard",
-    title: "Pearson Language+ & Teacher Dashboard",
-    company: "Mondly by Pearson",
-    year: "2024",
+    slug: "ai-assisted-product-design",
+    title: "Designing with AI: from prototype to product",
+    caseType: "article",
+    company: "Pearson · Language+",
+    year: "2026",
     description:
-      "Staff-level product strategy and design for the Pearson Language+ app. Shipped a production Teacher Dashboard (React, TypeScript, Tailwind, Firebase) via Cursor-based AI prototyping; enabled hyper-realistic usability testing and C-suite alignment.",
+      "How I used AI-assisted coding and research synthesis to build, test and ship a realistic teacher dashboard—while keeping product judgment and user evidence at the center.",
+    image: "/images/case-studies/language-plus/5-dashboard.jpg",
+    imageAlt: "Pearson Language+ teacher dashboard prototype",
     tags: [
       "Product Strategy",
       "AI Prototyping",
@@ -236,6 +270,7 @@ export const projects: Project[] = [
   {
     slug: "reviewlab-platform",
     title: "Reviewlab Platform",
+    caseType: "feature",
     company: "Reviewlab",
     year: "2024",
     description:
@@ -251,6 +286,7 @@ export const projects: Project[] = [
   {
     slug: "tutor-marketplace-optimization",
     title: "Tutor Marketplace Optimization",
+    caseType: "feature",
     company: "Preply",
     year: "2023",
     description:
@@ -266,6 +302,7 @@ export const projects: Project[] = [
   {
     slug: "growth-retention-design",
     title: "Growth & Retention Design",
+    caseType: "strategy",
     company: "Lingoda GmbH",
     year: "2021",
     description:
@@ -281,6 +318,7 @@ export const projects: Project[] = [
   {
     slug: "invoice-management-innovation",
     title: "Invoice Management Innovation",
+    caseType: "feature",
     company: "Billie GmbH",
     year: "2020",
     description:
@@ -290,6 +328,7 @@ export const projects: Project[] = [
   {
     slug: "savebetter-banking-white-label",
     title: "Savebetter Banking App & White-Label System",
+    caseType: "strategy",
     company: "Deposit Solutions GmbH",
     year: "2020",
     description:
