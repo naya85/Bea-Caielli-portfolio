@@ -616,11 +616,13 @@ html[data-gate="open"] .site-header,html[data-gate="welcome"] .site-header { opa
 html[data-gate="through"] .hero-shell { transition:none; }
 .gate { position:fixed; z-index:200; inset:0; display:grid; place-items:center; padding:24px 16px; color:var(--ui-ink); background-color:#efe9f8; background-image:radial-gradient(circle at var(--gate-x,50%) var(--gate-y,50%),rgba(172,151,235,.42),transparent 38%),radial-gradient(ellipse at 22% 82%,rgba(183,205,239,.34),transparent 42%),radial-gradient(ellipse at 90% 90%,rgba(232,179,222,.3),transparent 36%); clip-path:circle(0 at var(--gate-x,50%) var(--gate-y,50%)); transition:clip-path 900ms cubic-bezier(.7,0,.2,1),opacity 600ms ease,transform 750ms cubic-bezier(.5,0,.2,1); }
 .gate[data-phase="open"] { clip-path:circle(150vmax at var(--gate-x,50%) var(--gate-y,50%)); }
-.gate[data-phase="closing"] { transition-duration:600ms; }
+/* Leaving the gate dissolves it in place (no collapsing circle), while the hero zooms back underneath. */
+.gate[data-phase="closing"],.gate[data-phase="unlocked"] { clip-path:circle(150vmax at var(--gate-x,50%) var(--gate-y,50%)); opacity:0; pointer-events:none; }
+.gate[data-phase="closing"] { transition:opacity 600ms ease; }
 .gate[data-phase="welcome"] { clip-path:circle(150vmax at var(--gate-x,50%) var(--gate-y,50%)); }
-.gate[data-phase="unlocked"] { transition:clip-path 1000ms cubic-bezier(.65,0,.35,1); }
+.gate[data-phase="unlocked"] { transition:opacity 900ms cubic-bezier(.4,0,.2,1) 100ms; }
 .gate[data-phase="welcome"] .gate-panel { opacity:1; transform:scale(1); }
-.gate[data-phase="unlocked"] .gate-panel { opacity:0; transform:scale(.8); transition:opacity 450ms ease,transform 700ms cubic-bezier(.65,0,.35,1); }
+.gate[data-phase="unlocked"] .gate-panel { opacity:0; transform:scale(.96); transition:opacity 400ms ease,transform 700ms cubic-bezier(.4,0,.2,1); }
 .gate[data-phase="welcome"] .gate-submit,.gate[data-phase="unlocked"] .gate-submit { color:#fff; background:var(--ui-lavender); box-shadow:0 0 0 6px rgba(166,139,224,.25); opacity:1; cursor:default; animation:gate-pop 420ms cubic-bezier(.2,.8,.2,1); }
 .gate[data-phase="welcome"] .gate-form input { border-color:var(--ui-lavender); }
 html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header { transition-duration:1000ms,800ms,1000ms; transition-delay:120ms; }
