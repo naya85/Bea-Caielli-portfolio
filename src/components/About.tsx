@@ -135,12 +135,12 @@ export function About() {
                   &nbsp;CURIOUS ABOUT THE 80S OBSESSION? PRESS ANY KEY
                 </button>
                 <p>
-                  I share my apartment downtown with my partner and Gatsby, a ragdoll cat who is
-                  genuinely the fluffiest loveball around.
+                  I share my apartment downtown with my husband and our two cats: Gatsby, a
+                  ragdoll who is genuinely the fluffiest loveball around, and Bagheera, the
+                  newest member of the family.
                 </p>
                 <p>
-                  I am passionate about mentoring young designers (whether at work or
-                  on ADPList), I co-founded Reviewlab (a SaaS tool for indie makers)
+                  I am passionate about mentoring young designers, I co-founded Reviewlab (a SaaS tool for indie makers)
                   and thanks to AI, I&rsquo;m getting shamelessly excited at building
                   digital things all on my own.
                 </p>
