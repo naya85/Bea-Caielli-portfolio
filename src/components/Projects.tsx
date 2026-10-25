@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { orderedProjects } from "@/data/content";
 import { ParallaxImage } from "@/components/ParallaxImage";
+import { AiWorkflowDiagram } from "@/components/AiWorkflowDiagram";
 
 export function Projects() {
   return (
@@ -17,7 +18,9 @@ export function Projects() {
               key={project.slug}
             >
               <div className="project-image">
-                {project.image ? (
+                {project.illustration === "ai-workflow" ? (
+                  <AiWorkflowDiagram label={project.imageAlt ?? project.title} />
+                ) : project.image ? (
                   <ParallaxImage
                     src={project.image}
                     alt={project.imageAlt ?? `${project.title} project preview`}
@@ -33,6 +36,7 @@ export function Projects() {
                   {project.company && <span className="project-company">{project.company}</span>}
                   <span className="project-year">{project.year}</span>
                   <span className="project-kind">{project.caseType}</span>
+                  {project.status === "in-progress" && <span className="project-status">In progress</span>}
                 </div>
                 <p>{project.description}</p>
                 <span className="ui-button ui-button--tertiary project-view-link">View case study <span aria-hidden="true">↗</span></span>

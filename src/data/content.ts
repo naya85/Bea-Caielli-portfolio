@@ -183,10 +183,16 @@ export interface Project {
   caseType: "feature" | "strategy" | "article";
   /** Year shown as eyebrow (e.g. "2024") */
   year: string;
+  /** Year range shown on the case study page when it spans more than one year (e.g. "2025–2026"). */
+  period?: string;
+  /** Still being written; shown with an "In progress" label but stays readable. */
+  status?: "in-progress";
   /** Keep draft work in the source without showing it publicly. */
   hidden?: boolean;
   image?: string;
   imageAlt?: string;
+  /** A coded, animated illustration shown in place of `image`. */
+  illustration?: "ai-workflow";
   link?: string;
 }
 
@@ -240,6 +246,8 @@ export const projects: Project[] = [
     caseType: "strategy",
     company: "Pearson",
     year: "2026",
+    period: "2025–2026",
+    status: "in-progress",
     description:
       "Turning a 100M+ download consumer app into coursebook-connected English practice for schools—from evidence-led vision to a live product and classroom pilot.",
     image: "/images/portfolio/language-plus-dashboard-trimmed.png",
@@ -250,6 +258,18 @@ export const projects: Project[] = [
       "Learning Design",
       "Prototyping",
     ],
+  },
+  {
+    slug: "how-i-use-ai-at-work",
+    title: "How I actually use AI at work",
+    caseType: "article",
+    company: "",
+    year: "2026",
+    description:
+      "AI is a teammate at every step of my design process. How it fits in, how my team keeps its context shared and lean, and the guardrails we use to ship AI tools safely.",
+    illustration: "ai-workflow",
+    imageAlt: "Diagram of the design process as a loop of seven steps around a shared team repository",
+    tags: ["AI", "Design Process", "Knowledge Management", "Prototyping"],
   },
   {
     slug: "reviewlab-platform",

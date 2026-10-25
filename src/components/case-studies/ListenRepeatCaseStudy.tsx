@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { type ReactNode } from "react";
 import { listenRepeatCaseStudy as c } from "@/data/case-studies/listen-repeat";
 import { type Project } from "@/data/content";
 import { RevealItem, ScrollReveal } from "@/components/ScrollReveal";
+import { PhoneVideo } from "@/components/PhoneVideo";
+import { CaseStudyBack, CaseStudyLabel, CaseStudyNext } from "@/components/case-studies/CaseStudyChrome";
 
 interface ListenRepeatCaseStudyProps {
   project: Project;
@@ -10,7 +11,7 @@ interface ListenRepeatCaseStudyProps {
 }
 
 function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="lr-eyebrow">{children}</p>;
+  return <span className="lr-eyebrow">{children}</span>;
 }
 
 function Figure({ src, alt, caption, className = "" }: { src: string; alt: string; caption?: string; className?: string }) {
@@ -22,17 +23,11 @@ function Figure({ src, alt, caption, className = "" }: { src: string; alt: strin
   );
 }
 
-export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProps) {
+export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCaseStudyProps) {
   return (
     <article className="case-study-page listen-repeat-page min-h-screen pb-24">
-      <section className="lr-hero" aria-label="Listen and repeat product screens">
-        <div className="lr-hero-glow" aria-hidden="true" />
-        <Link href="/" className="lr-back ui-button ui-button--tertiary" aria-label="Back to homepage">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-            <path d="M10.5 3.5 6 8l4.5 4.5M6.25 8h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Back to homepage
-        </Link>
+      <section className="lr-hero dot-grid-backdrop" aria-label="Listen and repeat product screens">
+        <CaseStudyBack className="lr-back" />
         <img
           className="lr-hero-phones"
           src={c.images.heroProduct}
@@ -43,8 +38,8 @@ export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProp
 
       <div className="lr-container">
         <header className="lr-intro">
+          <CaseStudyLabel project={project} />
           <h1 className="ui-heading ui-heading--page">{c.hero.title}</h1>
-          <p className="lr-subtitle">{c.hero.subtitle}</p>
         </header>
 
         <ScrollReveal className="lr-story" stagger>
@@ -52,10 +47,10 @@ export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProp
             <section className="lr-tldr" aria-labelledby="lr-tldr-heading">
               <Eyebrow>Case study overview</Eyebrow>
               <h2 id="lr-tldr-heading" className="ui-heading ui-heading--subsection">TL;DR</h2>
-              <p className="lr-lede">{c.tldr}</p>
+              <p className="lr-lede case-emphasis">{c.tldr}</p>
               <aside className="lr-takeaway">
                 <span>The key takeaway</span>
-                <p>{c.keyTakeaway}</p>
+                <p className="case-emphasis">{c.keyTakeaway}</p>
               </aside>
             </section>
           </RevealItem>
@@ -71,7 +66,7 @@ export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProp
                 {c.problem.quotes.map((quote, index) => (
                   <blockquote key={quote} className={`lr-quote lr-quote--${index + 1}`}>
                     <span aria-hidden="true">“</span>
-                    <p>{quote}</p>
+                    <p className="case-emphasis">{quote}</p>
                   </blockquote>
                 ))}
               </div>
@@ -163,6 +158,11 @@ export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProp
                 <h2 className="ui-heading ui-heading--subsection">A guided lesson, from the first prompt to speaking aloud.</h2>
                 <p>The redesigned flow introduces vocabulary first, lets learners hear and repeat each word, and then moves into practice. It stays optional, so learners can still go directly to quizzes.</p>
               </div>
+              <PhoneVideo
+                src="/videos/listen-repeat-walkthrough.mp4"
+                label="Screen recording of the Listen and repeat prototype"
+                caption="A click-through of the prototype."
+              />
               <Figure
                 src={c.images.mockups}
                 alt="Nine mobile screens showing the complete guided practice and pronunciation experience"
@@ -191,20 +191,9 @@ export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProp
           </RevealItem>
         </ScrollReveal>
 
-        {nextProject && (
-          <RevealItem>
-            <footer className="lr-next-project">
-              <Eyebrow>Next case study</Eyebrow>
-              <h2 className="ui-heading ui-heading--section">{nextProject.title}</h2>
-              <Link href={`/work/${nextProject.slug}`} className="ui-button ui-button--tertiary">
-                View project
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-                  <path d="M4 10L10 4M10 4H5.5M10 4V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </footer>
-          </RevealItem>
-        )}
+        <RevealItem>
+          <CaseStudyNext project={nextProject} />
+        </RevealItem>
       </div>
     </article>
   );

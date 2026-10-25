@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState, type FormEvent } from "react"
 import { useRouter, useSearchParams } from "next/navigation";
 import { unlockPortfolio } from "@/app/actions";
 import { siteConfig } from "@/data/content";
+import { scrollToSection } from "@/lib/smoothScroll";
 
 type Phase = "closed" | "opening" | "open" | "closing" | "welcome" | "unlocked" | "through";
 
@@ -119,7 +120,7 @@ export function PasswordGate({ locked }: { locked: boolean }) {
       await wait(UNLOCKED_MS);
       setPhase("closed");
       window.history.replaceState(null, "", `/${href}`);
-      requestAnimationFrame(() => section?.scrollIntoView({ behavior: "smooth", block: "start" }));
+      requestAnimationFrame(() => section && scrollToSection(section.id));
     } else {
       setPhase("through");
       window.setTimeout(() => router.push(href), THROUGH_MS / 2);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./global.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SmoothAnchorScroll } from "@/components/SmoothAnchorScroll";
 
 export const metadata: Metadata = {
   title: "Beatrice Caielli — Senior Product Designer",
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <SmoothAnchorScroll />
       </body>
     </html>
   );

@@ -36,7 +36,7 @@ export function About() {
 
   return (
     <ScrollFadeSection
-      id="about"
+      id="principles"
       className="about-section scroll-mt-24 pt-0 pb-[96px]"
       aria-labelledby="about-heading"
     >
@@ -53,26 +53,38 @@ export function About() {
                 </h2>
               </FadeAtTop>
             </RevealItem>
-            <div
-              className="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-3 [&>*:first-child]:border-b-0 [&>*:nth-child(2)]:border-b-0 [&>*:nth-child(3)]:lg:border-b-0 [&>*:nth-child(n+5)]:sm:border-b-0 [&>*:nth-child(n+4)]:lg:border-b-0"
-            >
-              {corePrinciples.map((principle, i) => (
-                <RevealItem key={principle.title} delay={i * 0.06}>
-                  <FadeAtTop>
-                    <article
-                      className={`flex min-h-[280px] flex-col border-b pt-8 px-8 pb-5 ${i >= 4 ? "sm:border-b-0" : ""} ${i >= 3 ? "lg:border-b-0" : ""} ${i === 1 || i === 4 ? "lg:border-l lg:border-r" : ""}`}
-                      style={{ borderColor: "var(--color-border)" }}
-                    >
-                      <h3 className="ui-heading ui-heading--small">
-                        {principle.title}
-                      </h3>
-                      <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                        {principle.description}
-                      </p>
-                    </article>
-                  </FadeAtTop>
-                </RevealItem>
-              ))}
+            {/* Drafting details shared with the hero portrait: fig. label, corner marks and lavender accents. */}
+            <div className="principles-drawing mt-12">
+              <div className="principles-dimension" aria-hidden="true"><span>fig. 02</span></div>
+              <div className="principles-frame">
+                <span className="principles-accent" aria-hidden="true" />
+                <span className="principles-ring" aria-hidden="true" />
+                {["tl", "tr", "bl", "br"].map((corner) => (
+                  <span key={corner} className={`principles-mark principles-mark--${corner}`} aria-hidden="true" />
+                ))}
+                <div
+                  className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 [&>*:first-child]:border-b-0 [&>*:nth-child(2)]:border-b-0 [&>*:nth-child(3)]:lg:border-b-0 [&>*:nth-child(n+5)]:sm:border-b-0 [&>*:nth-child(n+4)]:lg:border-b-0"
+                >
+                  {corePrinciples.map((principle, i) => (
+                    <RevealItem key={principle.title} delay={i * 0.06}>
+                      <FadeAtTop>
+                        <article
+                          className={`flex min-h-[280px] flex-col border-b pt-8 px-8 pb-5 ${i >= 4 ? "sm:border-b-0" : ""} ${i >= 3 ? "lg:border-b-0" : ""} ${i === 1 || i === 4 ? "lg:border-l lg:border-r" : ""}`}
+                          style={{ borderColor: "var(--color-border)" }}
+                        >
+                          <span className="principle-index" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                          <h3 className="ui-heading ui-heading--small">
+                            {principle.title}
+                          </h3>
+                          <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
+                            {principle.description}
+                          </p>
+                        </article>
+                      </FadeAtTop>
+                    </RevealItem>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -80,7 +92,7 @@ export function About() {
         {/* Bio block */}
         <RevealItem delay={0.2}>
           <FadeAtTop>
-            <div className="mt-24 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-16">
+            <div id="about" className="mt-24 flex scroll-mt-32 flex-col gap-8 lg:flex-row lg:items-start lg:gap-16">
               <div className="lg:min-w-0 lg:max-w-[45%] lg:shrink-0">
                 <h2 id="about-heading" className={sectionHeadingClass} style={{ marginTop: 0 }}>
                   {beforeAccent}
@@ -134,26 +146,6 @@ export function About() {
                 </p>
               </div>
             </div>
-          </FadeAtTop>
-        </RevealItem>
-
-        <RevealItem delay={0.3}>
-          <FadeAtTop>
-            <section className="mt-24 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16" aria-labelledby="ai-practice-heading">
-              <div>
-                <h2 id="ai-practice-heading" className={sectionHeadingClass} style={{ marginTop: 0 }}>
-                  I use AI to make ideas testable sooner.
-                </h2>
-              </div>
-              <div className="max-w-[620px] space-y-5">
-                <p className="text-base leading-relaxed text-[#62635e]">
-                  At Pearson, I used Cursor to build a working teacher dashboard with React, TypeScript, Tailwind and Firebase, then partnered with engineering to bring it into production. I also use language models to speed up research synthesis.
-                </p>
-                <p className="text-base leading-relaxed text-[#62635e]">
-                  AI helps me make and organize faster; I stay accountable for framing the problem, interpreting teacher evidence and making the product decisions. Testing with teachers in four countries helped us refine signals and simplify student onboarding.
-                </p>
-              </div>
-            </section>
           </FadeAtTop>
         </RevealItem>
       </ScrollReveal>
