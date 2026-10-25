@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeroPortrait } from "@/components/HeroPortrait";
 import { siteConfig } from "@/data/content";
 import { RotatingRole } from "@/components/RotatingRole";
 
@@ -6,6 +7,7 @@ export function Hero() {
   return (
     <section className="hero-shell" aria-label="Introduction">
       <div className="hero-inner">
+        <HeroPortrait />
         <div className="hero-copy">
           <h1 className="ui-heading ui-heading--display">
             Hi, I am
