@@ -15,7 +15,7 @@ export function Contact() {
       <ScrollReveal className="mx-auto max-w-[1200px] px-6" stagger={false}>
         <RevealItem>
           <FadeAtTop>
-            <div className="mx-auto max-w-[680px] text-center lg:mx-[120px] lg:max-w-none">
+            <div className="dot-grid-backdrop mx-auto max-w-[680px] text-center lg:mx-[120px] lg:max-w-none">
               <h2
                 id="contact-heading"
                 className="ui-heading ui-heading--page"

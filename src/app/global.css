@@ -212,6 +212,11 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 .project-row .project-image { height:clamp(320px,34vw,460px); aspect-ratio:auto; overflow:visible; border-radius:20px; background:transparent; }
 .project-row:not(.project-row-reversed) .project-image,.project-row.project-row-reversed .project-image { width:100%; margin:0; }
 .project-row .project-image:after { display:none; }
+/* Same drafting dot grid as the hero portrait, spreading a little past its element and fading into the page. */
+.project-row .project-image::before,.dot-grid-backdrop::before { content:""; position:absolute; z-index:0; inset:-10% -8%; pointer-events:none; background-image:radial-gradient(circle at 8px 8px,rgba(89,75,135,.32) 1.1px,transparent 1.6px); background-size:16px 16px; -webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%); mask-image:radial-gradient(closest-side,#000 62%,transparent 100%); }
+.project-row .project-image img { z-index:1; }
+.dot-grid-backdrop { position:relative; isolation:isolate; }
+.dot-grid-backdrop::before { z-index:-1; inset:-22% -6%; }
 .project-row .project-image img { object-fit:contain; transform:scale(1.08); filter:drop-shadow(0 14px 20px rgba(22,28,34,.14)); }
 .project-details { max-width:470px; }
 .project-kind { display:inline-flex; align-items:center; padding:5px 10px; border:1px solid #ded5ef; border-radius:999px; color:#5C3E9B; background:#f3eff9; font-size:11px; font-weight:700; letter-spacing:.06em; line-height:1; text-transform:capitalize; }
