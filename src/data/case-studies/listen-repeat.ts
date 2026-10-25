@@ -66,9 +66,9 @@ export const listenRepeatCaseStudy = {
       body: "The ideal solution? An AI tutor, progressive vocabulary, spaced repetition, pronunciation feedback. But that was months of work, and in the meantime learners would still be dropping off every day.",
     },
     keyQuestion: {
-      label: "So I reframed the question:",
+      label: "So I reframed the question",
       question:
-        "how can we use and repurpose what we already have to deliver immediate value without committing to a massive build?",
+        "How can we use and repurpose what we already have to deliver immediate value, without committing to a massive build?",
     },
   },
   solution: {
@@ -117,7 +117,7 @@ export const listenRepeatCaseStudy = {
   },
   images: {
     heroProduct: "/images/case-studies/listen-repeat/hero-product.png",
-    previousExperience: "/images/case-studies/listen-repeat/previous-experience.png",
+    previousExperience: "/images/case-studies/listen-repeat/previous-experience-screens.png",
     solutionExploration: "/images/case-studies/listen-repeat/solution-exploration.png",
     flowSteps: "/images/case-studies/listen-repeat/flow-steps.png",
     userFlow: "/images/case-studies/listen-repeat/user-flow.png",

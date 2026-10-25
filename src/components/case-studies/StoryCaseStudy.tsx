@@ -56,7 +56,7 @@ function Block({ block }: { block: StoryBlock }) {
         </div>
       );
     case "quote":
-      return <blockquote className="story-quote">{block.text}</blockquote>;
+      return <blockquote className="story-quote case-quote">{block.text}</blockquote>;
     case "cards":
       return (
         <div className="story-cards">
@@ -127,7 +127,7 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
           {story.takeaway && (
             <aside className="story-takeaway">
               <span className="story-card-eyebrow">The key takeaway</span>
-              <p className="case-emphasis">{story.takeaway}</p>
+              <p>{story.takeaway}</p>
             </aside>
           )}
         </header>

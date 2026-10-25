@@ -22,7 +22,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
 
 function Section({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
   return (
-    <section className="my-20 grid gap-8 border-t border-black/10 pt-8 md:grid-cols-[0.7fr_1.3fr]">
+    <section className="my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
       <div><span className="case-eyebrow">{eyebrow}</span><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
       <div className="space-y-5 text-base leading-relaxed text-black/70">{children}</div>
     </section>
@@ -38,7 +38,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
           <CaseStudyLabel project={project} />
           <h1 className="ui-heading ui-heading--page mt-5">From Mondly to Language+</h1>
           <p className="case-emphasis mt-6 max-w-[760px] text-black/65">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
-          <div className="mt-9 grid gap-6 border-y border-black/10 py-6 sm:grid-cols-3">
+          <div className="mt-9 grid gap-6 sm:grid-cols-3">
             <div><span className="case-eyebrow">My role</span><p className="mt-2">Senior Product Designer · strategy, research, UX</p></div>
             <div><span className="case-eyebrow">Team</span><p className="mt-2">Product, learning design, engineering, sales</p></div>
             <div><span className="case-eyebrow">Scope</span><p className="mt-2">Vision, student practice, teacher tools, pilot</p></div>
@@ -58,9 +58,9 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <Section eyebrow="Research" title="We grounded the vision in teachers’ everyday constraints.">
           <p>I helped shape the research plan and ran 12 of 13 interviews with 23 teachers across seven countries. The recurring need was clear: students forget between lessons, and practice has to follow the coursebook if teachers are going to recommend it.</p>
           <div className="grid gap-3 py-3 sm:grid-cols-3">
-            <div className="border-t border-black/10 pt-5"><strong className="block text-3xl">23 / 23</strong><span className="mt-2 block text-base">said students forget between lessons</span></div>
-            <div className="border-t border-black/10 pt-5"><strong className="block text-3xl">15 / 23</strong><span className="mt-2 block text-base">rated coursebook alignment 10/10</span></div>
-            <div className="border-t border-black/10 pt-5"><strong className="block text-3xl">22 / 23</strong><span className="mt-2 block text-base">said teacher visibility was critical</span></div>
+            <div><strong className="block text-3xl">23 / 23</strong><span className="mt-2 block text-base">said students forget between lessons</span></div>
+            <div><strong className="block text-3xl">15 / 23</strong><span className="mt-2 block text-base">rated coursebook alignment 10/10</span></div>
+            <div><strong className="block text-3xl">22 / 23</strong><span className="mt-2 block text-base">said teacher visibility was critical</span></div>
           </div>
           <p>Those findings shaped the Memory Challenge, unit-based practice, a teacher dashboard and a quick setup path. They also helped us make deliberate scope calls: light gamification for learners 16+, and no AI at launch while teacher trust was split.</p>
         </Section>
@@ -91,7 +91,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         </Section>
         <Figure src="7-onboarding.jpg" alt="Language+ onboarding version two concepts" caption="Testing helped identify where the scalable onboarding flow still needed clearer language and fallback." />
 
-        <section className="my-20 border-y border-black/10 py-10">
+        <section className="my-20">
           <span className="case-eyebrow">What moved</span>
           <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {RESULTS.map(([value, label]) => <div key={value}><strong className="text-3xl md:text-4xl">{value}</strong><p className="mt-3 text-sm leading-relaxed text-black/60">{label}</p></div>)}
@@ -99,7 +99,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
           <p className="mt-9 max-w-[760px] text-sm leading-relaxed text-black/55">Language+ 1.0 was ready at the end of June 2026 and launched in Turkey, Switzerland, the Netherlands, Belgium, Luxembourg and Ukraine in August. The reported sales lift applies to the regions and coursebooks where it launched.</p>
         </section>
 
-        <blockquote className="case-emphasis my-20 max-w-[850px] border-l-2 border-[#7353B8] pl-6 text-[#1a1a1a]">“A vision needs evidence before it needs polish. Postponing the first leadership pitch felt like a setback. It turned out to be the reason the vision held up.”</blockquote>
+        <blockquote className="case-quote case-emphasis my-20 max-w-[850px] text-[#1a1a1a]">A vision needs evidence before it needs polish. Postponing the first leadership pitch felt like a setback. It turned out to be the reason the vision held up.</blockquote>
 
         <CaseStudyNext project={nextProject} />
       </div>

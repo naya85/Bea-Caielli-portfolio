@@ -50,7 +50,7 @@ export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCase
               <p className="lr-lede case-emphasis">{c.tldr}</p>
               <aside className="lr-takeaway">
                 <span>The key takeaway</span>
-                <p className="case-emphasis">{c.keyTakeaway}</p>
+                <p>{c.keyTakeaway}</p>
               </aside>
             </section>
           </RevealItem>
@@ -65,8 +65,7 @@ export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCase
               <div className="lr-quotes" aria-label="Learner feedback">
                 {c.problem.quotes.map((quote, index) => (
                   <blockquote key={quote} className={`lr-quote lr-quote--${index + 1}`}>
-                    <span aria-hidden="true">“</span>
-                    <p className="case-emphasis">{quote}</p>
+                    <p className="case-quote case-emphasis">{quote}</p>
                   </blockquote>
                 ))}
               </div>
@@ -106,9 +105,10 @@ export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCase
                 ))}
               </div>
               <div className="lr-scope">
-                <Eyebrow>Limiting the scope</Eyebrow>
+                <h3 className="ui-heading ui-heading--small">{c.research.limitingScope.heading}</h3>
                 <p>{c.research.limitingScope.body}</p>
-                <strong>{c.research.keyQuestion.question}</strong>
+                <Eyebrow>{c.research.keyQuestion.label}</Eyebrow>
+                <blockquote className="lr-key-question case-emphasis">{c.research.keyQuestion.question}</blockquote>
               </div>
             </section>
           </RevealItem>
