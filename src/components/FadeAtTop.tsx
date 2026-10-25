@@ -4,8 +4,8 @@ import { useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 
 const MIN_OPACITY = 0.35; /* never fully hide when scrolling out */
-/** Scroll distance over which progress goes 0→1 (multiple of element height). Larger = gentler shrink. */
-const SCROLL_RANGE = 1;
+/** Fraction of the viewport height (from the top) the block's bottom edge travels through while fading. */
+const FADE_ZONE = 0.3;
 
 function lerp(t: number, a: number, b: number) {
   return a + (b - a) * t;
@@ -29,10 +29,10 @@ export function FadeAtTop({ children, className = "" }: FadeAtTopProps) {
 
     const onScroll = () => {
       const rect = el.getBoundingClientRect();
-      const height = el.offsetHeight;
-      const progress =
-        rect.top >= 0 ? 0 : Math.min(1, -rect.top / (height * SCROLL_RANGE));
-      const t = progress <= 0.25 ? 0 : (progress - 0.25) / 0.75;
+      // Only fade once the block's last line is in the top FADE_ZONE of the viewport,
+      // so tall sections stay fully readable while any of them is still in view.
+      const fadeZone = window.innerHeight * FADE_ZONE;
+      const t = Math.min(1, Math.max(0, 1 - rect.bottom / fadeZone));
       const opacity = lerp(t, 1, MIN_OPACITY);
       const scale = lerp(t, 1, 0.95);
       el.style.opacity = String(opacity);

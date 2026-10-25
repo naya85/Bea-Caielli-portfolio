@@ -58,8 +58,8 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
     <article className="case-study-page min-h-screen pt-24 pb-24">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="mb-12">
-          <Link href="/" className="ui-button ui-button--tertiary">
-            ← Back to homepage
+          <Link href="/#work" className="ui-button ui-button--tertiary">
+            ← Back to selected work
           </Link>
         </div>
         <header ref={heroSectionRef}>
@@ -82,6 +82,11 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
             </p>
           </div>
         </header>
+        {story && (
+          <div className="case-results-glance" aria-label="Results at a glance">
+            {story.impact.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+          </div>
+        )}
         {story && (
           <div className="case-story">
             <div className="case-art"><img src={story.image} alt={story.imageAlt} /></div>

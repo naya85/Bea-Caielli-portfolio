@@ -272,6 +272,9 @@ export const projects: Project[] = [
 
 export const publishedProjects = projects.filter((project) => !project.hidden);
 
+/** Published projects newest first — the order used on the homepage and for "next case study" links. */
+export const orderedProjects = [...publishedProjects].sort((a, b) => Number(b.year) - Number(a.year));
+
 /** My core principles (6 cards in 2x3 grid) */
 export const corePrinciples = [
   {

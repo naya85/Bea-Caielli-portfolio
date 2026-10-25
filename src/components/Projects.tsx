@@ -1,10 +1,8 @@
 import Link from "next/link";
-import { publishedProjects } from "@/data/content";
+import { orderedProjects } from "@/data/content";
 import { ParallaxImage } from "@/components/ParallaxImage";
 
 export function Projects() {
-  const newestProjects = [...publishedProjects].sort((a, b) => Number(b.year) - Number(a.year));
-
   return (
     <section id="work" className="work-section">
       <div className="section-wrap">
@@ -12,7 +10,7 @@ export function Projects() {
           <h2 className="ui-heading ui-heading--section">Case studies</h2>
         </div>
         <div className="project-list">
-          {newestProjects.map((project, index) => (
+          {orderedProjects.map((project, index) => (
             <Link
               href={`/work/${project.slug}`}
               className={`project-row project-row-${project.slug}${index % 2 === 1 ? " project-row-reversed" : ""}`}

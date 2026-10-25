@@ -172,13 +172,11 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 .hero-kicker,.eyebrow { display:flex; align-items:center; gap:10px; color:#626762; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
 .status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#7353B8; box-shadow:0 0 15px rgba(115,83,184,.4); }
 .hero-copy h1 { max-width:1080px; margin:0 0 22px; }
-.hero-role-line { display:block; min-height:1em; }
-.hero-role-text { background:linear-gradient(105deg,#6846ad 0%,#7a5bb7 34%,#7858b7 59%,#6542a9 82%,#7353b8 100%); background-size:190% 100%; background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:role-gradient 7s ease-in-out infinite alternate; }
-.contact-shimmer { background:linear-gradient(105deg,#6846ad 0%,#7a5bb7 31%,#7858b7 49%,#7957bd 68%,#7353b8 100%); background-size:220% 100%; background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:contact-shimmer 5s ease-in-out infinite alternate; }
+.hero-role-line { display:block; min-height:1.1em; }
+.hero-role-text { display:inline-block; background:linear-gradient(105deg,#6846ad 0%,#7a5bb7 34%,#7858b7 59%,#6542a9 82%,#7353b8 100%); background-size:190% 100%; background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:role-swap .45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes role-swap { from { opacity:0; transform:translateY(.18em); } to { opacity:1; transform:translateY(0); } }
+.contact-shimmer { background:linear-gradient(105deg,#6846ad 0%,#7a5bb7 31%,#7858b7 49%,#7957bd 68%,#7353b8 100%); background-size:220% 100%; background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:contact-shimmer 5s ease-in-out 2 alternate; }
 @keyframes contact-shimmer { from { background-position:0% 50%; } to { background-position:100% 50%; } }
-.hero-role-text::after { content:""; display:inline-block; height:.78em; margin-left:.08em; border-right:.065em solid #8d70c8; vertical-align:-.04em; animation:role-caret .8s steps(1,end) infinite; }
-@keyframes role-gradient { from { background-position:0% 50%; } to { background-position:100% 50%; } }
-@keyframes role-caret { 50% { opacity:0; } }
 .hero-intro { max-width:550px; margin:0; color:#5f625e; font-size:16px; line-height:1.68; }
 .hero-actions { display:flex; align-items:center; gap:25px; margin-top:30px; }
 .cta-motion { transform:scale(1); box-shadow:0 0 0 rgba(115,83,184,0); transition:transform 240ms cubic-bezier(.2,.8,.2,1),box-shadow 240ms ease,background-color 220ms ease,color 220ms ease,border-color 220ms ease; }
@@ -317,8 +315,6 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
-  .hero-role-text { background-position:0 50%; }
-  .hero-role-text::after { display:none; }
 }
 
 /* --- 80S EASTER EGG (synth-screen) --- */
@@ -342,7 +338,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 }
 .crt-prompt .crt-prompt-cursor {
   display: inline-block;
-  animation: crtBlink 1s step-end infinite;
+  animation: crtBlink 1s step-end 6;
 }
 @keyframes promptFadeIn {
   to {
@@ -682,22 +678,24 @@ main figcaption {
     animation-timeline: view();
     animation-range: entry 0% entry 28%;
   }
-  .case-study-page :is(figure,.case-art) img {
-    animation: case-study-image-drift linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 42%;
-  }
   @keyframes case-study-enter {
     from { opacity: .55; translate: 0 24px; }
     to { opacity: 1; translate: 0 0; }
-  }
-  @keyframes case-study-image-drift {
-    from { scale: 1.035; translate: 0 14px; }
-    to { scale: 1; translate: 0 -8px; }
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .case-study-page > div > :is(figure,section,blockquote,footer),
   .case-study-page .case-story > :is(figure,section,blockquote,footer),
   .case-study-page :is(figure,.case-art) img { animation: none !important; }
+}
+
+/* --- Case study: results up front + closing contact --- */
+.case-results-glance { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; margin-top:28px; padding:22px 24px; border-radius:20px; background:rgba(255,255,255,.7); }
+.case-results-glance:has(> :nth-child(3):last-child) { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.case-results-glance strong { display:block; color:#171719; font-size:clamp(24px,2.6vw,32px); line-height:1.1; letter-spacing:-.02em; }
+.case-results-glance span { display:block; margin-top:6px; color:#5f625e; font-size:14px; line-height:1.45; }
+.case-study-contact { padding:0 0 110px; }
+.case-study-contact-inner { padding-top:56px; border-top:1px solid rgba(26,26,26,.12); }
+@media(max-width:760px) {
+  .case-results-glance,.case-results-glance:has(> :nth-child(3):last-child) { grid-template-columns:repeat(2,minmax(0,1fr)); padding:18px; }
 }

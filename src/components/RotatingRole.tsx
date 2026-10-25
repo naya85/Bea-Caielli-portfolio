@@ -2,60 +2,35 @@
 
 import { useEffect, useState } from "react";
 
+/** Cycles once through the roles and settles on the last one, so the headline always reads as whole words. */
 const ROLES = [
-  "Bea",
-  "a product strategist",
-  "a designer",
+  "a product designer",
   "a curious mind",
   "a traveller",
   "a nerd",
   "a cat mama",
+  "a product strategist",
 ];
+
+const HOLD_MS = 1700;
 
 export function RotatingRole() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [text, setText] = useState(ROLES[0]);
-  const [deleting, setDeleting] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => {
-      setReducedMotion(media.matches);
-      if (media.matches) {
-        setRoleIndex(0);
-        setText(ROLES[0]);
-        setDeleting(false);
-      }
-    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setRoleIndex(ROLES.length - 1);
+      return;
+    }
+    if (roleIndex >= ROLES.length - 1) return;
 
-    updatePreference();
-    media.addEventListener("change", updatePreference);
-    return () => media.removeEventListener("change", updatePreference);
-  }, []);
-
-  useEffect(() => {
-    if (reducedMotion) return;
-
-    const role = ROLES[roleIndex];
-    const complete = text === role;
-    const empty = text.length === 0;
-    const delay = complete && !deleting ? 1350 : deleting ? 42 : 82;
-
-    const timer = window.setTimeout(() => {
-      if (!deleting) {
-        if (complete) setDeleting(true);
-        else setText(role.slice(0, text.length + 1));
-      } else if (empty) {
-        setDeleting(false);
-        setRoleIndex((index) => (index + 1) % ROLES.length);
-      } else {
-        setText(text.slice(0, -1));
-      }
-    }, delay);
-
+    const timer = window.setTimeout(() => setRoleIndex((index) => index + 1), HOLD_MS);
     return () => window.clearTimeout(timer);
-  }, [deleting, reducedMotion, roleIndex, text]);
+  }, [roleIndex]);
 
-  return <span className="hero-role-text">{text}</span>;
+  return (
+    <span key={roleIndex} className="hero-role-text">
+      {ROLES[roleIndex]}
+    </span>
+  );
 }
