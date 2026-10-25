@@ -32,19 +32,18 @@ export function About() {
   const beforeAccent = parts[0];
   const afterAccent = parts[1];
 
-  const sectionHeadingClass = "mt-2 text-4xl font-bold tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl";
+  const sectionHeadingClass = "ui-heading ui-heading--section mt-2";
 
   return (
     <ScrollFadeSection
       id="about"
-      className="about-section scroll-mt-24 bg-[#F5F4F0] pt-0 pb-[120px]"
+      className="about-section scroll-mt-24 pt-0 pb-[120px]"
       aria-labelledby="about-heading"
     >
       <ScrollReveal className="mx-auto max-w-[1200px] px-6" stagger>
-        {/* Design principles block — tinted background */}
+        {/* Design principles block */}
         <div
           className="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] py-[120px]"
-          style={{ backgroundColor: "#F0F5F4" }}
         >
           <div className="mx-auto max-w-[1200px] px-6">
             <RevealItem>
@@ -64,7 +63,7 @@ export function About() {
                       className={`flex min-h-[280px] flex-col border-b pt-8 px-8 pb-5 ${i >= 4 ? "sm:border-b-0" : ""} ${i >= 3 ? "lg:border-b-0" : ""} ${i === 1 || i === 4 ? "lg:border-l lg:border-r" : ""}`}
                       style={{ borderColor: "var(--color-border)" }}
                     >
-                      <h3 className="text-xl font-bold leading-tight tracking-tight text-[#1A1A1A] md:text-2xl">
+                      <h3 className="ui-heading ui-heading--small">
                         {principle.title}
                       </h3>
                       <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
@@ -87,7 +86,7 @@ export function About() {
                   {beforeAccent}
                   <em
                     ref={accentRef}
-                    className={`accent-word inline-block font-normal italic text-[#1A9CA8] ${
+                    className={`accent-word inline-block font-normal italic text-[#7353B8] ${
                       glitch ? "animate-believes-glitch" : "animate-accent-pop"
                     }`}
                   >

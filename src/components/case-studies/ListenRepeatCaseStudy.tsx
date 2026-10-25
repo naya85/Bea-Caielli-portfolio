@@ -1,375 +1,202 @@
-"use client";
-
 import Link from "next/link";
-import { useRef, useEffect } from "react";
-import { listenRepeatCaseStudy } from "@/data/case-studies/listen-repeat";
+import { type ReactNode } from "react";
+import { listenRepeatCaseStudy as c } from "@/data/case-studies/listen-repeat";
 import { type Project } from "@/data/content";
 import { RevealItem, ScrollReveal } from "@/components/ScrollReveal";
-
-const c = listenRepeatCaseStudy;
-const MIN_OPACITY = 0.35;
-
-function lerp(t: number, a: number, b: number) {
-  return a + (b - a) * t;
-}
-
-const SECTION_H2_CLASS = "text-4xl font-bold tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl";
-const BODY_CLASS = "text-[17px] leading-loose text-[#1A1A1A]";
-const EYEBROW_CLASS = "text-[12px] font-medium uppercase tracking-[0.2em]";
-/** Case study stats: 36/48/60px, font-weight 700 */
-const STAT_NUMBER_CLASS = "text-4xl font-bold leading-none tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl";
-
-function ImagePlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: string }) {
-  return (
-    <div
-      className="mt-8 flex items-center justify-center rounded-2xl border border-dashed py-16"
-      style={{
-        borderColor: "var(--color-border)",
-        backgroundColor: "color-mix(in srgb, #E8E5E0 40%, #F5F4F0)",
-        aspectRatio: aspect,
-      }}
-    >
-      <span className={`text-[13px] font-medium tracking-wide`} style={{ color: "var(--color-muted)" }}>
-        {label}
-      </span>
-    </div>
-  );
-}
 
 interface ListenRepeatCaseStudyProps {
   project: Project;
   nextProject: Project | null;
 }
 
-export function ListenRepeatCaseStudy({ project, nextProject }: ListenRepeatCaseStudyProps) {
-  const heroSectionRef = useRef<HTMLElement>(null);
-  const heroContentRef = useRef<HTMLDivElement>(null);
+function Eyebrow({ children }: { children: ReactNode }) {
+  return <p className="lr-eyebrow">{children}</p>;
+}
 
-  useEffect(() => {
-    const section = heroSectionRef.current;
-    const content = heroContentRef.current;
-    if (!section || !content) return;
-    const onScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const sectionHeight = section.offsetHeight;
-      const progress =
-        rect.top >= 0 ? 0 : Math.min(1, -rect.top / (sectionHeight * 1));
-      const t = progress <= 0.25 ? 0 : (progress - 0.25) / 0.75;
-      content.style.opacity = String(lerp(t, 1, MIN_OPACITY));
-      content.style.transform = `scale(${lerp(t, 1, 0.95)})`;
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const hero = c.hero as { title: string; subtitle: string; team?: string; company?: string; year?: string };
-  const heroMeta = hero.team || hero.company || hero.year
-    ? { team: hero.team, company: hero.company, year: hero.year }
-    : null;
-
+function Figure({ src, alt, caption, className = "" }: { src: string; alt: string; caption?: string; className?: string }) {
   return (
-    <article className="min-h-screen bg-[#F5F4F0] pt-24 pb-24">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-16">
-        {/* Top bar: Back to homepage (top left) */}
-        <div className="mb-12">
-          <Link
-            href="/"
-            className={`inline-flex items-center gap-2 ${EYEBROW_CLASS} text-[#1A9CA8] transition-colors hover:text-[#147880]`}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
-              <path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Back to homepage
-          </Link>
-        </div>
+    <figure className={`lr-figure ${className}`.trim()}>
+      <img src={src} alt={alt} loading="lazy" />
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
+}
 
-        {/* Hero — fade-up on load, fade (min opacity) when scrolling out */}
-        <header ref={heroSectionRef}>
-          <div
-            ref={heroContentRef}
-            className="hero-content"
-            style={{ transition: "opacity 0.25s ease-out, transform 0.4s ease-out" }}
-          >
-            <h1
-              className={`hero-fade-up ${SECTION_H2_CLASS}`}
-              style={{ ["--delay" as string]: "0.15s" }}
-            >
-              {c.hero.title}
-            </h1>
-            <p
-              className="hero-fade-up mt-6 text-[19px] leading-loose text-[#1A1A1A]"
-              style={{ color: "var(--color-muted)", ["--delay" as string]: "0.25s" }}
-            >
-              {c.tldr}
-            </p>
-            {heroMeta && (
-              <div
-                className="hero-fade-up mt-10 grid gap-8 border-t border-b pt-10 pb-10 sm:grid-cols-2 lg:grid-cols-3"
-                style={{ borderColor: "var(--color-border)", ["--delay" as string]: "0.35s" }}
-              >
-                {heroMeta.team && (
-                  <div>
-                    <p className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>Team</p>
-                    <p className={`mt-1 ${BODY_CLASS}`}>{heroMeta.team}</p>
-                  </div>
-                )}
-                {heroMeta.company && (
-                  <div>
-                    <p className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>Company</p>
-                    <p className={`mt-1 ${BODY_CLASS}`}>{heroMeta.company}</p>
-                  </div>
-                )}
-                {heroMeta.year && (
-                  <div>
-                    <p className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>Year</p>
-                    <p className={`mt-1 ${BODY_CLASS}`}>{heroMeta.year}</p>
-                  </div>
-                )}
-              </div>
-            )}
-            <div className="hero-fade-up mt-6" style={{ ["--delay" as string]: "0.4s" }}>
-              <span className="case-type-label">{project.caseType}</span>
-            </div>
-            <div
-              className="hero-fade-up mt-8 w-full"
-              style={{ ["--delay" as string]: "0.45s" }}
-            >
-              <img
-                src={c.images.heroProduct}
-                alt="Listen and Repeat — guided practice and pronunciation flow on mobile"
-                className="w-full rounded-2xl object-contain"
-              />
-            </div>
-          </div>
+export function ListenRepeatCaseStudy({ nextProject }: ListenRepeatCaseStudyProps) {
+  return (
+    <article className="case-study-page listen-repeat-page min-h-screen pb-24">
+      <section className="lr-hero" aria-label="Listen and repeat product screens">
+        <div className="lr-hero-glow" aria-hidden="true" />
+        <Link href="/" className="lr-back ui-button ui-button--tertiary" aria-label="Back to homepage">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+            <path d="M10.5 3.5 6 8l4.5 4.5M6.25 8h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Back to homepage
+        </Link>
+        <img
+          className="lr-hero-phones"
+          src={c.images.heroProduct}
+          alt="Three Mondly mobile screens for guided practice and pronunciation"
+          fetchPriority="high"
+        />
+      </section>
+
+      <div className="lr-container">
+        <header className="lr-intro">
+          <h1 className="ui-heading ui-heading--page">{c.hero.title}</h1>
+          <p className="lr-subtitle">{c.hero.subtitle}</p>
         </header>
 
-        <ScrollReveal stagger>
-          {/* Problem & Challenges — two columns */}
+        <ScrollReveal className="lr-story" stagger>
           <RevealItem>
-            <section className="mt-20 grid gap-12 md:grid-cols-2">
-              <div>
-                <h2 className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>
-                  {c.problem.heading.toUpperCase()}
-                </h2>
-                <p className={`mt-4 ${BODY_CLASS}`}>
-                  {c.problem.body}
-                </p>
-              </div>
-              <div>
-                <h2 className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>
-                  {c.previousExperience.heading.toUpperCase()}
-                </h2>
-                <p className={`mt-4 ${BODY_CLASS}`}>
-                  {c.previousExperience.body}
-                </p>
-                {c.problem.quotes.length > 0 && (
-                  <section className="mt-6 space-y-3" aria-label="User feedback quotes">
-                    <div className="space-y-3">
-                      {c.problem.quotes.map((quote, qi) => (
-                        <blockquote
-                          key={`${quote.slice(0, 20)}-${qi}`}
-                          className="border-l-4 pl-6 py-2"
-                          style={{ borderLeftColor: "#1A1A1A" }}
-                        >
-                          <p className="text-[14px] leading-relaxed italic" style={{ color: "var(--color-muted)" }}>
-                            "{quote}"
-                          </p>
-                        </blockquote>
-                      ))}
-                    </div>
-                  </section>
-                )}
-              </div>
+            <section className="lr-tldr" aria-labelledby="lr-tldr-heading">
+              <Eyebrow>Case study overview</Eyebrow>
+              <h2 id="lr-tldr-heading" className="ui-heading ui-heading--subsection">TL;DR</h2>
+              <p className="lr-lede">{c.tldr}</p>
+              <aside className="lr-takeaway">
+                <span>The key takeaway</span>
+                <p>{c.keyTakeaway}</p>
+              </aside>
             </section>
           </RevealItem>
 
-          {/* How we got there — methodology */}
           <RevealItem>
-            <div
-              className="relative left-1/2 right-1/2 mt-20 w-screen -ml-[50vw] -mr-[50vw] py-16 md:pt-[120px] md:pb-[120px]"
-              style={{ backgroundColor: "color-mix(in srgb, #E8E5E0 50%, #F5F4F0)" }}
-            >
-              <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-16">
-                <section className="w-full">
-                  <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
-                    Process
-                  </p>
-                  <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
-                    How we got there
-                  </h2>
-                  <div className="mt-10" style={{ borderColor: "var(--color-border)" }}>
-                    {c.research.steps.map((s, i) => (
-                      <RevealItem key={s.step} delay={i * 0.05}>
-                        <div
-                          className="grid grid-cols-1 items-center gap-x-24 border-b border-t pt-10 pb-10 first:border-t-0 md:grid-cols-[minmax(0,320px)_1fr]"
-                          style={{ borderColor: "var(--color-border)" }}
-                        >
-                          <div className="flex min-w-0 items-baseline gap-24">
-                            <span className="shrink-0 text-[16px] font-semibold tabular-nums leading-none" style={{ color: "var(--color-muted)" }}>
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            <h3 className="text-[16px] font-bold leading-tight tracking-tight text-[#1A1A1A]">
-                              {s.title}
-                            </h3>
-                          </div>
-                          {"body" in s && s.body && (
-                            <p className="min-w-0 whitespace-pre-line text-[16px] leading-loose md:mt-0" style={{ color: "var(--color-muted)" }}>
-                              {s.body}
-                            </p>
-                          )}
-                        </div>
-                      </RevealItem>
-                    ))}
-                  </div>
-                </section>
+            <section className="lr-section lr-problem">
+              <div className="lr-section-copy">
+                <Eyebrow>01</Eyebrow>
+                <h2 className="ui-heading ui-heading--subsection">{c.problem.heading}</h2>
+                <p>{c.problem.body}</p>
               </div>
-            </div>
-          </RevealItem>
-
-          {/* The solution */}
-          <RevealItem>
-            <section className="mt-20 w-full max-w-[1000px]">
-              <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
-                {c.solution.eyebrow.toUpperCase()}
-              </p>
-              <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
-                {c.solution.heading}
-              </h2>
-              <p className={`mt-6 ${BODY_CLASS}`}>
-                {c.solution.intro[0]}
-              </p>
-              <p className={`mt-4 ${BODY_CLASS}`}>
-                {c.solution.intro[1]}
-              </p>
-              <div className="mt-10" style={{ borderColor: "var(--color-border)" }}>
-                {c.solution.decisions.map((d, i) => (
-                  <RevealItem key={d.label} delay={i * 0.06}>
-                    <div
-                      className="grid grid-cols-1 items-center gap-x-24 border-b border-t pt-10 pb-10 first:border-t-0 md:grid-cols-[minmax(0,320px)_1fr]"
-                      style={{ borderColor: "var(--color-border)" }}
-                    >
-                      <div className="flex min-w-0 items-baseline gap-24">
-                        <span
-                          className="shrink-0 text-[11px] font-semibold tabular-nums leading-none"
-                          style={{ color: "var(--color-muted)" }}
-                          aria-hidden
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <h3 className="text-[16px] font-bold leading-tight tracking-tight text-[#1A1A1A]">
-                          {d.label.replace(/^DECISION\s+(\d+)$/i, "Decision $1")}
-                        </h3>
-                      </div>
-                      <p
-                        className="min-w-0 w-full text-[17px] leading-loose md:mt-0"
-                        style={{ color: "var(--color-muted)" }}
-                      >
-                        {d.body}
-                      </p>
-                    </div>
-                  </RevealItem>
+              <div className="lr-quotes" aria-label="Learner feedback">
+                {c.problem.quotes.map((quote, index) => (
+                  <blockquote key={quote} className={`lr-quote lr-quote--${index + 1}`}>
+                    <span aria-hidden="true">“</span>
+                    <p>{quote}</p>
+                  </blockquote>
                 ))}
               </div>
             </section>
           </RevealItem>
 
-          {/* Project assets placeholder */}
           <RevealItem>
-            <section className="mt-20 grid gap-8 sm:grid-cols-2">
-              <ImagePlaceholder label="Project asset" />
-              <ImagePlaceholder label="Project asset" />
+            <section className="lr-section lr-previous">
+              <div className="lr-section-copy">
+                <Eyebrow>02 / The previous experience</Eyebrow>
+                <h2 className="ui-heading ui-heading--subsection">A lesson that tested before it taught.</h2>
+                <p>{c.previousExperience.body}</p>
+              </div>
+              <Figure
+                src={c.images.previousExperience}
+                alt="Three screens showing Mondly’s original lesson, speaking practice and vocabulary experience"
+                caption={c.previousExperience.caption}
+                className="lr-previous-figure"
+              />
             </section>
           </RevealItem>
 
-          {/* Impact & outcomes */}
           <RevealItem>
-            <section className="mt-20">
-              <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
-                Results
-              </p>
-              <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
-                {c.impact.heading}
-              </h2>
-              <div className="mt-4 w-full space-y-4">
-                {Array.isArray(c.impact.body) ? (
-                  c.impact.body.map((para, i) => (
-                    <p key={i} className={BODY_CLASS}>
-                      {para}
-                    </p>
-                  ))
-                ) : (
-                  <p className={BODY_CLASS}>{c.impact.body}</p>
-                )}
+            <section className="lr-section lr-research">
+              <div className="lr-section-copy">
+                <Eyebrow>03 / Research and analysis</Eyebrow>
+                <h2 className="ui-heading ui-heading--subsection">The evidence pointed to a smaller first step.</h2>
+                <p>{c.research.body}</p>
               </div>
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {c.impact.metrics.map((m, i) => (
-                  <RevealItem key={m.label} delay={i * 0.05}>
-                    <div>
-                      <p className={STAT_NUMBER_CLASS}>
-                        {m.value}
-                      </p>
-                      <p className="mt-2 text-[13px] font-normal tracking-wide" style={{ color: "var(--color-muted)" }}>
-                        {m.label}
-                      </p>
-                    </div>
-                  </RevealItem>
+              <div className="lr-research-cards">
+                {c.research.steps.slice(1, 3).map((step, index) => (
+                  <article className="lr-info-card" key={step.title}>
+                    <span className="lr-card-number">0{index + 1}</span>
+                    <h3 className="ui-heading ui-heading--card">{step.title}</h3>
+                    <p>{step.body}</p>
+                  </article>
                 ))}
               </div>
+              <div className="lr-scope">
+                <Eyebrow>Limiting the scope</Eyebrow>
+                <p>{c.research.limitingScope.body}</p>
+                <strong>{c.research.keyQuestion.question}</strong>
+              </div>
             </section>
           </RevealItem>
 
-          {/* Reflection / Key takeaways */}
           <RevealItem>
-            <div
-              className="relative left-1/2 right-1/2 mt-20 w-screen -ml-[50vw] -mr-[50vw] py-[120px]"
-              style={{ backgroundColor: "color-mix(in srgb, #E8E5E0 50%, #F5F4F0)" }}
-            >
-              <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-16">
-                <section className="w-full">
-                  <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
-                    {c.reflection.eyebrow.toUpperCase()}
-                  </p>
-                  <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
-                    {c.reflection.heading}
-                  </h2>
-                  <div className="mt-10">
-                    {c.reflection.points.map((point, i) => (
-                      <RevealItem key={i} delay={i * 0.05}>
-                        <div
-                          className="grid grid-cols-1 items-center gap-x-24 border-b border-t pt-10 pb-10 first:border-t-0 md:grid-cols-[auto_1fr]"
-                          style={{ borderColor: "var(--color-border)" }}
-                        >
-                          <span className="w-fit text-[16px] font-semibold tabular-nums leading-none" style={{ color: "var(--color-muted)" }}>
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                          <p className="min-w-0 text-[16px] leading-loose md:mt-0" style={{ color: "var(--color-muted)" }}>
-                            {point}
-                          </p>
-                        </div>
-                      </RevealItem>
-                    ))}
-                  </div>
-                </section>
+            <section className="lr-section lr-solution">
+              <div className="lr-section-copy">
+                <Eyebrow>04 / The solution</Eyebrow>
+                <h2 className="ui-heading ui-heading--subsection">{c.solution.heading}</h2>
+                <p>{c.solution.intro[0]}</p>
+                <p>{c.solution.intro[1]}</p>
               </div>
-            </div>
+              <Figure
+                src={c.images.solutionExploration}
+                alt="Product concept boards and layout explorations for guided learning and speaking practice"
+                className="lr-wide-figure"
+              />
+              <p className="lr-transition-copy">After testing the main competitors and exploring different approaches with the Methodology team, we landed on two decisions:</p>
+              <div className="lr-decisions">
+                {c.solution.decisions.map((decision, index) => (
+                  <article className="lr-decision" key={decision.label}>
+                    <span className="lr-card-number">0{index + 1}</span>
+                    <h3 className="ui-heading ui-heading--card">
+                      {index === 0 ? "Repurpose the existing speaking feature" : "Keep validation simple and focused"}
+                    </h3>
+                    <p>{decision.body}</p>
+                  </article>
+                ))}
+              </div>
+              <Figure
+                src={c.images.flowSteps}
+                alt="The learning flow: choose a mode, listen and repeat, then practise with a quiz"
+                className="lr-flow-figure"
+              />
+              <Figure
+                src={c.images.userFlow}
+                alt="Full user flow map showing guided practice and quiz paths through a Mondly lesson"
+                className="lr-user-flow-figure"
+              />
+            </section>
+          </RevealItem>
+
+          <RevealItem>
+            <section className="lr-section lr-prototype">
+              <div className="lr-section-copy">
+                <Eyebrow>05 / Mockups and prototype</Eyebrow>
+                <h2 className="ui-heading ui-heading--subsection">A guided lesson, from the first prompt to speaking aloud.</h2>
+                <p>The redesigned flow introduces vocabulary first, lets learners hear and repeat each word, and then moves into practice. It stays optional, so learners can still go directly to quizzes.</p>
+              </div>
+              <Figure
+                src={c.images.mockups}
+                alt="Nine mobile screens showing the complete guided practice and pronunciation experience"
+                className="lr-mockups-figure"
+              />
+            </section>
+          </RevealItem>
+
+          <RevealItem>
+            <section className="lr-section lr-impact">
+              <div className="lr-section-copy">
+                <Eyebrow>06 / Impact and results</Eyebrow>
+                <h2 className="ui-heading ui-heading--subsection">{c.impact.heading}</h2>
+                <p>{c.impact.body[0]} {c.impact.body[1]}</p>
+              </div>
+              <div className="lr-metrics">
+                {c.impact.metrics.map((metric) => (
+                  <article className="lr-metric" key={metric.label}>
+                    <strong className="ui-stat">{metric.value}</strong>
+                    <span>{metric.label}</span>
+                  </article>
+                ))}
+              </div>
+              <p className="lr-results-note">76% of users chose guided practice over going straight to quizzes. Keeping the choice open also respected the 24% who preferred the faster route.</p>
+            </section>
           </RevealItem>
         </ScrollReveal>
 
-        {/* Next case study */}
         {nextProject && (
           <RevealItem>
-            <footer className="mt-24 pt-16 text-center">
-              <p className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>
-                Next project
-              </p>
-              <h2 className="mt-2 text-4xl font-bold leading-snug tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl">
-                {nextProject.title}
-              </h2>
-              <Link
-                href={`/work/${nextProject.slug}`}
-                className="mt-4 inline-flex items-center gap-2 text-[17px] font-semibold text-[#1A9CA8] transition-colors hover:text-[#147880]"
-              >
+            <footer className="lr-next-project">
+              <Eyebrow>Next case study</Eyebrow>
+              <h2 className="ui-heading ui-heading--section">{nextProject.title}</h2>
+              <Link href={`/work/${nextProject.slug}`} className="ui-button ui-button--tertiary">
                 View project
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
                   <path d="M4 10L10 4M10 4H5.5M10 4V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

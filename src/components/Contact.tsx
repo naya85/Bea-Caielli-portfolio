@@ -9,7 +9,7 @@ export function Contact() {
   return (
     <ScrollFadeSection
       id="contact"
-      className="scroll-mt-24 bg-[#F0F5F4] py-[120px]"
+      className="scroll-mt-24 py-[120px]"
       aria-labelledby="contact-heading"
     >
       <ScrollReveal className="mx-auto max-w-[1200px] px-6" stagger={false}>
@@ -18,16 +18,18 @@ export function Contact() {
             <div className="mx-auto max-w-[680px] text-center lg:mx-[120px] lg:max-w-none">
               <h2
                 id="contact-heading"
-                className="text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-[#1A1A1A] md:text-6xl lg:text-8xl"
+                className="ui-heading ui-heading--display"
               >
                 Let&rsquo;s create
                 <br />
-                something great.
+                something <span className="contact-shimmer">great</span>
+                <br />
+                <span className="contact-shimmer">together.</span>
               </h2>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="cta-motion inline-flex items-center gap-2 rounded-full bg-[#1A1A1A] px-8 py-4 text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-[#333] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:ring-offset-2 focus:ring-offset-[#F5F4F0]"
+                  className="ui-button ui-button--primary contact-email-cta cta-motion"
                   aria-label={`Email ${siteConfig.name}: ${siteConfig.email}`}
                 >
                   {siteConfig.email}
@@ -36,8 +38,7 @@ export function Contact() {
                   href={siteConfig.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-motion inline-flex items-center gap-2 rounded-full border px-8 py-4 text-[15px] font-semibold text-[#1A1A1A] transition-colors duration-150 hover:bg-[#1A1A1A]/5 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:ring-offset-2 focus:ring-offset-[#F5F4F0]"
-                  style={{ borderColor: "var(--color-accent)" }}
+                  className="ui-button ui-button--secondary cta-motion"
                   aria-label="Beatrice Caielli on LinkedIn"
                 >
                   LinkedIn

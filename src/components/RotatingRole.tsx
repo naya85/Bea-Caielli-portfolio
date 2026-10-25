@@ -1,0 +1,61 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+const ROLES = [
+  "Bea",
+  "a product strategist",
+  "a designer",
+  "a curious mind",
+  "a traveller",
+  "a nerd",
+  "a cat mama",
+];
+
+export function RotatingRole() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [text, setText] = useState(ROLES[0]);
+  const [deleting, setDeleting] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => {
+      setReducedMotion(media.matches);
+      if (media.matches) {
+        setRoleIndex(0);
+        setText(ROLES[0]);
+        setDeleting(false);
+      }
+    };
+
+    updatePreference();
+    media.addEventListener("change", updatePreference);
+    return () => media.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
+
+    const role = ROLES[roleIndex];
+    const complete = text === role;
+    const empty = text.length === 0;
+    const delay = complete && !deleting ? 1350 : deleting ? 42 : 82;
+
+    const timer = window.setTimeout(() => {
+      if (!deleting) {
+        if (complete) setDeleting(true);
+        else setText(role.slice(0, text.length + 1));
+      } else if (empty) {
+        setDeleting(false);
+        setRoleIndex((index) => (index + 1) % ROLES.length);
+      } else {
+        setText(text.slice(0, -1));
+      }
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [deleting, reducedMotion, roleIndex, text]);
+
+  return <span className="hero-role-text">{text}</span>;
+}

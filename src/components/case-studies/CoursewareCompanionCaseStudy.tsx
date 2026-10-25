@@ -13,11 +13,12 @@ function lerp(t: number, a: number, b: number) {
   return a + (b - a) * t;
 }
 
-const SECTION_H2_CLASS = "text-4xl font-bold tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl";
+const PAGE_TITLE_CLASS = "ui-heading ui-heading--page text-[#1A1A1A]";
+const SECTION_TITLE_CLASS = "ui-heading ui-heading--subsection text-[#1A1A1A]";
+const CARD_TITLE_CLASS = "ui-heading ui-heading--small text-[#1A1A1A]";
 const BODY_CLASS = "text-[17px] leading-loose text-[#1A1A1A]";
 const EYEBROW_CLASS = "text-[12px] font-medium uppercase tracking-[0.2em]";
-/** Case study stats: 36/48/60px, font-weight 700 */
-const STAT_NUMBER_CLASS = "text-4xl font-bold leading-none tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl";
+const STAT_NUMBER_CLASS = "ui-stat";
 
 function ImagePlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: string }) {
   return (
@@ -69,13 +70,13 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
     : null;
 
   return (
-    <article className="min-h-screen bg-[#F5F4F0] pt-24 pb-24">
+    <article className="case-study-page min-h-screen pt-24 pb-24">
       <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-16">
         {/* Top bar: Back to homepage (top left) */}
         <div className="mb-12">
           <Link
             href="/"
-            className={`inline-flex items-center gap-2 ${EYEBROW_CLASS} text-[#1A9CA8] transition-colors hover:text-[#147880]`}
+            className="ui-button ui-button--tertiary"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
               <path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,7 +93,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
             style={{ transition: "opacity 0.25s ease-out, transform 0.4s ease-out" }}
           >
             <h1
-              className={`hero-fade-up ${SECTION_H2_CLASS}`}
+              className={`hero-fade-up ${PAGE_TITLE_CLASS}`}
               style={{ ["--delay" as string]: "0.15s" }}
             >
               {c.hero.title}
@@ -156,7 +157,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
           <RevealItem>
             <section className="mt-20 grid gap-12 md:grid-cols-2">
               <div>
-                <h2 className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>
+                <h2 className={`case-eyebrow ${EYEBROW_CLASS}`} style={{ color: "var(--color-muted)" }}>
                   {c.problem.heading.toUpperCase()}
                 </h2>
                 <p className={`mt-4 ${BODY_CLASS}`}>
@@ -164,7 +165,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
                 </p>
               </div>
               <div>
-                <h2 className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>
+                <h2 className={`case-eyebrow ${EYEBROW_CLASS}`} style={{ color: "var(--color-muted)" }}>
                   {c.previousExperience.heading.toUpperCase()}
                 </h2>
                 <p className={`mt-4 ${BODY_CLASS}`}>
@@ -203,7 +204,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
                   <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
                     Process
                   </p>
-                  <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
+                  <h2 className={`${SECTION_TITLE_CLASS} mt-2`}>
                     {c.research.heading}
                   </h2>
                   <div className="mt-10">
@@ -217,7 +218,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
                             <span className="shrink-0 text-[11px] font-semibold tabular-nums leading-none" style={{ color: "var(--color-muted)" }}>
                               {String(i + 1).padStart(2, "0")}
                             </span>
-                            <h3 className="text-lg font-bold leading-tight tracking-tight text-[#1A1A1A] md:text-xl">
+                            <h3 className={CARD_TITLE_CLASS}>
                               {s.title}
                             </h3>
                           </div>
@@ -241,7 +242,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
               <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
                 {c.solution.eyebrow.toUpperCase()}
               </p>
-              <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
+              <h2 className={`${SECTION_TITLE_CLASS} mt-2`}>
                 {c.solution.heading}
               </h2>
               <p className={`mt-6 ${BODY_CLASS}`}>
@@ -284,7 +285,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
               <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
                 Results
               </p>
-              <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
+              <h2 className={`${SECTION_TITLE_CLASS} mt-2`}>
                 {c.impact.heading}
               </h2>
               <div className="mt-4 max-w-[680px] space-y-4">
@@ -326,7 +327,7 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
                   <p className="text-[13px] font-medium uppercase tracking-[0.08em]" style={{ color: "var(--color-muted)" }}>
                     {c.reflection.eyebrow.toUpperCase()}
                   </p>
-                  <h2 className="mt-2 text-4xl font-bold tracking-[-0.03em] text-[#1A1A1A] md:text-5xl">
+                  <h2 className={`${SECTION_TITLE_CLASS} mt-2`}>
                     {c.reflection.heading}
                   </h2>
                   <div className="mt-10">
@@ -359,12 +360,12 @@ export function CoursewareCompanionCaseStudy({ project, nextProject }: Coursewar
               <p className={EYEBROW_CLASS} style={{ color: "var(--color-muted)" }}>
                 Next project
               </p>
-              <h2 className="mt-2 text-4xl font-bold leading-snug tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl">
+              <h2 className="ui-heading ui-heading--section mt-2">
                 {nextProject.title}
               </h2>
               <Link
                 href={`/work/${nextProject.slug}`}
-                className="mt-4 inline-flex items-center gap-2 text-[17px] font-semibold text-[#1A9CA8] transition-colors hover:text-[#147880]"
+                className="ui-button ui-button--tertiary mt-4"
               >
                 View project
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>

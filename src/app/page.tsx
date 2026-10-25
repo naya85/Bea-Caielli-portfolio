@@ -6,12 +6,12 @@ import { EasterEgg } from "@/components/EasterEgg";
 
 export default function Home() {
   return (
-    <>
+    <div className="portfolio-home">
       <Hero />
       <Projects />
       <About />
       <Contact />
       <EasterEgg />
-    </>
+    </div>
   );
 }

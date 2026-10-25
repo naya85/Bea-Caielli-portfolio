@@ -11,9 +11,9 @@ export const listenRepeatCaseStudy = {
     year: "2024",
   },
   tldr:
-    'Shifting Mondly from "test first" to "teach first": a redesign of the core learning experience for Mondly users',
+    'I turned Mondly from a “test first” lesson into a “teach first” experience. By bringing guided vocabulary and speaking practice into the lesson flow, beginners could learn key words and pronunciation before being asked to perform. The experiment improved lesson completion, premium conversion, and retention.',
   keyTakeaway:
-    "Simple guidance at the right moment builds the confidence learners need to keep going.",
+    "Even simple scaffolding tools can help learners practise fundamentals and build the confidence for more advanced conversations.",
   reflection: {
     eyebrow: "Reflection",
     heading: "Key takeaways",
@@ -23,8 +23,8 @@ export const listenRepeatCaseStudy = {
     ],
   },
   problem: {
-    heading: "Overview",
-    body: "Beginner learners (Mondly's biggest audience) weren't struggling because the content was too hard. They were struggling because they hadn't been taught yet. The app tested them on words it had never introduced.",
+    heading: "The problem",
+    body: "We were hearing repeated feedback from beginner learners who were unhappy with the Mondly learning experience. They felt confused when lessons started with quizzes before introducing the words; they expected an explanation and a more structured approach.",
     quotes: [
       "You go straight to sentences and words with pictures. How was I supposed to know that beforehand?",
       "The first lessons are already too demanding. Too bad.",
@@ -32,10 +32,9 @@ export const listenRepeatCaseStudy = {
     ],
   },
   previousExperience: {
-    heading: "The challenge",
-    body: "Mondly's approach was simple: start quizzing, learn through repetition. There was also a speaking practice feature, but it lived outside the lesson, felt disconnected, and most users never used it. For beginners, the result was confusion. They felt like they were expected to guess, not learn.",
-    caption:
-      "Lessons opened directly with quizzes. Speaking practice existed but was separate, optional, and easy to miss.",
+    heading: "The previous experience",
+    body: "Lessons opened with interactive quizzes and relied on pattern recognition and repetition to introduce vocabulary. Speaking practice existed as a separate feature, disconnected from the lesson. Beginners were left guessing instead of being taught.",
+    caption: "The lesson, vocabulary and speaking practice lived in separate parts of the app.",
   },
   research: {
     heading: "Research & analysis",
@@ -69,7 +68,7 @@ export const listenRepeatCaseStudy = {
     keyQuestion: {
       label: "So I reframed the question:",
       question:
-        "what can we do right now, with what we already have, that delivers real value without a massive build?",
+        "how can we use and repurpose what we already have to deliver immediate value without committing to a massive build?",
     },
   },
   solution: {
@@ -82,11 +81,11 @@ export const listenRepeatCaseStudy = {
     decisions: [
       {
         label: "DECISION 1",
-        body: "Instead of building from scratch, I evolved the existing Handsfree speaking feature into a guided teaching step, integrated directly into the lesson flow. I added ElevenLabs for a natural, human-sounding voice. I kept it optional, so learners who preferred jumping straight to quizzes still could.",
+        body: "Instead of building from scratch, I enhanced the existing Handsfree speaking practice and integrated it into the lesson flow. Murf AI provided a natural, human-sounding voice while keeping the experience scalable across languages. I kept it optional for learners who preferred to jump straight to quizzes.",
       },
       {
         label: "DECISION 2",
-        body: "Native speech recognition performed inconsistently across Android and iOS, meaning learners were sometimes marked wrong even when they pronounced correctly, leading to additional frustration. So I simplified: record your voice, listen back, compare. Enough to deliver the core teaching value, and easy to A/B test cleanly.",
+        body: "Rather than build a complex pronunciation assessment without a reliable third-party algorithm, I kept the MVP focused on recording and playback comparison. This was simpler to validate through A/B testing and still delivered the core teaching value.",
       },
     ],
     flowSteps: [
@@ -107,13 +106,13 @@ export const listenRepeatCaseStudy = {
   impact: {
     heading: "Impact & results",
     body: [
-      "The experiment worked, and was rolled out at scale.",
-      "The fact that 76% of users chose the guided practice path over jumping straight to quizzes is a strong indicator of how the need was real and this solution improved without any doubt the experience for our learners.",
+      "The experiment was successful and scaled. It increased the number of lessons learners completed and improved premium conversion.",
+      "The results below show the impact across category completion, premium conversion in the first week, and retention.",
     ],
     metrics: [
-      { value: "+17%", label: "Lesson completion" },
-      { value: "+23.8%", label: "Conversion to premium within 7 days" },
-      { value: "+12%", label: "Retention" },
+      { value: "+6.9%", label: "Category completion rate" },
+      { value: "+12.8%", label: "Conversion to premium in the first week" },
+      { value: "+5.3%", label: "Retention" },
     ],
   },
   images: {
@@ -121,6 +120,7 @@ export const listenRepeatCaseStudy = {
     previousExperience: "/images/case-studies/listen-repeat/previous-experience.png",
     solutionExploration: "/images/case-studies/listen-repeat/solution-exploration.png",
     flowSteps: "/images/case-studies/listen-repeat/flow-steps.png",
+    userFlow: "/images/case-studies/listen-repeat/user-flow.png",
     mockups: "/images/case-studies/listen-repeat/mockups.png",
   },
 } as const;

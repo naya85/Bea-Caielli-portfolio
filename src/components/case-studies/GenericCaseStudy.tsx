@@ -55,20 +55,11 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
   } : null;
 
   return (
-    <article className="min-h-screen bg-[#F5F4F0] pt-24 pb-24">
+    <article className="case-study-page min-h-screen pt-24 pb-24">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p
-            className="text-[12px] font-medium uppercase tracking-[0.2em]"
-            style={{ color: "var(--color-muted)" }}
-          >
-            Case Study / {project.title}
-          </p>
-          <Link
-            href="/"
-            className="text-[12px] font-medium uppercase tracking-[0.2em] text-[#1A9CA8] transition-colors hover:text-[#147880]"
-          >
-            Back to homepage
+        <div className="mb-12">
+          <Link href="/" className="ui-button ui-button--tertiary">
+            ← Back to homepage
           </Link>
         </div>
         <header ref={heroSectionRef}>
@@ -78,7 +69,7 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
             style={{ transition: "opacity 0.25s ease-out, transform 0.4s ease-out" }}
           >
             <h1
-              className="hero-fade-up text-4xl font-bold tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl"
+              className="hero-fade-up ui-heading ui-heading--page"
               style={{ ["--delay" as string]: "0.15s" }}
             >
               {project.title}
@@ -89,26 +80,14 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
             >
               {project.description}
             </p>
-            <div
-              className="hero-fade-up mt-10 border-t pt-10"
-              style={{ borderColor: "var(--color-border)", ["--delay" as string]: "0.35s" }}
-            >
-              <p
-                className="text-[12px] font-medium uppercase tracking-[0.2em]"
-                style={{ color: "var(--color-muted)" }}
-              >
-                Case type
-              </p>
-              <p className="case-type-label mt-2">{project.caseType}</p>
-            </div>
           </div>
         </header>
         {story && (
           <div className="case-story">
             <div className="case-art"><img src={story.image} alt={story.imageAlt} /></div>
-            <section className="case-copy-block"><p className="eyebrow">The challenge</p><h2>Start with what people need.</h2><p>{story.context}</p></section>
+            <section className="case-copy-block"><p className="eyebrow">The challenge</p><h2 className="ui-heading ui-heading--subsection">Start with what people need.</h2><p>{story.context}</p></section>
             <section className="case-quote"><span>What research made clear</span><blockquote>{story.insight}</blockquote></section>
-            <section className="case-copy-block"><p className="eyebrow">The approach</p><h2>Design the system around progress.</h2><ul>{story.approach.map((point) => <li key={point}>{point}</li>)}</ul></section>
+            <section className="case-copy-block"><p className="eyebrow">The approach</p><h2 className="ui-heading ui-heading--subsection">Design the system around progress.</h2><ul>{story.approach.map((point) => <li key={point}>{point}</li>)}</ul></section>
             <section className="case-results"><p className="eyebrow">Measured impact</p><div>{story.impact.map((item) => <article key={item.label}><strong>{item.value}</strong><span>{item.label}</span></article>)}</div><p className="case-note">Results are from the experiments and launches described in the original case study.</p></section>
           </div>
         )}
@@ -123,12 +102,12 @@ export function GenericCaseStudy({ project, nextProject }: GenericCaseStudyProps
                 >
                   Next project
                 </p>
-                <h2 className="mt-2 text-4xl font-bold tracking-tight text-[#1A1A1A] md:text-5xl lg:text-6xl">
+                <h2 className="ui-heading ui-heading--section mt-2">
                   {nextProject.title}
                 </h2>
                 <Link
                   href={`/work/${nextProject.slug}`}
-                  className="mt-4 inline-flex items-center gap-2 text-[17px] font-semibold text-[#1A9CA8] transition-colors hover:text-[#147880]"
+                  className="ui-button ui-button--tertiary mt-4"
                 >
                   View project
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>

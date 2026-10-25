@@ -17,7 +17,7 @@ export function DesignPrinciples() {
           <FadeAtTop>
             <h2
               id="principles-heading"
-              className="text-center text-[clamp(2rem,4vw,3rem)] font-bold tracking-tight text-[#1A1A1A]"
+              className="ui-heading ui-heading--section text-center"
             >
               Design principles
             </h2>
@@ -38,7 +38,7 @@ export function DesignPrinciples() {
                 <span className="text-xs tabular-nums tracking-wide" style={{ color: "var(--color-muted)" }} aria-hidden>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 text-xl font-bold leading-tight tracking-tight text-[#1A1A1A]">
+                <h3 className="ui-heading ui-heading--small mt-4">
                   {principle.title}
                 </h3>
                 <p className="mt-3 text-[14px] leading-relaxed" style={{ color: "var(--color-muted)" }}>

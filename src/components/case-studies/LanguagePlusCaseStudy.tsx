@@ -8,7 +8,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
   return (
     <figure className="my-10 overflow-hidden rounded-[22px] border border-black/10 bg-[#e8e5e0]">
       <Image src={`${base}/${src}`} alt={alt} width={1600} height={900} className="h-auto w-full" />
-      <figcaption className="px-5 py-3 text-sm text-black/55">{caption}</figcaption>
+      <figcaption className="px-5 py-3 text-sm text-black/60">{caption}</figcaption>
     </figure>
   );
 }
@@ -16,7 +16,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
 function Section({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
   return (
     <section className="my-20 grid gap-8 border-t border-black/10 pt-8 md:grid-cols-[0.7fr_1.3fr]">
-      <div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#15858c]">{eyebrow}</p><h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{title}</h2></div>
+      <div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#7353B8]">{eyebrow}</p><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
       <div className="space-y-5 text-base leading-relaxed text-black/70">{children}</div>
     </section>
   );
@@ -24,17 +24,17 @@ function Section({ eyebrow, title, children }: { eyebrow: string; title: string;
 
 export function LanguagePlusCaseStudy({ project, nextProject }: { project: Project; nextProject: Project | null }) {
   return (
-    <article className="min-h-screen bg-[#f5f4f0] pb-24 pt-28 text-[#191a19]">
+    <article className="case-study-page min-h-screen pb-24 pt-28">
       <div className="mx-auto max-w-[1160px] px-6 md:px-12">
-        <Link href="/#work" className="text-sm font-medium text-[#15858c] hover:underline">← Back to selected work</Link>
+        <Link href="/#work" className="ui-button ui-button--tertiary">← Back to selected work</Link>
         <header className="max-w-[900px] pb-6 pt-12">
-          <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#15858c]">Pearson · Product strategy · 2025—2026</p>
-          <h1 className="mt-5 text-5xl font-bold leading-[1.02] tracking-[-.035em] md:text-7xl">From Mondly to Language+</h1>
+          <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#7353B8]">Pearson · Product strategy · 2025—2026</p>
+          <h1 className="ui-heading ui-heading--page mt-5">From Mondly to Language+</h1>
           <p className="mt-6 max-w-[760px] text-xl leading-relaxed text-black/65">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
           <div className="mt-9 grid gap-6 border-y border-black/10 py-6 sm:grid-cols-3">
-            <div><p className="text-xs uppercase tracking-widest text-black/45">My role</p><p className="mt-2">Senior Product Designer · strategy, research, UX</p></div>
-            <div><p className="text-xs uppercase tracking-widest text-black/45">Team</p><p className="mt-2">Product, learning design, engineering, sales</p></div>
-            <div><p className="text-xs uppercase tracking-widest text-black/45">Scope</p><p className="mt-2">Vision, student practice, teacher tools, pilot</p></div>
+            <div><p className="text-xs uppercase tracking-widest text-black/60">My role</p><p className="mt-2">Senior Product Designer · strategy, research, UX</p></div>
+            <div><p className="text-xs uppercase tracking-widest text-black/60">Team</p><p className="mt-2">Product, learning design, engineering, sales</p></div>
+            <div><p className="text-xs uppercase tracking-widest text-black/60">Scope</p><p className="mt-2">Vision, student practice, teacher tools, pilot</p></div>
           </div>
         </header>
 
@@ -82,16 +82,16 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <Figure src="7-onboarding.jpg" alt="Language+ onboarding version two concepts" caption="Testing helped identify where the scalable onboarding flow still needed clearer language and fallback." />
 
         <section className="my-20 rounded-[28px] bg-[#171918] p-8 text-white md:p-12">
-          <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#76d3d0]">What moved</p>
+          <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#c7b5f0]">What moved</p>
           <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[['+36%', 'sales in regions and coursebooks where launched'], ['6 countries', 'app store availability in August 2026'], ['2×', 'core journey completion in the first two pilot weeks'], ['3 decisions', 'changed directly by teacher evidence']].map(([value, label]) => <div key={value}><strong className="text-3xl md:text-4xl">{value}</strong><p className="mt-3 text-sm leading-relaxed text-white/65">{label}</p></div>)}
           </div>
           <p className="mt-9 max-w-[760px] text-sm leading-relaxed text-white/55">Language+ 1.0 was ready at the end of June 2026 and launched in Turkey, Switzerland, the Netherlands, Belgium, Luxembourg and Ukraine in August. The reported sales lift applies to the regions and coursebooks where it launched.</p>
         </section>
 
-        <blockquote className="my-20 max-w-[850px] border-l-2 border-[#15858c] pl-6 text-2xl leading-snug tracking-tight md:text-4xl">“A vision needs evidence before it needs polish. Postponing the first leadership pitch felt like a setback. It turned out to be the reason the vision held up.”</blockquote>
+        <blockquote className="my-20 max-w-[850px] border-l-2 border-[#7353B8] pl-6 text-2xl leading-snug tracking-tight md:text-4xl">“A vision needs evidence before it needs polish. Postponing the first leadership pitch felt like a setback. It turned out to be the reason the vision held up.”</blockquote>
 
-        {nextProject && <footer className="border-t border-black/10 pt-10"><p className="text-xs uppercase tracking-widest text-black/45">Next project</p><Link href={`/work/${nextProject.slug}`} className="mt-3 inline-block text-3xl font-semibold tracking-tight hover:text-[#15858c]">{nextProject.title} ↗</Link></footer>}
+        {nextProject && <footer className="border-t border-black/10 pt-10"><p className="text-xs uppercase tracking-widest text-black/60">Next project</p><Link href={`/work/${nextProject.slug}`} className="ui-button ui-button--tertiary mt-3">{nextProject.title} ↗</Link></footer>}
       </div>
     </article>
   );

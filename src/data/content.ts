@@ -193,14 +193,14 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "listen-repeat",
-    title: "Listen and Repeat",
+    title: "Listen and repeat",
     caseType: "feature",
-    company: "Mondly by Pearson",
+    company: "Pearson",
     year: "2024",
     description:
       "A clearer path from first words to confident practice. I turned Mondly’s disconnected speaking feature into a guided lesson moment, without rebuilding the whole product.",
-    image: "/images/portfolio/listen-repeat.png",
-    imageAlt: "Two Mondly learning screens showing guided language practice",
+    image: "/images/portfolio/listen-repeat-trimmed.png",
+    imageAlt: "Three Mondly language-practice screens shown in phone mockups",
     tags: [
       "EdTech",
       "Mobile",
@@ -212,25 +212,25 @@ export const projects: Project[] = [
   },
   {
     slug: "postpone-renewal-date",
-    title: "Redesign the Subscription model",
+    title: "Redesign the subscription model",
     caseType: "feature",
     company: "Preply",
     year: "2022",
     description:
-      "A flexible renewal date gave learners time to use the lessons they had already paid for—and helped turn cancellation intent into continued learning.",
-    image: "/images/portfolio/postpone-renewal.png",
+      "A flexible renewal date gave learners time to use the lessons they had already paid for, turning cancellation intent into continued learning.",
+    image: "/images/portfolio/postpone-renewal-trimmed.png",
     imageAlt: "Preply subscription renewal date controls on mobile",
     tags: ["Retention", "Subscriptions", "Research", "Experimentation"],
   },
   {
     slug: "gamification",
-    title: "Why gamification works (when done right)",
+    title: "Ethical gamification",
     caseType: "article",
-    company: "Mondly by Pearson · Reviewlab",
+    company: "",
     year: "2025",
     description:
-      "A practical reflection on designing mechanics around real user progress—from language-learning streaks to a fair feedback economy for indie makers.",
-    image: "/images/portfolio/case-cover.png",
+      "A practical reflection on designing mechanics around real user progress, from language-learning streaks to a fair feedback economy for indie makers.",
+    image: "/images/portfolio/gamification-trimmed.png",
     imageAlt: "Product screens from the gamification case study",
     tags: ["Product Strategy", "Behaviour Design", "EdTech", "SaaS"],
   },
@@ -238,11 +238,11 @@ export const projects: Project[] = [
     slug: "from-mondly-to-language-plus",
     title: "From Mondly to Language+",
     caseType: "strategy",
-    company: "Pearson · Language+",
+    company: "Pearson",
     year: "2026",
     description:
       "Turning a 100M+ download consumer app into coursebook-connected English practice for schools—from evidence-led vision to a live product and classroom pilot.",
-    image: "/images/case-studies/language-plus/5-dashboard.jpg",
+    image: "/images/portfolio/language-plus-dashboard-trimmed.png",
     imageAlt: "Teacher dashboard concept for Pearson Language+",
     tags: [
       "Product Strategy",
@@ -302,7 +302,7 @@ export const corePrinciples = [
   {
     title: "Craft is in the detail",
     description:
-      "I always look for the layer beyond good enough — it's the small details that turn good designs into great ones.",
+      "I always look for the layer beyond good enough, because it's the small details that turn good designs into great ones.",
   },
 ];
 

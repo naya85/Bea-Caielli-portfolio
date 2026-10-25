@@ -12,7 +12,7 @@ export function Footer() {
             href={siteConfig.socials.dribbble}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
+            className="text-[13px] font-medium tracking-wide text-[#7353B8] transition-colors hover:text-[#5C3E9B]"
           >
             Dribbble
           </a>
@@ -20,7 +20,7 @@ export function Footer() {
             href={siteConfig.socials.behance}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
+            className="text-[13px] font-medium tracking-wide text-[#7353B8] transition-colors hover:text-[#5C3E9B]"
           >
             Behance
           </a>
@@ -28,7 +28,7 @@ export function Footer() {
             href={siteConfig.socials.medium}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[13px] font-medium tracking-wide text-[#1A9CA8] transition-colors hover:text-[#147880]"
+            className="text-[13px] font-medium tracking-wide text-[#7353B8] transition-colors hover:text-[#5C3E9B]"
           >
             Medium
           </a>
