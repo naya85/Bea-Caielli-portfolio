@@ -216,7 +216,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 /* Outline buttons get a solid fill so the dots don't show through them. */
 .dot-grid-backdrop .ui-button--secondary { background:#fff; }
 .dot-grid-backdrop .ui-button--secondary:hover,.dot-grid-backdrop .ui-button--secondary:focus-visible { background:#f5f1fb; }
-.project-row .project-image img { object-fit:contain; transform:scale(1.08); filter:drop-shadow(0 14px 20px rgba(22,28,34,.14)); }
+.project-row .project-image img { object-fit:contain; transform:scale(1.08); }
 .project-details { max-width:470px; }
 .project-kind { display:inline-flex; align-items:center; padding:5px 11px; border:1px solid #9a80dc; border-radius:999px; color:#5C3E9B; background:#f3eff9; font-size:11px; font-weight:700; letter-spacing:.06em; line-height:1; text-transform:capitalize; }
 .project-status { display:inline-flex; align-items:center; padding:5px 11px; border:1px solid #c9c5be; border-radius:999px; color:#626762; background:#fff; font-size:11px; font-weight:700; letter-spacing:.06em; line-height:1; }
