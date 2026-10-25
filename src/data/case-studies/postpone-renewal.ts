@@ -110,7 +110,7 @@ export const postponeRenewalStory: Story = {
     {
       type: "ul",
       items: [
-        "**+2.1% hours confirmed**, from 10.107 to 10.319 hours.",
+        "**+2.1% hours confirmed**, from 10,107 to 10,319 hours.",
         "**+1.6% hours bought**: learners committed to more.",
         "**+1.1% hours scheduled**: learners planned ahead more.",
       ],
@@ -119,7 +119,7 @@ export const postponeRenewalStory: Story = {
     {
       type: "ul",
       items: [
-        "**+5.6% gross margin**, from 41.317 to 43.617.",
+        "**+5.6% gross margin**, from 41.3% to 43.6%.",
         "**+2% GMV**, showing overall growth.",
         "**+1.9% conversion** to paid subscriptions.",
         "**+4.4% hours bought by new learners**: a stronger start on the platform.",

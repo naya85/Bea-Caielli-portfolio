@@ -221,7 +221,7 @@ export const projects: Project[] = [
     title: "Redesign the subscription model",
     caseType: "feature",
     company: "Preply",
-    year: "2022",
+    year: "2023",
     description:
       "A flexible renewal date gave learners time to use the lessons they had already paid for, turning cancellation intent into continued learning.",
     image: "/images/portfolio/postpone-renewal-trimmed.png",
