@@ -9,8 +9,12 @@ export type StoryBlock =
   | { type: "ul" | "ol"; items: string[] }
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "quote"; text: string }
+  /** Several short quotes side by side. */
+  | { type: "quotes"; items: string[] }
+  /** A labelled key question or statement the story turns on. */
+  | { type: "question"; label: string; text: string }
   /** Short labelled options shown side by side, e.g. the two choices users had. */
-  | { type: "cards"; items: { eyebrow: string; title: string; text: string }[] }
+  | { type: "cards"; items: { eyebrow?: string; title: string; text: string }[] }
   /** "As a … I want to … so that …" user stories. */
   | { type: "stories"; items: { as: string; want: string; so: string }[] }
   /** A row of phone screens on the page background. */
@@ -19,7 +23,10 @@ export type StoryBlock =
   | { type: "figure"; image: Image; caption?: string; wide?: boolean }
   | { type: "metrics"; items: { value: string; label: string }[] }
   /** A click-through screen recording, framed like a phone. */
-  | { type: "video"; src: string; label: string; caption?: string };
+  /** With `text`, the recording sits beside the paragraph it illustrates. */
+  | { type: "video"; src: string; label: string; caption?: string; text?: string }
+  /** Old and new side by side, each with a short note on what to notice. */
+  | { type: "compare"; before: { image: Image; note: string }; after: { image: Image; note: string } };
 
 export interface Story {
   /** Shown instead of the year in the label row (articles). */

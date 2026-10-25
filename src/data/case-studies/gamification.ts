@@ -9,11 +9,6 @@ export const gamificationStory: Story = {
     "Most people think gamification means slapping points and badges on a product to make it fun. There's much more to it. Real gamification is about understanding behaviour, and designing systems that naturally guide people towards the actions you want them to take.",
     "I've helped build it into two very different products: Mondly, a language learning app, and ReviewLab, my side project, a peer feedback platform for solopreneurs. Here's what I learned about making it actually work.",
   ],
-  metrics: [
-    { value: "+73%", label: "long-term retention for learners with 7+ day streaks" },
-    { value: "+32%", label: "weekly active users after B2B leaderboards" },
-    { value: "+67%", label: "new ReviewLab users giving feedback in week one" },
-  ],
   blocks: [
     { type: "h2", text: "Start with the real problem" },
     { type: "p", text: "Before adding any game mechanics, find the behaviour you're actually trying to change." },

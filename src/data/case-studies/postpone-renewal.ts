@@ -17,13 +17,7 @@ export const postponeRenewalStory: Story = {
   blocks: [
     { type: "h2", text: "The problem" },
     { type: "p", text: "Our data showed a growing trend of cancellations, and it was starting to hurt growth." },
-    { type: "p", text: "So we did two things at once: we sent a short survey to everyone who cancelled, and I ran user interviews to understand why. In the interviews, I kept hearing the same frustration:" },
-    { type: "quote", text: "I don't want to stop learning. I just can't predict exactly when I'll have time again, and I don't want to lose the hours I paid for." },
-    { type: "h3", text: "What the research told us" },
-    { type: "p", text: "Most people weren't cancelling because they'd lost interest in learning. They were cancelling because we gave them no room to be flexible." },
-    { type: "p", text: "The reactivation data said it most clearly. People who cancelled were more active afterwards than people who paused: they switched tutor, resubscribed, or used up the hours they had left. After 90 days they generated **40% more confirmed hours** and **20% more gross margin** than people who paused. And **22% of those who cancelled reactivated the same subscription at least once**." },
-
-    { type: "h2", text: "How subscriptions worked" },
+    { type: "h3", text: "Previous experience" },
     { type: "p", text: "Preply runs on a monthly subscription: learners buy a set number of lesson hours and book them with their tutor." },
     {
       type: "ul",
@@ -54,6 +48,12 @@ export const postponeRenewalStory: Story = {
       ],
     },
 
+    { type: "h2", text: "Research and analysis" },
+    { type: "p", text: "To understand why, we did two things at once: we sent a short survey to everyone who cancelled, and I ran user interviews. In the interviews, I kept hearing the same frustration:" },
+    { type: "quote", text: "I don't want to stop learning. I just can't predict exactly when I'll have time again, and I don't want to lose the hours I paid for." },
+    { type: "p", text: "Most people weren't cancelling because they'd lost interest in learning. They were cancelling because we gave them no room to be flexible." },
+    { type: "p", text: "The reactivation data said it most clearly. People who cancelled were more active afterwards than people who paused: they switched tutor, resubscribed, or used up the hours they had left. After 90 days they generated **40% more confirmed hours** and **20% more gross margin** than people who paused. And **22% of those who cancelled reactivated the same subscription at least once**." },
+
     { type: "h2", text: "The solution" },
     { type: "p", text: "Once we'd analysed the research and defined the jobs to be done, my team and I brainstormed ways to stop people cancelling while still giving them the flexibility they needed. These are the user stories we designed for:" },
     {
@@ -74,8 +74,7 @@ export const postponeRenewalStory: Story = {
         "**Introduce Postpone renewal date.** Learners can push their billing date back by up to 20 days, once per cycle, and use the hours they've already paid for in the meantime. We also offered it in the cancellation flow, depending on the reason people gave for cancelling.",
       ],
     },
-
-    { type: "h2", text: "Design, critique and test" },
+    { type: "h3", text: "Design and testing" },
     { type: "p", text: "I explored different versions of the feature in wireframes and mockups, using the components and interaction patterns from Preply's design system. I wanted it to feel obvious and to make the benefit clear, so I kept the rules short and plain, and designed a pop-up to tell learners about the change." },
     { type: "p", text: "As usual, I shared the designs in a critique with other designers and UX writers, and walked the developers in my team through them to check feasibility and get a rough estimate." },
     { type: "figure", image: { src: img("design-board"), alt: "Design exploration of the postpone flow: announcement pop-up, subscription settings, new date selection and confirmation" }, caption: "Exploring the flow, from the announcement pop-up to choosing a new date and confirming it.", wide: true },
@@ -89,8 +88,7 @@ export const postponeRenewalStory: Story = {
         "**4 out of 8** thought the new date would only apply to the following month.",
       ],
     },
-
-    { type: "h2", text: "Mockups and prototype" },
+    { type: "h3", text: "Mockups and prototypes" },
     { type: "p", text: "After testing, I polished the designs, wrote the specs and Jira tickets, and handed everything over to the developers." },
     { type: "video", src: "/videos/postpone-renewal-walkthrough.mp4", label: "Screen recording of the Postpone renewal date prototype", caption: "A click-through of the prototype." },
     {
@@ -108,15 +106,7 @@ export const postponeRenewalStory: Story = {
 
     { type: "h2", text: "Impact and results" },
     { type: "p", text: "The experiment was a big success and was rolled out to everyone. It improved retention and the number of lessons taken. On top of that, expiring unused hours after cancellation increased gross margin by **34%**." },
-    {
-      type: "metrics",
-      items: [
-        { value: "+2.1%", label: "hours confirmed" },
-        { value: "+5.6%", label: "gross margin" },
-        { value: "+34%", label: "gross margin from the new cancellation rule" },
-      ],
-    },
-    { type: "h3", text: "Engagement went up across the board" },
+    { type: "p", text: "Engagement went up across the board:" },
     {
       type: "ul",
       items: [
@@ -125,7 +115,7 @@ export const postponeRenewalStory: Story = {
         "**+1.1% hours scheduled**: learners planned ahead more.",
       ],
     },
-    { type: "h3", text: "Business results beat expectations" },
+    { type: "p", text: "And business results beat expectations:" },
     {
       type: "ul",
       items: [
@@ -133,6 +123,17 @@ export const postponeRenewalStory: Story = {
         "**+2% GMV**, showing overall growth.",
         "**+1.9% conversion** to paid subscriptions.",
         "**+4.4% hours bought by new learners**: a stronger start on the platform.",
+      ],
+    },
+
+    { type: "h2", text: "What I learned" },
+    {
+      type: "ul",
+      items: [
+        "**Cancellation isn't always churn.** The reactivation data showed that many people who cancelled came back. Understanding why they left changed the question from \"how do we stop cancellations?\" to \"how do we give people room?\"",
+        "**Close the loophole and offer something better at the same time.** Fixing the cancellation workaround on its own would have felt like a penalty. Pairing it with a real alternative made the change land as a benefit: gross margin went up 34% while retention improved.",
+        "**A little flexibility goes a long way.** A 20-day delay, once per cycle, was simple to build and simple to explain, and it lifted confirmed hours, gross margin and hours bought by new learners.",
+        "**Test the rules, not just the flow.** Half the participants (4 out of 8) thought the new date only applied to the following month. The rules need to be as clear as the interaction.",
       ],
     },
   ],

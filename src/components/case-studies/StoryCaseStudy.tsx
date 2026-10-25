@@ -57,12 +57,25 @@ function Block({ block }: { block: StoryBlock }) {
       );
     case "quote":
       return <blockquote className="story-quote case-quote">{block.text}</blockquote>;
+    case "quotes":
+      return (
+        <div className="story-quotes">
+          {block.items.map((text) => <blockquote key={text} className="story-quote case-quote">{text}</blockquote>)}
+        </div>
+      );
+    case "question":
+      return (
+        <div className="story-question">
+          <span className="story-card-eyebrow">{block.label}</span>
+          <p className="case-emphasis">{block.text}</p>
+        </div>
+      );
     case "cards":
       return (
         <div className="story-cards">
           {block.items.map((card) => (
             <section key={card.title} className="story-card">
-              <span className="story-card-eyebrow">{card.eyebrow}</span>
+              {card.eyebrow && <span className="story-card-eyebrow">{card.eyebrow}</span>}
               <h3 className="ui-heading ui-heading--small">{card.title}</h3>
               <p>{inline(card.text)}</p>
             </section>
@@ -98,7 +111,25 @@ function Block({ block }: { block: StoryBlock }) {
     case "metrics":
       return <Metrics items={block.items} />;
     case "video":
-      return <PhoneVideo src={block.src} label={block.label} caption={block.caption} />;
+      if (!block.text) return <PhoneVideo src={block.src} label={block.label} caption={block.caption} />;
+      return (
+        <div className="story-video-split">
+          <PhoneVideo src={block.src} label={block.label} caption={block.caption} />
+          <p>{inline(block.text)}</p>
+        </div>
+      );
+    case "compare":
+      return (
+        <div className="story-compare">
+          {([["Before", block.before], ["After", block.after]] as const).map(([label, side]) => (
+            <figure key={label}>
+              <span className="story-card-eyebrow">{label}</span>
+              <img src={side.image.src} alt={side.image.alt} loading="lazy" />
+              <figcaption>{inline(side.note)}</figcaption>
+            </figure>
+          ))}
+        </div>
+      );
   }
 }
 
@@ -126,7 +157,7 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
           {story.metrics && <Metrics items={story.metrics} />}
           {story.takeaway && (
             <aside className="story-takeaway">
-              <span className="story-card-eyebrow">The key takeaway</span>
+              <h3 className="ui-heading ui-heading--small">Key takeaway</h3>
               <p>{story.takeaway}</p>
             </aside>
           )}
