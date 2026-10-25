@@ -561,7 +561,7 @@ body:has(.case-study-page) {
   color: var(--ui-ink);
   font-family: var(--font-sans);
   padding-top: clamp(36px,5vw,64px);
-  /* The footer adds its own spacing, so the page ends close to "Next case study". */
+  /* The footer adds its own spacing, so the page ends close to the "Next" link. */
   padding-bottom: 24px;
   /* Decorations like the hero dot grid may spread past the edges; never let them add sideways scroll. */
   overflow-x: clip;
@@ -605,7 +605,7 @@ body:has(.case-study-page) {
 @media(max-width:760px) {
   .case-results-glance,.case-results-glance:has(> :nth-child(3):last-child) { grid-template-columns:repeat(2,minmax(0,1fr)); padding:18px; }
 }
-/* "Next case study" teaser reads as a link, not another chapter heading */
+/* "Next" teaser reads as a link, not another chapter heading */
 .case-study-page footer h2:not(.case-eyebrow) { font-size:clamp(24px,2.5vw,30px); line-height:1.15; letter-spacing:-.04em; }
 /* Password gate: the hero zooms towards the clicked link and a lavender lens opens from the same point. */
 html[data-gate] body { overflow:hidden; }
@@ -781,7 +781,7 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 .case-study-page { counter-reset:fig; }
 .case-study-page figcaption::before { counter-increment:fig; content:"fig. " counter(fig,decimal-leading-zero) " — "; color:var(--ui-lavender); font:600 12px ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.04em; }
 
-/* One label style across case studies (eyebrows, card and table labels, "Next case study"),
+/* One label style across case studies (eyebrows, card and table labels, "Next"),
    matching the homepage's monospace "01" and "fig. 02" labels. */
 .case-eyebrow,.case-next-eyebrow,.story-card-eyebrow,.article-table thead th,.case-label-meta { color:var(--ui-lavender); font:600 12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.06em; text-transform:none; }
 .case-eyebrow,.case-next-eyebrow,.story-card-eyebrow { display:block; }

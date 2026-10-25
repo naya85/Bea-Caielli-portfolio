@@ -5,7 +5,7 @@ import type { Project } from "@/data/content";
 
 export function CaseStudyBack({ className = "" }: { className?: string }) {
   return (
-    <Link href="/#work" className={`case-back ui-button ui-button--tertiary ${className}`.trim()} aria-label="Back to case studies">
+    <Link href="/#work" className={`case-back ui-button ui-button--tertiary ${className}`.trim()} aria-label="Back to selected work">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
         <path d="M10.5 3.5 6 8l4.5 4.5M6.25 8h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -30,7 +30,7 @@ export function CaseStudyNext({ project }: { project: Project | null }) {
   if (!project) return null;
   return (
     <footer className="case-next">
-      <span className="case-next-eyebrow">Next case study</span>
+      <span className="case-next-eyebrow">Next</span>
       <h2 className="ui-heading ui-heading--section">{project.title}</h2>
       <Link href={`/work/${project.slug}`} className="ui-button ui-button--tertiary project-view-link" aria-label={`View ${project.title}`}>
         View <span aria-hidden="true">↗</span>

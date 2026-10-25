@@ -8,7 +8,7 @@ export function Projects() {
     <section id="work" className="work-section">
       <div className="section-wrap">
         <div className="section-heading-row">
-          <h2 className="ui-heading ui-heading--section">Case studies</h2>
+          <h2 className="ui-heading ui-heading--section">Selected work</h2>
         </div>
         <div className="project-list">
           {orderedProjects.map((project, index) => (
@@ -39,7 +39,7 @@ export function Projects() {
                   {project.status === "in-progress" && <span className="project-status">In progress</span>}
                 </div>
                 <p>{project.description}</p>
-                <span className="ui-button ui-button--tertiary project-view-link">View case study <span aria-hidden="true">↗</span></span>
+                <span className="ui-button ui-button--tertiary project-view-link">{project.caseType === "article" ? "Read article" : "View case study"} <span aria-hidden="true">↗</span></span>
               </div>
             </Link>
           ))}
