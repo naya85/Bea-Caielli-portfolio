@@ -9,9 +9,9 @@ export const postponeRenewalStory: Story = {
     "I designed a way for Preply learners to push their billing date back by up to 20 days when they needed it. It looked like a small flexibility feature. It turned out to be a retention booster.",
   ],
   metrics: [
-    { value: "~+2%", label: "hours confirmed" },
-    { value: "~+6%", label: "gross margin" },
-    { value: "~+4%", label: "hours bought by new learners" },
+    { value: "+2.1%", label: "hours confirmed" },
+    { value: "+5.6%", label: "gross margin" },
+    { value: "+4.4%", label: "hours bought by new learners" },
   ],
   takeaway: "Sometimes people don't want to cancel. They want more control over their commitments, and a bit of room when life happens.",
   blocks: [
@@ -110,19 +110,19 @@ export const postponeRenewalStory: Story = {
     {
       type: "ul",
       items: [
-        "**~+2% hours confirmed**, from 10,107 to 10,319 hours.",
-        "**~+2% hours bought**: learners committed to more.",
-        "**~+1% hours scheduled**: learners planned ahead more.",
+        "**+2.1% hours confirmed**, from 10,107 to 10,319 hours.",
+        "**+1.6% hours bought**: learners committed to more.",
+        "**+1.1% hours scheduled**: learners planned ahead more.",
       ],
     },
     { type: "p", text: "And business results beat expectations:" },
     {
       type: "ul",
       items: [
-        "**~+6% gross margin**, from ~41% to ~44%.",
+        "**+5.6% gross margin**, from 41.3% to 43.6%.",
         "**+2% GMV**, showing overall growth.",
-        "**~+2% conversion** to paid subscriptions.",
-        "**~+4% hours bought by new learners**: a stronger start on the platform.",
+        "**+1.9% conversion** to paid subscriptions.",
+        "**+4.4% hours bought by new learners**: a stronger start on the platform.",
       ],
     },
 
