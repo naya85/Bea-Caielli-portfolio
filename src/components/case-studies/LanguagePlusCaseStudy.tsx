@@ -25,7 +25,7 @@ function Section({ eyebrow, title, children }: { eyebrow: string; title: string;
   return (
     <section className="case-section my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
       <div><span className="case-eyebrow">{eyebrow}</span><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
-      <div className="space-y-5 text-[20px] leading-relaxed text-[#171719]">{children}</div>
+      <div className="space-y-5 text-[18px] leading-relaxed text-[#171719]">{children}</div>
     </section>
   );
 }
