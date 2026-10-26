@@ -9,9 +9,9 @@ export const listenRepeatStory: Story = {
     "I turned Mondly from a “test first” lesson into a “teach first” experience. By bringing guided vocabulary and speaking practice into the lesson flow, beginners could learn key words and pronunciation before being asked to perform. The experiment improved lesson completion, premium conversion, and retention.",
   ],
   metrics: [
-    { value: "+6.9%", label: "Category completion rate" },
-    { value: "+12.8%", label: "Conversion to premium in the first week" },
-    { value: "+5.3%", label: "Retention" },
+    { value: "~+7%", label: "Category completion rate" },
+    { value: "~+13%", label: "Conversion to premium in the first week" },
+    { value: "~+5%", label: "Retention" },
   ],
   takeaway: "Even simple scaffolding tools can help learners practise fundamentals and build the confidence for more advanced conversations.",
   blocks: [
