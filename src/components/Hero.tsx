@@ -12,7 +12,7 @@ export function Hero() {
           <h1 className="ui-heading ui-heading--display">
             Hi, I am
             <span className="hero-role-line" aria-hidden="true"><RotatingRole /></span>
-            <span className="sr-only">Bea, a product strategist, designer, a curious mind, traveller, nerd, and cat mama.</span>
+            <span className="sr-only">Bea, a product strategist, designer, a curious mind, traveller, and nerd.</span>
           </h1>
           <p className="hero-intro">I connect research, data, product strategy and craft to help teams find the root problem, align direction and prioritization, and ship work that moves the needle, turning complex problems into clear solutions.</p>
           <div className="hero-actions">

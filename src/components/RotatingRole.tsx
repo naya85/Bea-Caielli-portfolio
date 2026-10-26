@@ -9,7 +9,6 @@ const ROLES = [
   "a curious mind",
   "a traveller",
   "a nerd",
-  "a cat mama",
 ];
 
 export function RotatingRole() {
