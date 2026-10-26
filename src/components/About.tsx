@@ -141,8 +141,7 @@ export function About() {
                 </p>
                 <p>
                   I am passionate about mentoring young designers, I co-founded Reviewlab (a SaaS tool for indie makers)
-                  and thanks to AI, I&rsquo;m getting shamelessly excited at building
-                  digital things all on my own.
+                  and I&rsquo;m happiest when I&rsquo;m learning something I&rsquo;m not good at yet.
                 </p>
               </div>
             </div>
