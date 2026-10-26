@@ -882,7 +882,9 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
   .drafting-mark--tl,.drafting-mark--bl { left:-4px; }
 }
 /* Every quote on the site is set in italic; the purple opening mark stays upright. */
-blockquote,.case-quote { font-style:italic; }
+/* Every quote is italic. Scoped to match the "font:" shorthand on .article-body .story-quote,
+   which would otherwise reset the style back to normal. */
+blockquote,.case-quote,.case-study-page blockquote,.case-study-page .case-quote,.article-body .story-quote { font-style:italic; }
 .case-quote::before { font-style:normal; }
 
 /* "On this page" list beside case studies: only where there's room next to the reading column. */
