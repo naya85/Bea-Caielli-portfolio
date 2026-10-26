@@ -35,9 +35,9 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
       <div className="mx-auto max-w-[1160px] px-6 md:px-12">
         <CaseStudyBack />
         <header className="max-w-[900px] pb-6 pt-12">
-          <CaseStudyLabel project={project} />
-          <h1 className="ui-heading ui-heading--page mt-5">From Mondly to Language+</h1>
+          <h1 className="ui-heading ui-heading--page">From Mondly to Language+</h1>
           <p className="case-emphasis mt-6 max-w-[760px] text-black/65">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
+          <CaseStudyLabel project={project} />
           <div className="mt-9 grid gap-6 sm:grid-cols-3">
             <div><span className="case-eyebrow">My role</span><p className="mt-2">Senior Product Designer · strategy, research, UX</p></div>
             <div><span className="case-eyebrow">Team</span><p className="mt-2">Product, learning design, engineering, sales</p></div>

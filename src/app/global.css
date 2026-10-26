@@ -745,7 +745,7 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 
 /* Shared case study framing: back link, label row and the link to the next case study. */
 .case-back,.case-back:hover,.case-back:focus-visible { gap:8px; padding-bottom:0; box-shadow:none; }
-.case-label { display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:0 0 22px; }
+.case-label { display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:24px 0 0; }
 .case-label-meta { color:#626762; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
 .case-next { display:flex; flex-direction:column; align-items:center; margin-top:120px; padding-top:52px; border-top:1px solid rgba(115,83,184,.2); text-align:center; }
 .case-next-eyebrow { display:block; margin:0 0 10px; color:var(--ui-lavender); font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.06em; }

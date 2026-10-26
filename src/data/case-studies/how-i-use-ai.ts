@@ -2,7 +2,6 @@
 import type { Story } from "@/data/case-studies/story";
 
 export const howIUseAiArticle: Story = {
-  date: "23 October 2026",
   intro: [
     "As a product designer, I now use AI in every part of the design process, as a teammate I collaborate with on every step. It helps my team and me move faster in ways that really matter, and it supports me every day, especially with the most tedious tasks.",
     "Here's what that looks like, and what we've put in place to make it work.",

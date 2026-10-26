@@ -147,13 +147,13 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
           </div>
         )}
         <header className="article-header">
-          <CaseStudyLabel project={project} date={story.date} />
           <h1 className="hero-fade-up ui-heading ui-heading--page" style={{ ["--delay" as string]: "0.15s" }}>
             {project.title}
           </h1>
           {story.intro.map((paragraph) => (
             <p key={paragraph} className="article-lede case-emphasis hero-fade-up" style={{ ["--delay" as string]: "0.25s" }}>{paragraph}</p>
           ))}
+          <CaseStudyLabel project={project} date={story.date} />
           {story.metrics && <Metrics items={story.metrics} />}
           {story.takeaway && (
             <aside className="story-takeaway">
