@@ -5,6 +5,10 @@ const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2
 
 let cancelActive: (() => void) | null = null;
 
+/** Scroll position the last nav jump headed for; FadeAtTop keeps headings near it fully in focus. */
+let navLandingY: number | null = null;
+export const getNavLandingY = () => navLandingY;
+
 /** Where a section should stop: its first heading sits just below the fixed navigation pill. */
 function targetTop(section: HTMLElement): number {
   const anchor = section.querySelector<HTMLElement>("h1, h2") ?? section;
@@ -24,6 +28,7 @@ export function scrollToSection(id: string, { instant = false } = {}): boolean {
   cancelActive?.();
   const start = window.scrollY;
   const end = targetTop(section);
+  navLandingY = end;
   const distance = end - start;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

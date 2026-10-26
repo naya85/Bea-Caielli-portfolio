@@ -2,10 +2,13 @@
 
 import { useRef, useEffect } from "react";
 import type { ReactNode } from "react";
+import { getNavLandingY } from "@/lib/smoothScroll";
 
 const MIN_OPACITY = 0.35; /* never fully hide when scrolling out */
-/** The fade starts once the block's bottom edge is this close to the bottom of the fixed nav pill. */
-const NAV_MARGIN = 40;
+/** Fraction of the viewport height (from the top) the block's bottom edge travels through while fading. */
+const FADE_ZONE = 0.3;
+/** Scroll distance from a nav jump's landing spot over which the fade eases back in. */
+const LANDING_EASE = 160;
 
 function lerp(t: number, a: number, b: number) {
   return a + (b - a) * t;
@@ -29,11 +32,14 @@ export function FadeAtTop({ children, className = "" }: FadeAtTopProps) {
 
     const onScroll = () => {
       const rect = el.getBoundingClientRect();
-      // Only fade once the block's last line slides under the nav pill, so a heading the nav
-      // scrolled to (parked just below the pill) stays fully in focus.
-      const navBottom = document.querySelector(".nav-pill")?.getBoundingClientRect().bottom ?? 96;
-      const fadeStart = navBottom + NAV_MARGIN;
-      const t = Math.min(1, Math.max(0, (fadeStart - rect.bottom) / fadeStart));
+      // Only fade once the block's last line is in the top FADE_ZONE of the viewport,
+      // so tall sections stay fully readable while any of them is still in view.
+      const fadeZone = window.innerHeight * FADE_ZONE;
+      let t = Math.min(1, Math.max(0, 1 - rect.bottom / fadeZone));
+      // Where a nav link parks a heading just below the pill, keep it crisp; the fade eases
+      // back in as the visitor scrolls on, so there's no jump.
+      const landing = getNavLandingY();
+      if (landing !== null) t *= Math.min(1, Math.abs(window.scrollY - landing) / LANDING_EASE);
       const opacity = lerp(t, 1, MIN_OPACITY);
       const scale = lerp(t, 1, 0.95);
       el.style.opacity = String(opacity);
