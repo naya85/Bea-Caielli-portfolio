@@ -6,7 +6,7 @@ export function Experience() {
     <section id="experience" className="scroll-mt-20 border-t border-stone-200 py-28">
       <ScrollReveal className="mx-auto max-w-4xl px-6">
         <div>
-        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-stone-600">
+        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#171719]">
           Experience
         </p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
@@ -27,20 +27,20 @@ export function Experience() {
                 <h3 className="text-[15px] font-bold text-stone-900">
                   {exp.role}
                 </h3>
-                <span className="text-[15px] text-stone-600">
+                <span className="text-[15px] text-[#171719]">
                   {exp.company}
                 </span>
               </div>
-              <p className="mt-1 text-[13px] text-stone-600">
+              <p className="mt-1 text-[13px] text-[#171719]">
                 {exp.period} · {exp.location}
               </p>
-              <p className="mt-2 text-[13px] font-medium uppercase tracking-wider text-stone-600">
+              <p className="mt-2 text-[13px] font-medium uppercase tracking-wider text-[#171719]">
                 {exp.domain}
               </p>
-              <p className="mt-3 text-[15px] leading-relaxed text-stone-600">
+              <p className="mt-3 text-[15px] leading-relaxed text-[#171719]">
                 {exp.summary}
               </p>
-              <ul className="mt-3 space-y-1.5 pl-4 text-[15px] leading-relaxed text-stone-600 list-disc">
+              <ul className="mt-3 space-y-1.5 pl-4 text-[15px] leading-relaxed text-[#171719] list-disc">
                 {exp.highlights.slice(0, 4).map((h, i) => (
                   <li key={i}>{h}</li>
                 ))}

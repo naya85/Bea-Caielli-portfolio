@@ -51,7 +51,7 @@ export function HeroNav() {
             className={`rounded-full px-6 py-3 text-[15px] font-semibold transition-all duration-200 ${
               isActive
                 ? "text-white shadow-md"
-                : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+                : "text-[#171719] hover:bg-stone-100 hover:text-stone-900"
             }`}
             style={isActive ? gradientStyle : undefined}
           >

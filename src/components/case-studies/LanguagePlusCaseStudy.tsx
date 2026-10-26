@@ -16,7 +16,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
   return (
     <figure className="my-10 overflow-hidden rounded-[22px]">
       <Image src={`${base}/${src}`} alt={alt} width={1600} height={900} className="h-auto w-full" />
-      <figcaption className="px-5 py-3 text-sm text-black/60">{caption}</figcaption>
+      <figcaption className="px-5 py-3 text-sm text-[#171719]">{caption}</figcaption>
     </figure>
   );
 }
@@ -25,7 +25,7 @@ function Section({ eyebrow, title, children }: { eyebrow: string; title: string;
   return (
     <section className="case-section my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
       <div><span className="case-eyebrow">{eyebrow}</span><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
-      <div className="space-y-5 text-[20px] leading-relaxed text-black/70">{children}</div>
+      <div className="space-y-5 text-[20px] leading-relaxed text-[#171719]">{children}</div>
     </section>
   );
 }
@@ -38,7 +38,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <header className="max-w-[900px] pb-6 pt-12">
           <FadeAtTop>
           <h1 className="ui-heading ui-heading--page">From Mondly to Language+</h1>
-          <p className="case-emphasis mt-6 max-w-[760px] text-black/65">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
+          <p className="case-emphasis mt-6 max-w-[760px] text-[#171719]">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
           <CaseStudyLabel project={project} />
           </FadeAtTop>
           <div className="mt-9 grid gap-6 sm:grid-cols-3">
@@ -99,9 +99,9 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <section className="my-20">
           <span className="case-eyebrow">What moved</span>
           <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {RESULTS.map(([value, label]) => <div key={value}><strong className="text-3xl md:text-4xl">{value}</strong><span className="mt-3 block text-[16px] leading-relaxed text-black/60">{label}</span></div>)}
+            {RESULTS.map(([value, label]) => <div key={value}><strong className="text-3xl md:text-4xl">{value}</strong><span className="mt-3 block text-[16px] leading-relaxed text-[#171719]">{label}</span></div>)}
           </div>
-          <p className="mt-9 max-w-[760px] text-sm leading-relaxed text-black/55">Language+ 1.0 was ready at the end of June 2026 and launched in Turkey, Switzerland, the Netherlands, Belgium, Luxembourg and Ukraine in August. The reported sales lift applies to the regions and coursebooks where it launched.</p>
+          <p className="mt-9 max-w-[760px] text-sm leading-relaxed text-[#171719]">Language+ 1.0 was ready at the end of June 2026 and launched in Turkey, Switzerland, the Netherlands, Belgium, Luxembourg and Ukraine in August. The reported sales lift applies to the regions and coursebooks where it launched.</p>
         </section>
 
         <blockquote className="case-quote case-emphasis my-20 max-w-[850px] text-[#1a1a1a]">A vision needs evidence before it needs polish. Postponing the first leadership pitch felt like a setback. It turned out to be the reason the vision held up.</blockquote>

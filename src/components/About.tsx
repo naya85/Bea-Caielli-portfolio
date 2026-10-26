@@ -107,7 +107,7 @@ export function About() {
                   {afterAccent}
                 </h2>
               </div>
-              <div className="min-w-0 max-w-[640px] flex-1 space-y-2 text-[17px] leading-relaxed text-[#1A1A1A]/90">
+              <div className="min-w-0 max-w-[640px] flex-1 space-y-2 text-[17px] leading-relaxed text-[#171719]">
                 <p>
                   I have been designing digital products across EdTech, Fintech, SaaS
                   and Healthcare for more than a decade. I like to work for industries
@@ -123,7 +123,7 @@ export function About() {
                 <button
                   type="button"
                   onClick={() => window.dispatchEvent(new CustomEvent("easter-egg-open"))}
-                  className="crt-prompt mt-1 block w-full text-left text-[#1A1A1A]/90"
+                  className="crt-prompt mt-1 block w-full text-left text-[#171719]"
                   aria-label="Open 80s easter egg"
                   style={
                     !promptReady

@@ -10,7 +10,7 @@ export default function BlogPage() {
         <h1 className="ui-heading ui-heading--page">
           Thoughts & writing
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-stone-600">
+        <p className="mt-4 max-w-2xl text-lg text-[#171719]">
           Reflections on product design, research, accessibility, and the
           journey from designer to maker.
         </p>
@@ -21,7 +21,7 @@ export default function BlogPage() {
               key={post.slug}
               className="group rounded-2xl border border-stone-200 bg-white p-8 transition-all hover:border-stone-300 hover:shadow-md"
             >
-              <time className="text-sm font-medium text-stone-600">
+              <time className="text-sm font-medium text-[#171719]">
                 {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -31,14 +31,14 @@ export default function BlogPage() {
               <h2 className="ui-heading ui-heading--card mt-3 transition-colors group-hover:text-[#5C3E9B]">
                 {post.title}
               </h2>
-              <p className="mt-3 text-[20px] leading-relaxed text-stone-600">
+              <p className="mt-3 text-[20px] leading-relaxed text-[#171719]">
                 {post.excerpt}
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-stone-600"
+                    className="rounded-full bg-stone-100 px-3 py-1 text-xs font-medium text-[#171719]"
                   >
                     {tag}
                   </span>

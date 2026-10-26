@@ -27,7 +27,7 @@ export function SkillsCarousel({ variant = "light" }: SkillsCarouselProps) {
     : "text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl";
   const descClass = isDark
     ? "mt-3 text-base leading-relaxed text-stone-300 sm:text-lg"
-    : "mt-3 text-base leading-relaxed text-stone-600 sm:text-lg";
+    : "mt-3 text-base leading-relaxed text-[#171719] sm:text-lg";
 
   return (
     <div className="flex flex-col items-center gap-12">
