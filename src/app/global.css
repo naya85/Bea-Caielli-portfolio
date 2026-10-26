@@ -188,7 +188,6 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 .hero-role-text::after { content:""; display:inline-block; height:.78em; margin-left:.08em; border-right:.065em solid #8d70c8; vertical-align:-.04em; animation:role-caret .8s steps(1,end) infinite; }
 @keyframes role-gradient { from { background-position:0% 50%; } to { background-position:100% 50%; } }
 @keyframes role-caret { 50% { opacity:0; } }
-.hero-role-text--done::after { animation:role-caret .8s steps(1,end) 4 forwards; }
 .contact-shimmer { background:linear-gradient(105deg,#6846ad 0%,#7a5bb7 31%,#7858b7 49%,#7957bd 68%,#7353b8 100%); background-size:220% 100%; background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:contact-shimmer 5s ease-in-out 2 alternate; }
 @keyframes contact-shimmer { from { background-position:0% 50%; } to { background-position:100% 50%; } }
 .hero-intro { max-width:550px; margin:0; color:var(--ui-muted); font-size:16px; line-height:1.68; }
