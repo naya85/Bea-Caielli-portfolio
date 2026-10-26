@@ -155,7 +155,7 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
             {project.title}
           </h1>
           {story.intro.map((paragraph) => (
-            <p key={paragraph} className="article-lede case-emphasis hero-fade-up" style={{ ["--delay" as string]: "0.25s" }}>{paragraph}</p>
+            <p key={paragraph} className="article-lede case-emphasis hero-fade-up" style={{ ["--delay" as string]: "0.25s" }}>{inline(paragraph)}</p>
           ))}
           <CaseStudyLabel project={project} date={story.date} />
           </FadeAtTop>
