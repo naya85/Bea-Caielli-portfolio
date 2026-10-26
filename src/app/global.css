@@ -769,13 +769,13 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 .article-body .story-user-stories strong { color:var(--ui-lavender-deep); }
 /* Wide media breaks out of the 760px reading column, up to 1080px. */
 .story-phones,.story-figure--wide { --story-wide:min(1080px,calc(100vw - 48px)); width:var(--story-wide); margin-left:calc((100% - var(--story-wide)) / 2); }
-.story-phones { margin-top:40px; margin-bottom:8px; }
+.story-phones { margin-top:64px; margin-bottom:8px; }
 .story-phones > div { display:flex; justify-content:center; gap:clamp(10px,1.6vw,18px); }
 /* Exported screens have square corners; clip them to the device's rounded frame. */
 .story-phones img { flex:1 1 0; min-width:0; max-width:200px; height:auto; border-radius:12% / 5.6%; }
 .story-phones[data-count="1"] img { flex:0 1 260px; max-width:260px; }
 /* Only the top margin: wide figures keep their negative left margin to stay centred on the page. */
-.story-figure { margin-top:36px; }
+.story-figure { margin-top:64px; }
 .story-figure img { display:block; width:100%; height:auto; border-radius:22px; }
 .story-figure:not(.story-figure--wide) img { max-width:640px; margin:0 auto; }
 .story-phones figcaption,.story-figure figcaption { margin-top:14px; color:#3C3F3D; font-size:14px; line-height:1.5; text-align:center; }
@@ -803,7 +803,7 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 /* Stat labels are captions under the numbers, a step below body text. */
 .case-results-glance span { margin-top:8px; color:#3C3F3D; font-size:16px; line-height:1.45; letter-spacing:.01em; }
 /* Click-through recordings framed like a phone. */
-.phone-video { width:clamp(220px,24vw,290px); margin:48px auto 0; }
+.phone-video { width:clamp(220px,24vw,290px); margin:64px auto 0; }
 .phone-video video { display:block; width:100%; height:auto; border:6px solid #17171a; border-radius:34px; background:#17171a; }
 .phone-video figcaption { margin-top:14px; color:#3C3F3D; font-size:14px; line-height:1.5; text-align:center; }
 
@@ -827,13 +827,13 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 @media (max-width:760px) { .story-quotes { grid-template-columns:1fr; gap:20px; } }
 
 /* Before/after and video-beside-text layouts. */
-.story-compare { --story-wide:min(1080px,calc(100vw - 48px)); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(24px,4vw,48px); width:var(--story-wide); margin:36px 0 0 calc((100% - var(--story-wide)) / 2); }
+.story-compare { --story-wide:min(1080px,calc(100vw - 48px)); display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(24px,4vw,48px); width:var(--story-wide); margin:64px 0 0 calc((100% - var(--story-wide)) / 2); }
 .story-compare figure { margin:0; }
 /* Same box for both sides so the phones match in height and the notes start on the same line. */
 .story-compare img { display:block; width:100%; height:auto; aspect-ratio:1818/1304; margin-top:12px; object-fit:contain; object-position:center; }
 .story-compare figcaption { margin-top:14px; color:#3C3F3D; font-size:15px; line-height:1.55; }
 .story-compare figcaption::before { display:none; }
-.story-video-split { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:clamp(28px,5vw,56px); margin-top:36px; }
+.story-video-split { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:clamp(28px,5vw,56px); margin-top:64px; }
 .story-video-split .phone-video { margin:0; }
 .article-body .story-video-split > p { margin:0; }
 @media (max-width:760px) {
@@ -844,7 +844,7 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 /* One copy colour for all case study body text; headings and stat numbers stay in ink, labels in lavender. */
 .case-study-page :is(p,li,blockquote,figcaption,dd,td,.case-results-glance span) { color:var(--ui-muted); }
 /* Text that follows an image, video or before/after gets more room than paragraph-to-paragraph spacing. */
-.article-body .reveal:has(> figure, > .story-compare, > .story-video-split) + .reveal > :is(p, ul, ol) { margin-top:40px; }
+.article-body .reveal:has(> figure, > .story-compare, > .story-video-split) + .reveal > :is(p, ul, ol) { margin-top:56px; }
 
 /* Case studies borrow the homepage's drafting details (no "fig." labels): corner registration marks,
    the lavender ring and soft accent circle, dotted paper behind visuals, and numbered sections. */
@@ -900,3 +900,9 @@ blockquote,.case-quote,.case-study-page blockquote,.case-study-page .case-quote,
 }
 @media (max-width:1559px) { .case-toc--wide-layout { display:none; } }
 @media (prefers-reduced-motion: reduce) { .case-toc,.case-toc a,.case-toc a::before { transition:none; } }
+/* Visuals breathe a little less on phones. */
+@media (max-width:760px) {
+  .story-figure,.story-phones,.story-video-split,.phone-video { margin-top:48px; }
+  .story-compare { margin-top:48px; }
+  .article-body .reveal:has(> figure, > .story-compare, > .story-video-split) + .reveal > :is(p, ul, ol) { margin-top:40px; }
+}
