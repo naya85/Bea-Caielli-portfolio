@@ -7,6 +7,8 @@ import { PhoneVideo } from "@/components/PhoneVideo";
 import { CaseStudyBack, CaseStudyLabel, CaseStudyNext, DraftingFrame } from "@/components/case-studies/CaseStudyChrome";
 import { ParallaxLayer } from "@/components/ParallaxImage";
 import { FadeAtTop } from "@/components/FadeAtTop";
+import { CaseStudyToc } from "@/components/case-studies/CaseStudyToc";
+import { sectionId } from "@/lib/sectionId";
 
 interface StoryCaseStudyProps {
   project: Project;
@@ -36,7 +38,7 @@ function Metrics({ items }: { items: { value: string; label: string }[] }) {
 function Block({ block }: { block: StoryBlock }) {
   switch (block.type) {
     case "h2":
-      return <h2 className="ui-heading ui-heading--subsection">{block.text}</h2>;
+      return <h2 id={sectionId(block.text)} className="ui-heading ui-heading--subsection">{block.text}</h2>;
     case "h3":
       return <h3 className="ui-heading ui-heading--small">{block.text}</h3>;
     case "p":
@@ -181,6 +183,7 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
             </DraftingFrame>
           </div>
         )}
+        <CaseStudyToc items={story.blocks.flatMap((block) => (block.type === "h2" ? [{ id: sectionId(block.text), label: block.text }] : []))} />
         <ScrollReveal className="article-body">
           {story.blocks.map((block, i) => (
             <RevealItem key={i}>

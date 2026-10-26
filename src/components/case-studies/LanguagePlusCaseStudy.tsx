@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { CaseStudyBack, CaseStudyLabel, CaseStudyNext, DraftingFrame } from "@/components/case-studies/CaseStudyChrome";
 import { FadeAtTop } from "@/components/FadeAtTop";
+import { CaseStudyToc } from "@/components/case-studies/CaseStudyToc";
+import { sectionId } from "@/lib/sectionId";
 import type { Project } from "@/data/content";
 
 const base = "/images/case-studies/language-plus";
@@ -11,6 +13,8 @@ const RESULTS = [
   ["2×", "core journey completion in the first two pilot weeks"],
   ["3 decisions", "changed directly by teacher evidence"],
 ];
+
+const SECTIONS = ["The opportunity", "Research", "From vision to MVP", "Teacher experience", "Classroom pilot", "Scaling the experience"];
 
 function Figure({ src, alt, caption }: { src: string; alt: string; caption: string }) {
   return (
@@ -23,7 +27,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
 
 function Section({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
   return (
-    <section className="case-section my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
+    <section id={sectionId(eyebrow)} className="case-section my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
       <div><span className="case-eyebrow">{eyebrow}</span><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
       <div className="space-y-5 text-[18px] leading-relaxed text-[#3C3F3D]">{children}</div>
     </section>
@@ -35,6 +39,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
     <article className="case-study-page min-h-screen pb-24 pt-28">
       <div className="mx-auto max-w-[1160px] px-6 md:px-12">
         <CaseStudyBack />
+        <CaseStudyToc wideLayout items={SECTIONS.map((label) => ({ id: sectionId(label), label }))} />
         <header className="max-w-[900px] pb-6 pt-12">
           <FadeAtTop>
           <h1 className="ui-heading ui-heading--page">From Mondly to Language+</h1>
