@@ -222,9 +222,10 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); font-weight:700; }
 .project-details .project-meta { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:0 0 20px; color:#3C3F3D; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
 .project-details h3 { margin:0 0 12px; transition:color .2s ease; }
 .project-details p { margin:0; color:var(--ui-muted); font-size:18px; line-height:1.6; }
-.project-view-link { display:inline-flex; align-items:center; gap:14px; margin-top:27px; padding:0 0 7px; border-bottom:1px solid #7353B8; color:#171719; font-size:18px; font-weight:650; box-shadow:none; transition:color .2s ease,border-color .2s ease; }
-.project-view-link span { color:#7353B8; font-size:18px; transition:transform .2s ease; }
-.project-row:hover .project-view-link,.project-row:focus-visible .project-view-link { color:#5C3E9B; border-color:#5C3E9B; }
+.project-view-link { display:inline-flex; align-items:center; gap:14px; margin-top:27px; padding:0 0 7px; border-bottom:1px solid #7353B8; color:#7353B8; font-size:18px; font-weight:650; box-shadow:none; transition:color .2s ease,border-color .2s ease; }
+.project-view-link span { color:inherit; font-size:18px; transition:transform .2s ease; }
+/* View links start purple (text, arrow and underline) and turn near-black together on hover. */
+.project-row:hover .project-view-link,.project-row:focus-visible .project-view-link,.project-view-link:hover,.project-view-link:focus-visible { color:var(--ui-ink); border-color:var(--ui-ink); box-shadow:none; }
 .project-row:hover .project-view-link span,.project-row:focus-visible .project-view-link span { transform:translate(3px,-2px); }
 .project-row:focus-visible { outline:2px solid #7353B8; outline-offset:6px; border-radius:4px; }
 @media (prefers-reduced-motion: reduce) {
