@@ -17,6 +17,8 @@ export function RotatingRole() {
   const [text, setText] = useState(ROLES[0]);
   const [deleting, setDeleting] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  // Bumped to re-check later while the password gate is animating, so the hero isn't repainted mid-zoom.
+  const [pauseTick, setPauseTick] = useState(0);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -47,6 +49,10 @@ export function RotatingRole() {
     const delay = complete && !deleting ? 1350 : deleting ? 42 : 82;
 
     const timer = window.setTimeout(() => {
+      if (document.documentElement.dataset.gate) {
+        setPauseTick((tick) => tick + 1);
+        return;
+      }
       if (!deleting) {
         if (complete) setDeleting(true);
         else setText(role.slice(0, text.length + 1));
@@ -60,7 +66,7 @@ export function RotatingRole() {
     }, delay);
 
     return () => window.clearTimeout(timer);
-  }, [deleting, done, roleIndex, text]);
+  }, [deleting, done, pauseTick, roleIndex, text]);
 
   return <span className={`hero-role-text${done ? " hero-role-text--done" : ""}`}>{text}</span>;
 }

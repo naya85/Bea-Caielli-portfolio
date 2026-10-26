@@ -608,12 +608,17 @@ body:has(.case-study-page) {
 .case-study-page footer h2:not(.case-eyebrow) { font-size:clamp(24px,2.5vw,30px); line-height:1.15; letter-spacing:-.04em; }
 /* Password gate: the hero zooms towards the clicked link and a lavender lens opens from the same point. */
 html[data-gate] body { overflow:hidden; }
-.hero-shell,.site-header { transition:transform 900ms cubic-bezier(.7,0,.2,1),opacity 700ms ease,filter 900ms ease; transform-origin:var(--gate-hero-x,50%) var(--gate-hero-y,50%); }
-html[data-gate="open"] .hero-shell,html[data-gate="closing"] .hero-shell { transition-duration:900ms,700ms,900ms; }
-html[data-gate="open"] .hero-shell,html[data-gate="welcome"] .hero-shell { transform:scale(3.2); opacity:0; filter:blur(10px); }
+.hero-shell,.site-header { transition:transform 900ms cubic-bezier(.7,0,.2,1),opacity 700ms ease; transform-origin:var(--gate-hero-x,50%) var(--gate-hero-y,50%); }
+/* Keep the zoom on the compositor: promote the layer a frame before it moves, and freeze everything that would repaint it. */
+html[data-gate] .hero-shell,html[data-gate] .site-header { will-change:transform,opacity; }
+.hero-shell::before { transition:opacity 250ms ease; }
+html[data-gate] .hero-shell::before { opacity:0; }
+html[data-gate] .hero-shell *,html[data-gate] .hero-shell *::after { animation-play-state:paused !important; }
+html[data-gate="open"] .hero-shell,html[data-gate="closing"] .hero-shell { transition-duration:900ms,700ms; }
+html[data-gate="open"] .hero-shell,html[data-gate="welcome"] .hero-shell { transform:scale(3.2); opacity:0; }
 html[data-gate="open"] .site-header,html[data-gate="welcome"] .site-header { opacity:0; pointer-events:none; }
 html[data-gate="through"] .hero-shell { transition:none; }
-.gate { position:fixed; z-index:200; inset:0; display:grid; place-items:center; padding:24px 16px; color:var(--ui-ink); background-color:#efe9f8; background-image:radial-gradient(circle at var(--gate-x,50%) var(--gate-y,50%),rgba(172,151,235,.42),transparent 38%),radial-gradient(ellipse at 22% 82%,rgba(183,205,239,.34),transparent 42%),radial-gradient(ellipse at 90% 90%,rgba(232,179,222,.3),transparent 36%); clip-path:circle(0 at var(--gate-x,50%) var(--gate-y,50%)); transition:clip-path 900ms cubic-bezier(.7,0,.2,1),opacity 600ms ease,transform 750ms cubic-bezier(.5,0,.2,1); }
+.gate { position:fixed; z-index:200; will-change:clip-path,opacity; inset:0; display:grid; place-items:center; padding:24px 16px; color:var(--ui-ink); background-color:#efe9f8; background-image:radial-gradient(circle at var(--gate-x,50%) var(--gate-y,50%),rgba(172,151,235,.42),transparent 38%),radial-gradient(ellipse at 22% 82%,rgba(183,205,239,.34),transparent 42%),radial-gradient(ellipse at 90% 90%,rgba(232,179,222,.3),transparent 36%); clip-path:circle(0 at var(--gate-x,50%) var(--gate-y,50%)); transition:clip-path 900ms cubic-bezier(.7,0,.2,1),opacity 600ms ease,transform 750ms cubic-bezier(.5,0,.2,1); }
 .gate[data-phase="open"] { clip-path:circle(150vmax at var(--gate-x,50%) var(--gate-y,50%)); }
 /* Leaving the gate dissolves it in place (no collapsing circle), while the hero zooms back underneath. */
 .gate[data-phase="closing"],.gate[data-phase="unlocked"] { clip-path:circle(150vmax at var(--gate-x,50%) var(--gate-y,50%)); opacity:0; pointer-events:none; }
@@ -624,7 +629,7 @@ html[data-gate="through"] .hero-shell { transition:none; }
 .gate[data-phase="unlocked"] .gate-panel { opacity:0; transform:scale(.96); transition:opacity 400ms ease,transform 700ms cubic-bezier(.4,0,.2,1); }
 .gate[data-phase="welcome"] .gate-submit,.gate[data-phase="unlocked"] .gate-submit { color:#fff; background:var(--ui-lavender); box-shadow:0 0 0 6px rgba(166,139,224,.25); opacity:1; cursor:default; animation:gate-pop 420ms cubic-bezier(.2,.8,.2,1); }
 .gate[data-phase="welcome"] .gate-form input { border-color:var(--ui-lavender); }
-html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header { transition-duration:1000ms,800ms,1000ms; transition-delay:120ms; }
+html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header { transition-duration:1000ms,800ms; transition-delay:120ms; }
 @keyframes gate-pop { 0% { transform:scale(.9); } 60% { transform:scale(1.08); } 100% { transform:scale(1); } }
 .gate[data-phase="through"] { clip-path:circle(150vmax at var(--gate-x,50%) var(--gate-y,50%)); opacity:0; transform:scale(1.35); transform-origin:var(--gate-x,50%) var(--gate-y,50%); pointer-events:none; }
 .gate::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.5; background-image:linear-gradient(rgba(89,75,135,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(89,75,135,.07) 1px,transparent 1px); background-size:88px 88px; }
