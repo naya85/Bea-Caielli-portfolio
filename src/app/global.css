@@ -674,9 +674,13 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 .article-body li::marker { color:var(--ui-lavender); font-weight:700; }
 .article-body strong { color:inherit; font-weight:650; }
 .article-body code { padding:2px 7px; border:1px solid rgba(115,83,184,.22); border-radius:6px; color:#5C3E9B; background:#f3eff9; font:500 .86em ui-monospace,SFMono-Regular,Menlo,monospace; }
-.article-table { margin:26px 0 0; overflow-x:auto; }
+/* One data-table style for every case study: a light card, tinted header row and a divider between rows. */
+.article-table { margin:26px 0 0; overflow-x:auto; border:1px solid rgba(89,75,135,.16); border-radius:16px; background:rgba(255,255,255,.72); }
 .article-table table { width:100%; min-width:560px; border-collapse:collapse; font-size:15px; line-height:1.55; }
-.article-table th,.article-table td { padding:12px 18px 12px 0; text-align:left; vertical-align:top; }
+.article-table th,.article-table td { padding:14px 20px; text-align:left; vertical-align:top; }
+.article-table thead th { background:rgba(115,83,184,.08); border-bottom:1px solid rgba(89,75,135,.16); }
+.article-table tbody tr + tr :is(th,td) { border-top:1px solid rgba(89,75,135,.1); }
+.article-table tbody tr:hover :is(th,td) { background:rgba(115,83,184,.04); }
 .article-table thead th { color:var(--ui-lavender); font:600 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.06em; text-transform:uppercase; }
 .article-table tbody th { width:24%; color:var(--ui-ink); font-weight:650; }
 @media (max-width:760px) {
