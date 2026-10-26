@@ -69,13 +69,6 @@ function Block({ block }: { block: StoryBlock }) {
           {block.items.map((text) => <blockquote key={text} className="story-quote case-quote">{text}</blockquote>)}
         </div>
       );
-    case "question":
-      return (
-        <div className="story-question">
-          <span className="story-card-eyebrow">{block.label}</span>
-          <p className="case-emphasis">{block.text}</p>
-        </div>
-      );
     case "cards":
       return (
         <div className="story-cards">

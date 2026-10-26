@@ -811,7 +811,7 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
    20px semibold small headings. Text is regular; only headings and highlighted words are bold. */
 .case-emphasis,.article-body .story-quote { font:400 20px/1.6 var(--font-sans); letter-spacing:-.005em; }
 .article-lede.case-emphasis { color:var(--ui-muted); }
-.story-question .case-emphasis,.article-body .story-quote { color:var(--ui-ink); }
+.article-body .story-quote { color:var(--ui-ink); }
 /* The takeaway is a note under its label: body size, in ink rather than grey. */
 .story-takeaway p { color:var(--ui-ink); line-height:1.65; }
 /* The takeaway is a note under its label: body size, in ink rather than grey. */
@@ -821,11 +821,9 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 .case-quote::before { content:"\201C"; display:block; height:.42em; margin-bottom:10px; color:var(--ui-lavender); font:700 64px/1 var(--font-heading); }
 .footer-copyright { margin:0; color:#3C3F3D; font:500 12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.04em; }
 
-/* Several quotes side by side, and a labelled key question. */
+/* Several quotes side by side. */
 .story-quotes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin-top:28px; }
 .article-body .story-quotes .story-quote { margin:0; }
-.story-question { margin-top:28px; }
-.article-body .story-question p { margin:0; }
 @media (max-width:760px) { .story-quotes { grid-template-columns:1fr; gap:20px; } }
 
 /* Before/after and video-beside-text layouts. */

@@ -11,8 +11,6 @@ export type StoryBlock =
   | { type: "quote"; text: string }
   /** Several short quotes side by side. */
   | { type: "quotes"; items: string[] }
-  /** A labelled key question or statement the story turns on. */
-  | { type: "question"; label: string; text: string }
   /** Short labelled options shown side by side, e.g. the two choices users had. */
   | { type: "cards"; items: { eyebrow?: string; title: string; text: string }[] }
   /** "As a … I want to … so that …" user stories. */
