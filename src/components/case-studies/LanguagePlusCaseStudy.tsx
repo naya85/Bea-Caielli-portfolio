@@ -58,9 +58,9 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <Section eyebrow="Research" title="We grounded the vision in teachers’ everyday constraints.">
           <p>I helped shape the research plan and ran 12 of 13 interviews with 23 teachers across seven countries. The recurring need was clear: students forget between lessons, and practice has to follow the coursebook if teachers are going to recommend it.</p>
           <div className="grid gap-3 py-3 sm:grid-cols-3">
-            <div><strong className="block text-3xl">23 / 23</strong><span className="mt-2 block text-[20px]">said students forget between lessons</span></div>
-            <div><strong className="block text-3xl">15 / 23</strong><span className="mt-2 block text-[20px]">rated coursebook alignment 10/10</span></div>
-            <div><strong className="block text-3xl">22 / 23</strong><span className="mt-2 block text-[20px]">said teacher visibility was critical</span></div>
+            <div><strong className="block text-3xl">23 / 23</strong><span className="mt-2 block text-[16px]">said students forget between lessons</span></div>
+            <div><strong className="block text-3xl">15 / 23</strong><span className="mt-2 block text-[16px]">rated coursebook alignment 10/10</span></div>
+            <div><strong className="block text-3xl">22 / 23</strong><span className="mt-2 block text-[16px]">said teacher visibility was critical</span></div>
           </div>
           <p>Those findings shaped the Memory Challenge, unit-based practice, a teacher dashboard and a quick setup path. They also helped us make deliberate scope calls: light gamification for learners 16+, and no AI at launch while teacher trust was split.</p>
         </Section>
@@ -94,7 +94,7 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <section className="my-20">
           <span className="case-eyebrow">What moved</span>
           <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {RESULTS.map(([value, label]) => <div key={value}><strong className="text-3xl md:text-4xl">{value}</strong><p className="mt-3 text-sm leading-relaxed text-black/60">{label}</p></div>)}
+            {RESULTS.map(([value, label]) => <div key={value}><strong className="text-3xl md:text-4xl">{value}</strong><span className="mt-3 block text-[16px] leading-relaxed text-black/60">{label}</span></div>)}
           </div>
           <p className="mt-9 max-w-[760px] text-sm leading-relaxed text-black/55">Language+ 1.0 was ready at the end of June 2026 and launched in Turkey, Switzerland, the Netherlands, Belgium, Luxembourg and Ukraine in August. The reported sales lift applies to the regions and coursebooks where it launched.</p>
         </section>
