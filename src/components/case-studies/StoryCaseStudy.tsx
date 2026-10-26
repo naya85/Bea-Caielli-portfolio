@@ -25,11 +25,11 @@ function inline(text: string): ReactNode {
 
 function Metrics({ items }: { items: { value: string; label: string }[] }) {
   return (
-    <DraftingFrame marksOnly className="case-results-frame">
+    <div className="case-results-frame">
       <div className="case-results-glance">
         {items.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
       </div>
-    </DraftingFrame>
+    </div>
   );
 }
 

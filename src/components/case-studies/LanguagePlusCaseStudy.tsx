@@ -46,11 +46,11 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
             <div><span className="case-eyebrow">Team</span><p className="mt-2">Product, learning design, engineering, sales</p></div>
             <div><span className="case-eyebrow">Scope</span><p className="mt-2">Vision, student practice, teacher tools, pilot</p></div>
           </div>
-          <DraftingFrame marksOnly className="case-results-frame">
+          <div className="case-results-frame">
             <div className="case-results-glance" aria-label="Results at a glance">
               {RESULTS.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}
             </div>
-          </DraftingFrame>
+          </div>
         </header>
 
         <div className="case-lead-figure dot-grid-backdrop"><DraftingFrame><Figure src="1-vision.jpg" alt="Early Language+ product vision and concept screens" caption="The first concept made the shift tangible: practice connected to the coursebooks teachers already use." /></DraftingFrame></div>

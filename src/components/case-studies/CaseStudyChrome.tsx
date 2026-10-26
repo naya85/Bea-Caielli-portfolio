@@ -43,14 +43,14 @@ export function CaseStudyNext({ project }: { project: Project | null }) {
 const CORNERS = ["tl", "tr", "bl", "br"] as const;
 
 /**
- * The homepage's drafting details around a visual: corner registration marks, plus (unless
- * `marksOnly`) the lavender ring and soft accent circle used on the hero portrait and principles.
+ * The homepage's drafting details around a visual: corner registration marks, the lavender ring
+ * and the soft accent circle used on the hero portrait and principles.
  */
-export function DraftingFrame({ children, className = "", marksOnly = false }: { children: ReactNode; className?: string; marksOnly?: boolean }) {
+export function DraftingFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div className={`drafting-frame ${className}`.trim()}>
-      {!marksOnly && <span className="drafting-accent" aria-hidden="true" />}
-      {!marksOnly && <span className="drafting-ring" aria-hidden="true" />}
+      <span className="drafting-accent" aria-hidden="true" />
+      <span className="drafting-ring" aria-hidden="true" />
       {CORNERS.map((corner) => <span key={corner} className={`drafting-mark drafting-mark--${corner}`} aria-hidden="true" />)}
       {children}
     </div>
