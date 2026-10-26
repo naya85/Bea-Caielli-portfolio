@@ -7,7 +7,7 @@ export function Skills() {
     <section id="skills" className="scroll-mt-20 border-t border-stone-200 py-28">
       <ScrollReveal className="mx-auto max-w-4xl px-6">
         <div>
-        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#171719]">
+        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#3C3F3D]">
           Skills
         </p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
@@ -23,10 +23,10 @@ export function Skills() {
         <div className="mt-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category) => (
             <div key={category.name}>
-              <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#171719]">
+              <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#3C3F3D]">
                 {category.name}
               </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#171719]">
+              <p className="mt-3 text-[15px] leading-relaxed text-[#3C3F3D]">
                 {category.skills.join(", ")}
               </p>
             </div>

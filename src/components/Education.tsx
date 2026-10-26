@@ -6,7 +6,7 @@ export function Education() {
     <section id="education" className="scroll-mt-20 border-t border-stone-200 bg-stone-50 py-28">
       <ScrollReveal className="mx-auto max-w-4xl px-6">
         <div>
-        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#171719]">
+        <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#3C3F3D]">
           Education
         </p>
         <h2 className="mt-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
@@ -15,7 +15,7 @@ export function Education() {
 
         <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           <div>
-            <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#171719]">
+            <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#3C3F3D]">
               Degrees
             </h3>
             <div className="mt-4 space-y-6">
@@ -24,10 +24,10 @@ export function Education() {
                   <p className="text-[15px] font-medium text-stone-900">
                     {edu.degree}
                   </p>
-                  <p className="mt-0.5 text-[14px] text-[#171719]">
+                  <p className="mt-0.5 text-[14px] text-[#3C3F3D]">
                     {edu.institution}
                   </p>
-                  <p className="mt-1 text-[13px] text-[#171719]">
+                  <p className="mt-1 text-[13px] text-[#3C3F3D]">
                     {edu.location} · {edu.year}
                     {edu.grade && ` · ${edu.grade}`}
                   </p>
@@ -37,7 +37,7 @@ export function Education() {
           </div>
 
           <div>
-            <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#171719]">
+            <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#3C3F3D]">
               Certifications
             </h3>
             <div className="mt-4 space-y-4">
@@ -46,7 +46,7 @@ export function Education() {
                   <p className="text-[15px] font-medium text-stone-900">
                     {cert.name}
                   </p>
-                  <p className="mt-0.5 text-[13px] text-[#171719]">
+                  <p className="mt-0.5 text-[13px] text-[#3C3F3D]">
                     {cert.issuer} · {cert.year}
                   </p>
                 </div>
@@ -55,7 +55,7 @@ export function Education() {
           </div>
 
           <div>
-            <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#171719]">
+            <h3 className="text-[12px] font-medium uppercase tracking-widest text-[#3C3F3D]">
               Awards
             </h3>
             <div className="mt-4 space-y-4">
@@ -64,7 +64,7 @@ export function Education() {
                   <p className="text-[15px] font-medium text-stone-900">
                     {prize.name}
                   </p>
-                  <p className="mt-0.5 text-[13px] text-[#171719]">
+                  <p className="mt-0.5 text-[13px] text-[#3C3F3D]">
                     {prize.event} · {prize.location} · {prize.year}
                   </p>
                 </div>
