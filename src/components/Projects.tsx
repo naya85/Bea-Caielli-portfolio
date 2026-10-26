@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { orderedProjects } from "@/data/content";
-import { ParallaxImage } from "@/components/ParallaxImage";
+import { ParallaxImage, ParallaxLayer } from "@/components/ParallaxImage";
 import { AiWorkflowDiagram } from "@/components/AiWorkflowDiagram";
 
 export function Projects() {
@@ -19,7 +19,7 @@ export function Projects() {
             >
               <div className="project-image">
                 {project.illustration === "ai-workflow" ? (
-                  <AiWorkflowDiagram label={project.imageAlt ?? project.title} />
+                  <ParallaxLayer><AiWorkflowDiagram label={project.imageAlt ?? project.title} /></ParallaxLayer>
                 ) : project.image ? (
                   <ParallaxImage
                     src={project.image}
