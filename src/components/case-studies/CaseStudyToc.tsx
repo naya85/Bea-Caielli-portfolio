@@ -8,9 +8,8 @@ export type TocItem = { id: string; label: string };
 /**
  * Minimal "on this page" list fixed beside a case study on wide screens. It fades in once the
  * title has scrolled away, highlights the section being read and glides to a section on click.
- * `wideLayout` is for pages whose content is wider than the 760px reading column.
  */
-export function CaseStudyToc({ items, wideLayout = false }: { items: TocItem[]; wideLayout?: boolean }) {
+export function CaseStudyToc({ items }: { items: TocItem[] }) {
   const [active, setActive] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -43,7 +42,7 @@ export function CaseStudyToc({ items, wideLayout = false }: { items: TocItem[]; 
   if (items.length < 2) return null;
 
   return (
-    <nav className={`case-toc${wideLayout ? " case-toc--wide-layout" : ""}${visible ? " is-visible" : ""}`} aria-label="On this page">
+    <nav className={`case-toc${visible ? " is-visible" : ""}`} aria-label="On this page">
       <ol>
         {items.map((item) => (
           <li key={item.id}>

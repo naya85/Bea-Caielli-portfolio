@@ -864,13 +864,10 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 .case-results-frame { margin-top:32px; }
 .case-results-frame > .case-results-glance,.article-header .case-results-frame > .case-results-glance,.article-body .case-results-frame > .case-results-glance { margin-top:0; }
 .article-body .case-results-frame { margin-top:26px; }
-.case-lead-figure { margin:40px 0; }
-.case-lead-figure figure { margin:0; }
 /* Section numbers in the monospace lavender of the homepage principles' 01–06. */
-.article-body,.case-study-page > div { counter-reset:case-section; }
-.article-body h2::before,.case-section .case-eyebrow::before { counter-increment:case-section; content:counter(case-section,decimal-leading-zero); color:var(--ui-lavender); font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.06em; }
+.article-body { counter-reset:case-section; }
+.article-body h2::before { counter-increment:case-section; content:counter(case-section,decimal-leading-zero); color:var(--ui-lavender); font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.06em; }
 .article-body h2::before { display:block; margin-bottom:14px; }
-.case-section .case-eyebrow::before { margin-right:10px; opacity:.7; }
 /* "Next" link nudges its arrow on hover, like the homepage previews. */
 .case-next .project-view-link:hover span,.case-next .project-view-link:focus-visible span { transform:translate(3px,-2px); }
 @media (max-width:760px) {
@@ -898,7 +895,6 @@ blockquote,.case-quote,.case-study-page blockquote,.case-study-page .case-quote,
   .case-toc a[aria-current]::before { transform:scaleY(1); }
   .case-toc a:focus-visible { outline:2px solid var(--ui-lavender); outline-offset:3px; border-radius:2px; }
 }
-@media (max-width:1559px) { .case-toc--wide-layout { display:none; } }
 @media (prefers-reduced-motion: reduce) { .case-toc,.case-toc a,.case-toc a::before { transition:none; } }
 /* Visuals breathe a little less on phones. */
 @media (max-width:760px) {
