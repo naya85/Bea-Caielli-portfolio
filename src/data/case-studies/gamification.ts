@@ -48,7 +48,7 @@ export const gamificationStory: Story = {
     },
     { type: "h3", text: "Leaderboards and badges" },
     { type: "p", text: "XP and leaderboards added social pressure in a good way, especially in B2B, with companies and schools. People checked their ranking against friends, teammates or classmates, and did extra lessons to climb up. Weekly active users rose **32%** after we added internal leaderboards for B2B." },
-    { type: "p", text: "Progress badges worked as both motivation and education. People spent more time in the app per session and completed more categories: the badges helped them learn more. Average category completions went from **2.1 to 3.7 a week**." },
+    { type: "p", text: "Progress badges worked as both motivation and education. People spent more time in the app per session and completed more categories: the badges helped them learn more. Average category completions went from **~2 to ~4 a week**." },
 
     { type: "h2", text: "ReviewLab: solving the cold start" },
     { type: "p", text: "ReviewLab had a different challenge. How do you get busy indie makers to spend 20 minutes writing thoughtful feedback for strangers? We built gamification around reciprocity and professional opportunity." },
@@ -61,7 +61,7 @@ export const gamificationStory: Story = {
     },
     { type: "figure", image: { src: img("reviewlab-visibility"), alt: "ReviewLab onboarding step for setting up a profile button that reviewers can show" }, caption: "Each onboarding step earns credits, and teaches how the platform works along the way." },
     { type: "h3", text: "The credit economy" },
-    { type: "p", text: "Users earn credits by giving feedback, and spend them to get feedback. The average user now gives **2.4 reviews for every one they receive**, compared with 0.8 before we had credits." },
+    { type: "p", text: "Users earn credits by giving feedback, and spend them to get feedback. The average user now gives **~2 reviews for every one they receive**, compared with ~1 before we had credits." },
     { type: "h3", text: "Helpfulness ratings" },
     { type: "p", text: "Every review is rated by the person who receives it. High ratings unlock profile badges and networking features, and earn more credits. People quickly learned that a generic \"looks good!\" doesn't cut it, and felt more motivated to write better, more detailed reviews. Average review length grew from **89 to 247 words**." },
     { type: "figure", image: { src: img("reviewlab-testimonials"), alt: "ReviewLab user testimonials praising the detailed, gamified feedback" }, caption: "What ReviewLab users said about the feedback they got.", wide: true },

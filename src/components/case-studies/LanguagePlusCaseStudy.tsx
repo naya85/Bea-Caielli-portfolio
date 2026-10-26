@@ -24,7 +24,7 @@ function Section({ eyebrow, title, children }: { eyebrow: string; title: string;
   return (
     <section className="my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
       <div><span className="case-eyebrow">{eyebrow}</span><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
-      <div className="space-y-5 text-base leading-relaxed text-black/70">{children}</div>
+      <div className="space-y-5 text-[20px] leading-relaxed text-black/70">{children}</div>
     </section>
   );
 }
@@ -58,9 +58,9 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
         <Section eyebrow="Research" title="We grounded the vision in teachers’ everyday constraints.">
           <p>I helped shape the research plan and ran 12 of 13 interviews with 23 teachers across seven countries. The recurring need was clear: students forget between lessons, and practice has to follow the coursebook if teachers are going to recommend it.</p>
           <div className="grid gap-3 py-3 sm:grid-cols-3">
-            <div><strong className="block text-3xl">23 / 23</strong><span className="mt-2 block text-base">said students forget between lessons</span></div>
-            <div><strong className="block text-3xl">15 / 23</strong><span className="mt-2 block text-base">rated coursebook alignment 10/10</span></div>
-            <div><strong className="block text-3xl">22 / 23</strong><span className="mt-2 block text-base">said teacher visibility was critical</span></div>
+            <div><strong className="block text-3xl">23 / 23</strong><span className="mt-2 block text-[20px]">said students forget between lessons</span></div>
+            <div><strong className="block text-3xl">15 / 23</strong><span className="mt-2 block text-[20px]">rated coursebook alignment 10/10</span></div>
+            <div><strong className="block text-3xl">22 / 23</strong><span className="mt-2 block text-[20px]">said teacher visibility was critical</span></div>
           </div>
           <p>Those findings shaped the Memory Challenge, unit-based practice, a teacher dashboard and a quick setup path. They also helped us make deliberate scope calls: light gamification for learners 16+, and no AI at launch while teacher trust was split.</p>
         </Section>

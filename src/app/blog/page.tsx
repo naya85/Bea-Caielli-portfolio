@@ -31,7 +31,7 @@ export default function BlogPage() {
               <h2 className="ui-heading ui-heading--card mt-3 transition-colors group-hover:text-[#5C3E9B]">
                 {post.title}
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-stone-600">
+              <p className="mt-3 text-[20px] leading-relaxed text-stone-600">
                 {post.excerpt}
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
