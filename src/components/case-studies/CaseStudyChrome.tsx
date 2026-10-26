@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Project } from "@/data/content";
 
 /** Shared framing for every case study page: the back link, the label row and the link onward. */
@@ -29,12 +30,29 @@ export function CaseStudyLabel({ project, date }: { project: Project; date?: str
 export function CaseStudyNext({ project }: { project: Project | null }) {
   if (!project) return null;
   return (
-    <footer className="case-next">
+    <footer className="case-next dot-grid-backdrop">
       <span className="case-next-eyebrow">Next</span>
       <h2 className="ui-heading ui-heading--section">{project.title}</h2>
       <Link href={`/work/${project.slug}`} className="ui-button ui-button--tertiary project-view-link" aria-label={`View ${project.title}`}>
         View <span aria-hidden="true">↗</span>
       </Link>
     </footer>
+  );
+}
+
+const CORNERS = ["tl", "tr", "bl", "br"] as const;
+
+/**
+ * The homepage's drafting details around a visual: corner registration marks, plus (unless
+ * `marksOnly`) the lavender ring and soft accent circle used on the hero portrait and principles.
+ */
+export function DraftingFrame({ children, className = "", marksOnly = false }: { children: ReactNode; className?: string; marksOnly?: boolean }) {
+  return (
+    <div className={`drafting-frame ${className}`.trim()}>
+      {!marksOnly && <span className="drafting-accent" aria-hidden="true" />}
+      {!marksOnly && <span className="drafting-ring" aria-hidden="true" />}
+      {CORNERS.map((corner) => <span key={corner} className={`drafting-mark drafting-mark--${corner}`} aria-hidden="true" />)}
+      {children}
+    </div>
   );
 }

@@ -846,3 +846,40 @@ html[data-gate="unlocked"] .hero-shell,html[data-gate="unlocked"] .site-header {
 .case-study-page :is(p,li,blockquote,figcaption,dd,td,.case-results-glance span) { color:var(--ui-muted); }
 /* Text that follows an image, video or before/after gets more room than paragraph-to-paragraph spacing. */
 .article-body .reveal:has(> figure, > .story-compare, > .story-video-split) + .reveal > :is(p, ul, ol) { margin-top:40px; }
+
+/* Case studies borrow the homepage's drafting details (no "fig." labels): corner registration marks,
+   the lavender ring and soft accent circle, dotted paper behind visuals, and numbered sections. */
+.drafting-frame { position:relative; isolation:isolate; }
+.drafting-accent { position:absolute; z-index:-1; bottom:-40px; left:-40px; width:84px; height:84px; border-radius:50%; background:rgba(172,151,235,.55); pointer-events:none; }
+.drafting-ring { position:absolute; z-index:2; top:-18px; right:-18px; width:36px; height:36px; border:1.5px solid var(--ui-lavender); border-radius:50%; pointer-events:none; }
+.drafting-mark { position:absolute; z-index:2; width:16px; height:16px; pointer-events:none; }
+.drafting-mark::before,.drafting-mark::after { content:""; position:absolute; background:rgba(23,23,25,.5); }
+.drafting-mark::before { top:50%; right:0; left:0; height:1px; }
+.drafting-mark::after { top:0; bottom:0; left:50%; width:1px; }
+.drafting-mark--tl { top:-8px; left:-8px; }
+.drafting-mark--tr { top:-8px; right:-8px; }
+.drafting-mark--bl { bottom:-8px; left:-8px; }
+.drafting-mark--br { right:-8px; bottom:-8px; }
+.story-hero-frame { width:min(100%,860px); }
+.story-hero-frame img { display:block; width:100%; }
+.case-results-frame { margin-top:32px; }
+.case-results-frame > .case-results-glance,.article-header .case-results-frame > .case-results-glance,.article-body .case-results-frame > .case-results-glance { margin-top:0; }
+.article-body .case-results-frame { margin-top:26px; }
+.case-lead-figure { margin:40px 0; }
+.case-lead-figure figure { margin:0; }
+/* Section numbers in the monospace lavender of the homepage principles' 01–06. */
+.article-body,.case-study-page > div { counter-reset:case-section; }
+.article-body h2::before,.case-section .case-eyebrow::before { counter-increment:case-section; content:counter(case-section,decimal-leading-zero); color:var(--ui-lavender); font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.06em; }
+.article-body h2::before { display:block; margin-bottom:14px; }
+.case-section .case-eyebrow::before { margin-right:10px; opacity:.7; }
+/* "Next" link nudges its arrow on hover, like the homepage previews. */
+.case-next .project-view-link:hover span,.case-next .project-view-link:focus-visible span { transform:translate(3px,-2px); }
+@media (max-width:760px) {
+  .drafting-accent { bottom:-28px; left:-28px; width:56px; height:56px; }
+  .drafting-ring { top:-12px; right:-10px; width:28px; height:28px; }
+  .drafting-mark--tr,.drafting-mark--br { right:-4px; }
+  .drafting-mark--tl,.drafting-mark--bl { left:-4px; }
+}
+/* Every quote on the site is set in italic; the purple opening mark stays upright. */
+blockquote,.case-quote { font-style:italic; }
+.case-quote::before { font-style:normal; }

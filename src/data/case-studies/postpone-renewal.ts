@@ -30,10 +30,10 @@ export const postponeRenewalStory: Story = {
     },
     { type: "p", text: "When learners couldn't keep their usual schedule, because of travel, work or life, they had two options. Neither matched what they actually needed:" },
     {
-      type: "cards",
+      type: "ul",
       items: [
-        { eyebrow: "Option 1", title: "Pause the subscription", text: "Learners keep access to the platform, but their scheduled lessons are cancelled, the hours go back to their balance, and they can't book new lessons. Billing stops until they resume." },
-        { eyebrow: "Option 2", title: "Cancel the subscription", text: "Learners keep access to the platform, and because of a flaw in the logic their hours never expire, even after the last billing cycle. So they could take their leftover lessons whenever they wanted." },
+        "**Pause the subscription.** Learners keep access to the platform, but their scheduled lessons are cancelled, the hours go back to their balance, and they can't book new lessons. Billing stops until they resume.",
+        "**Cancel the subscription.** Learners keep access to the platform, and because of a flaw in the logic their hours never expire, even after the last billing cycle. So they could take their leftover lessons whenever they wanted.",
       ],
     },
     { type: "h3", text: "The challenge" },

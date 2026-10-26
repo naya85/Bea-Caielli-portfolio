@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { CaseStudyBack, CaseStudyLabel, CaseStudyNext } from "@/components/case-studies/CaseStudyChrome";
+import { CaseStudyBack, CaseStudyLabel, CaseStudyNext, DraftingFrame } from "@/components/case-studies/CaseStudyChrome";
+import { FadeAtTop } from "@/components/FadeAtTop";
 import type { Project } from "@/data/content";
 
 const base = "/images/case-studies/language-plus";
@@ -22,7 +23,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption: stri
 
 function Section({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
   return (
-    <section className="my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
+    <section className="case-section my-20 grid gap-8 md:grid-cols-[0.7fr_1.3fr]">
       <div><span className="case-eyebrow">{eyebrow}</span><h2 className="ui-heading ui-heading--subsection mt-3">{title}</h2></div>
       <div className="space-y-5 text-[20px] leading-relaxed text-black/70">{children}</div>
     </section>
@@ -35,20 +36,24 @@ export function LanguagePlusCaseStudy({ project, nextProject }: { project: Proje
       <div className="mx-auto max-w-[1160px] px-6 md:px-12">
         <CaseStudyBack />
         <header className="max-w-[900px] pb-6 pt-12">
+          <FadeAtTop>
           <h1 className="ui-heading ui-heading--page">From Mondly to Language+</h1>
           <p className="case-emphasis mt-6 max-w-[760px] text-black/65">Turning a consumer app into a product for schools: a one-year journey from evidence-led vision to a live English practice product.</p>
           <CaseStudyLabel project={project} />
+          </FadeAtTop>
           <div className="mt-9 grid gap-6 sm:grid-cols-3">
             <div><span className="case-eyebrow">My role</span><p className="mt-2">Senior Product Designer · strategy, research, UX</p></div>
             <div><span className="case-eyebrow">Team</span><p className="mt-2">Product, learning design, engineering, sales</p></div>
             <div><span className="case-eyebrow">Scope</span><p className="mt-2">Vision, student practice, teacher tools, pilot</p></div>
           </div>
-          <div className="case-results-glance" aria-label="Results at a glance">
-            {RESULTS.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}
-          </div>
+          <DraftingFrame marksOnly className="case-results-frame">
+            <div className="case-results-glance" aria-label="Results at a glance">
+              {RESULTS.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}
+            </div>
+          </DraftingFrame>
         </header>
 
-        <Figure src="1-vision.jpg" alt="Early Language+ product vision and concept screens" caption="The first concept made the shift tangible: practice connected to the coursebooks teachers already use." />
+        <div className="case-lead-figure dot-grid-backdrop"><DraftingFrame><Figure src="1-vision.jpg" alt="Early Language+ product vision and concept screens" caption="The first concept made the shift tangible: practice connected to the coursebooks teachers already use." /></DraftingFrame></div>
 
         <Section eyebrow="The opportunity" title="A strong consumer app needed a school-shaped reason to exist.">
           <p>Mondly had reached more than 100 million downloads across 41+ languages. But as a standalone app, it sat outside the coursebooks and lesson plans schools relied on. That made it difficult to bring into the classroom and difficult to sell to schools.</p>

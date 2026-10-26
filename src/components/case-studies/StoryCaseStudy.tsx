@@ -4,7 +4,9 @@ import type { Story, StoryBlock } from "@/data/case-studies/story";
 import { RevealItem, ScrollReveal } from "@/components/ScrollReveal";
 import { AiWorkflowDiagram } from "@/components/AiWorkflowDiagram";
 import { PhoneVideo } from "@/components/PhoneVideo";
-import { CaseStudyBack, CaseStudyLabel, CaseStudyNext } from "@/components/case-studies/CaseStudyChrome";
+import { CaseStudyBack, CaseStudyLabel, CaseStudyNext, DraftingFrame } from "@/components/case-studies/CaseStudyChrome";
+import { ParallaxLayer } from "@/components/ParallaxImage";
+import { FadeAtTop } from "@/components/FadeAtTop";
 
 interface StoryCaseStudyProps {
   project: Project;
@@ -23,9 +25,11 @@ function inline(text: string): ReactNode {
 
 function Metrics({ items }: { items: { value: string; label: string }[] }) {
   return (
-    <div className="case-results-glance">
-      {items.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
-    </div>
+    <DraftingFrame marksOnly className="case-results-frame">
+      <div className="case-results-glance">
+        {items.map((item) => <div key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
+      </div>
+    </DraftingFrame>
   );
 }
 
@@ -94,7 +98,7 @@ function Block({ block }: { block: StoryBlock }) {
       );
     case "phones":
       return (
-        <figure className="story-phones" data-count={block.images.length}>
+        <figure className="story-phones dot-grid-backdrop" data-count={block.images.length}>
           <div>
             {block.images.map((image) => <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />)}
           </div>
@@ -103,7 +107,7 @@ function Block({ block }: { block: StoryBlock }) {
       );
     case "figure":
       return (
-        <figure className={`story-figure${block.wide ? " story-figure--wide" : ""}`}>
+        <figure className={`story-figure${block.wide ? " story-figure--wide dot-grid-backdrop" : ""}`}>
           <img src={block.image.src} alt={block.image.alt} loading="lazy" />
           {block.caption && <figcaption>{block.caption}</figcaption>}
         </figure>
@@ -143,10 +147,15 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
         </div>
         {story.hero && (
           <div className="story-hero dot-grid-backdrop">
-            <img src={story.hero.src} alt={story.hero.alt} fetchPriority="high" />
+            <DraftingFrame className="story-hero-frame">
+              <ParallaxLayer>
+                <img src={story.hero.src} alt={story.hero.alt} fetchPriority="high" />
+              </ParallaxLayer>
+            </DraftingFrame>
           </div>
         )}
         <header className="article-header">
+          <FadeAtTop>
           <h1 className="hero-fade-up ui-heading ui-heading--page" style={{ ["--delay" as string]: "0.15s" }}>
             {project.title}
           </h1>
@@ -154,6 +163,7 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
             <p key={paragraph} className="article-lede case-emphasis hero-fade-up" style={{ ["--delay" as string]: "0.25s" }}>{paragraph}</p>
           ))}
           <CaseStudyLabel project={project} date={story.date} />
+          </FadeAtTop>
           {story.metrics && <Metrics items={story.metrics} />}
           {story.takeaway && (
             <aside className="story-takeaway">
@@ -164,7 +174,11 @@ export function StoryCaseStudy({ project, nextProject, story }: StoryCaseStudyPr
         </header>
         {project.illustration === "ai-workflow" && (
           <div className="article-visual dot-grid-backdrop">
-            <AiWorkflowDiagram label={project.imageAlt ?? project.title} />
+            <DraftingFrame>
+              <ParallaxLayer>
+                <AiWorkflowDiagram label={project.imageAlt ?? project.title} />
+              </ParallaxLayer>
+            </DraftingFrame>
           </div>
         )}
         <ScrollReveal className="article-body">
