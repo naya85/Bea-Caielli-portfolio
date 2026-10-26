@@ -902,3 +902,10 @@ blockquote,.case-quote,.case-study-page blockquote,.case-study-page .case-quote,
   .story-compare { margin-top:48px; }
   .article-body .reveal:has(> figure, > .story-compare, > .story-video-split) + .reveal > :is(p, ul, ol) { margin-top:40px; }
 }
+/* A heading belongs to what follows it: more room above a heading that comes after a visual,
+   and only a short gap between a heading and a visual directly under it. */
+.article-body .reveal:has(> figure, > .story-compare, > .story-video-split, > .story-phones) + .reveal > h3 { margin-top:80px; }
+.article-body .reveal:has(> h2, > h3) + .reveal > :is(figure, .story-compare, .story-video-split, .story-phones, .phone-video) { margin-top:24px; }
+@media (max-width:760px) {
+  .article-body .reveal:has(> figure, > .story-compare, > .story-video-split, > .story-phones) + .reveal > h3 { margin-top:56px; }
+}
