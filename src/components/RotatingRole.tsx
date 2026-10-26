@@ -11,6 +11,9 @@ const ROLES = [
   "a nerd",
 ];
 
+/** How long "Bea" stays on screen at the end of each round. */
+const CYCLE_PAUSE_MS = 3000;
+
 export function RotatingRole() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState(ROLES[0]);
@@ -35,17 +38,17 @@ export function RotatingRole() {
     return () => media.removeEventListener("change", updatePreference);
   }, []);
 
-  // After one full round, the typing settles back on "Bea" and stops.
+  // After each full round the typing rests on "Bea" for a longer pause before starting over.
   const [lapped, setLapped] = useState(false);
-  const done = reducedMotion || (lapped && roleIndex === 0 && text === ROLES[0]);
 
   useEffect(() => {
-    if (done) return;
+    if (reducedMotion) return;
 
     const role = ROLES[roleIndex];
     const complete = text === role;
     const empty = text.length === 0;
-    const delay = complete && !deleting ? 1350 : deleting ? 42 : 82;
+    const hold = lapped && roleIndex === 0 ? CYCLE_PAUSE_MS : 1350;
+    const delay = complete && !deleting ? hold : deleting ? 42 : 82;
 
     const timer = window.setTimeout(() => {
       if (document.documentElement.dataset.gate) {
@@ -65,7 +68,7 @@ export function RotatingRole() {
     }, delay);
 
     return () => window.clearTimeout(timer);
-  }, [deleting, done, pauseTick, roleIndex, text]);
+  }, [deleting, lapped, pauseTick, reducedMotion, roleIndex, text]);
 
-  return <span className={`hero-role-text${done ? " hero-role-text--done" : ""}`}>{text}</span>;
+  return <span className="hero-role-text">{text}</span>;
 }
